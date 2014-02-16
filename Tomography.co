@@ -1,0 +1,70 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cpsolver;
+
+// create the CP Solver 
+Solver<CP> cp();
+
+// read input
+// fill in the absolute path for the instance
+string path = "";
+// create file reader
+ifstream file(path);
+// read data
+int n = file.getInt();
+int m = file.getInt();
+int row[1..n];
+int col[1..m];
+int dia[1..(n + m - 1)];
+forall(i in 1..n)
+	row[i] = file.getInt();
+forall(i in 1..m)
+	col[i] = file.getInt();
+forall(i in 1..(n + m - 1))
+	dia[i] = file.getInt();
+
+// initialize variable to count the solution
+Integer ns(0);
+
+// model variables
+var<CP>{int} x[1..n, 1..m](cp, 0..1);
+
+int S = sum(i in 1..n) row[i];
+
+solveall<cp> {
+	// post your constraints here
+	
+} using {
+	// default seach procedure
+	label(x);
+	ns := ns + 1;
+	printSolution(n, m, x);
+}
+
+cout << "Number of solutions: ";
+cout << ns << endl;
+
+/****************AUX FUNCTIONS******************/
+
+// function used to print a solution
+function void printSolution(int n, int m, var<CP>{int}[,] x) {
+	cout << "+";
+	forall(j in 1..m) cout << "-";
+	cout << "+" << endl;
+	forall(i in 1..n) {
+		cout << "|";
+		forall(j in 1..m) {
+			if(x[i, j] == 1) {
+				cout << "#";
+			} else {
+				cout << " ";
+			}
+		}
+		cout << "|" <<endl;
+	}
+	cout << "+";
+	forall(j in 1..m) cout << "-";
+	cout << "+" << endl;
+}
+
+
