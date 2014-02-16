@@ -1,13 +1,13 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
-import cpsolver;
+import cotfd;
 
 // create the CP Solver 
 Solver<CP> cp();
 
 // read input
 // fill in the absolute path for the instance
-string path = "";
+string path = "/Users/Romain/Desktop/Q8/LINGI2365_Constraint_Programming/LINGI2365_Constraint_Programming/Tomography_Instances/input4.txt";
 // create file reader
 ifstream file(path);
 // read data
@@ -33,7 +33,10 @@ int S = sum(i in 1..n) row[i];
 
 solveall<cp> {
 	// post your constraints here
-	
+            forall(i in 1..n) cp.post( sum (j in 1..m) x[i,j] == row[i] );	
+            forall(j in 1..m) cp.post( sum (i in 1..n) x[i,j] == col[j] );	
+            forall(i in 1..(n + m - 1)) cp.post( sum (j in 1..n, k in 1..m : ((j+k) == (i+1)) )  x[j,k] == dia[i] );	
+
 } using {
 	// default seach procedure
 	label(x);
