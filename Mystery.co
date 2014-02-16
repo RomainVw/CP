@@ -1,0 +1,46 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cotfd;
+
+// create the CP Solver 
+Solver<CP> cp();
+
+// enumerations are like ranges, but we use names instead of integers. this allows a better
+// clarity for some problems. We can thus create an array indexed by the names in an
+// enumeration. 
+enum Person = {alice, bob, chuck};
+
+// create the model variables and specify their domains
+var<CP>{Person} killer(cp, Person);
+var<CP>{int} taller[Person, Person](cp, 0..1);
+var<CP>{int} hates[Person, Person](cp, 0..1);
+
+solveall<cp> {
+	// The killer hates his victim
+	cp.post(hates[killer, alice] == 1);
+	// Nobody is taller than himself
+	forall(p in Person) cp.post(taller[p, p] == 0);
+	// If A is taller than B, then B is not taller than A
+	forall(p1 in Person, p2 in Person : p1 != p2) cp.post(taller[p1, p2] == 1 => taller[p2, p1] == 0);
+	// The killer is taller than is victim
+	cp.post(taller[killer,alice] == 1);
+	// Bob hates no one that Alice hates
+           forall(p in Person) cp.post(hates[alice, p] == 1 => hates[bob, p] == 0);
+	// Alice hates everyone except Chuck  TODO -> Pas sur pour la comparaison ac alice et chuck
+           forall (p1 in Person) cp.post((or (p2 in {alice, chuck}) p1==p2) == 0 => hates[alice,p1] == 1);
+	// Chuck hates everyone that Alice hates
+	forall(p in Person) cp.post(hates[alice,p] == 1 => hates[chuck,p] == 1);
+	// Nobody hates everyone
+           forall (p1 in Person) cp.post((and(p2 in Person: p2 != p1) hates[p1,p2]==1 ) == 0);
+} using {
+	// generic search procedure
+	label(killer);
+}
+
+cout << "The killer is: ";
+switch(killer){
+  case alice: cout << "Alice " << endl; break;
+  case bob: cout << "Bob " << endl; break;
+  case chuck: cout << "Chuck " << endl; break;
+  default : cout << "unknown" << endl;
+}
