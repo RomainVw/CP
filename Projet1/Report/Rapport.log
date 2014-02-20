@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.9.23)  20 FEB 2014 21:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.9.23)  20 FEB 2014 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1506,7 +1506,20 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.194 \setcounter
-                 {page}{1} [1]
+                 {page}{1} [1] (./facts.co
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 11.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 11.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 11.
+)
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 212.
+
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1517,8 +1530,32 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.212 ...queen 1, then queen N, then queen 2,...)}
-                                                   [1]
+l.216 \end{verbatim}
+                     [1] (./constraints.co)
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
+
+ []
+
+
+Overfull \hbox (28.45274pt too wide) in paragraph at lines 230--261
+[]$[]$ $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+
+ []
+
+
+Overfull \hbox (28.45274pt too wide) in paragraph at lines 291--351
+[]$[]$ $[]$ 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1527,46 +1564,70 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2]
 
-Package glossaries Warning: No \printglossary or \printglossaries found.
-This document will not have a glossary.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4]
+
+Package glossaries Warning: No \printglossary or \printglossaries found.
+This document will not have a glossary.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 398.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 398.
  (./Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 240.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 240.
-Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 5FF719866AADD995674C2EFB5F2606A0;1733.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 240.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 398.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 398.
+
+
+Package rerunfilecheck Warning: File `Rapport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Rapport.out':
+(rerunfilecheck)             Before: 5FF719866AADD995674C2EFB5F2606A0;1733
+(rerunfilecheck)             After:  9D9BC05905762BCC0F173F68FF6D5A29;2340.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 398.
  ) 
 Here is how much of TeX's memory you used:
- 17972 strings out of 493315
- 260946 string characters out of 6137904
- 436998 words of memory out of 5000000
- 20986 multiletter control sequences out of 15000+600000
- 59381 words of font info for 51 fonts, out of 8000000 for 9000
+ 18459 strings out of 493315
+ 265443 string characters out of 6137904
+ 587998 words of memory out of 5000000
+ 21416 multiletter control sequences out of 15000+600000
+ 79198 words of font info for 75 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 46i,14n,72p,1457b,417s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
-cal/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
-13/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2013/texmf-d
-ist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2013/texmf-dist/fonts/type
+ 46i,14n,78p,1457b,1309s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
+texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
+13/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2013/texmf-dist/
+fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2013/texmf-dist/fonts/type
 1/public/lm/lmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/l
 m/lmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmmi12.
-pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texli
-ve/2013/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on Rapport.pdf (5 pages, 222043 bytes).
+pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/l
+ocal/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2013/texmf
+-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2013/texmf-dist/font
+s/type1/public/lm/lmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/pu
+blic/lm/lmtt12.pfb>
+Output written on Rapport.pdf (7 pages, 306092 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
+ 201 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 50 named destinations out of 1000 (max. 500000)
  123 words of extra memory for PDF output out of 10000 (max. 10000000)
 

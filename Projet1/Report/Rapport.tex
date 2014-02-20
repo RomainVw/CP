@@ -357,7 +357,7 @@ Number of solutions: 4
 \section{NQueens}
 For each question here, you can find the corresponding code joined in the archive. 
 \subsection{Modify the code of the search procedure such as to assign only values that are still in the domain of the variables.}
-The step here is to force the domain consistency over the CSP by adding the lines HEREADDLINE
+The step here is to force the domain consistency over the CSP by changing the onBounds parameter to onDomains to force the solver to propagate the consistency into the domains and to verify in the using if the values we try still belong to the domain of the variable.Tthis last part is done with the line: \texttt{tryall<m>(val in S : q[queen].memberOf(val))} that means try all values that currently belongs to the domain of the current variable queen.
 \subsection{Add a by statement to the forall loop in order to first assign the variables with the smallest number of values in their domains}
 This heuristic is widely known as the Minimum Remaining Values or MRV and consists of a fail first approach: we constantly choose the variable with the smallest domain in order to try and find rapidly if the current assignment is impossible or not (when the domain size falls to zero). 
 \subsection{Give the search procedure to first assign the queens in the odd columns.}
