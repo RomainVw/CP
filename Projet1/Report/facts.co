@@ -8,9 +8,10 @@ forall(p1 in Person, p2 in Person : p1 != p2) cp.post(taller[p1, p2] == 1 => tal
 cp.post(taller[killer,alice] == 1);
 // Bob hates no one that Alice hates
 forall(p in Person) cp.post(hates[alice, p] == 1 => hates[bob, p] == 0);
-// Alice hates everyone except Chuck  TODO -> Pas sur pour la comparaison ac alice et chuck
+// Alice hates everyone except Chuck -> We verify that p1 is different of Alice or Chuck
 forall (p1 in Person) cp.post((or (p2 in {alice, chuck}) p1==p2) == 0 => hates[alice,p1] == 1);
 // Chuck hates everyone that Alice hates
 forall(p in Person) cp.post(hates[alice,p] == 1 => hates[chuck,p] == 1);
+//forall(a in Person : hates[alice ,a] == 1) cp.post(hates[chuck,a] == 0); //for question 1.2
 // Nobody hates everyone
 forall (p1 in Person) cp.post((and(p2 in Person: p2 != p1) hates[p1,p2]==1 ) == 0);
