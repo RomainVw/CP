@@ -195,7 +195,165 @@ François Aubry
 \pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
 
 \section{Nightmare in INGI}
+\subsection{Add the remaining facts to the model}
+Here are the remaining facts we add to the model :
+\lstinputlisting[language=C]{facts.co}
+
+\subsection{Why does the following line result in an execution error ?}
+
+Because the problem becomes unsolvable. Indeed, fact (g) allows us to determine that Alice hates at least one person. Then fact (h) determines that this person is also hated by Chuck. But the new line we add for this question determines that the concerned person isn't hated by Chuck. There is thus a contradiction.
+
+\subsection{Write the lines you had to add in your report along with who killed Alice}
+
+The lines we added are available at Question 1. The Killer computed by the program is Bob.
+
+\subsection{Provide the number of solutions returned by your code. Are there different possible killers ?}
+
+We use \texttt{solveall} to resolve the problem and to determine all the solutions. The counter we placed in the code indicates us that there is only one solution : Bob is the killer.
+\begin{verbatim}
+Nb : 1
+The killer is: Bob 
+\end{verbatim}
+
 \section{Discrete tomography}
+
+\subsection{Constraints we used}
+
+Here are the constraints we used for this problem :
+\lstinputlisting[language=C]{constraints.co}
+
+\subsection{Solutions to the 4 instances}
+
+
+We will observe on the bellow solutions that this way of reconstructing the image leads to only one solution for the three first files, but to four different solutions for the last file.\\
+
+\begin{minipage}[l]{.5\textwidth} 
+ \begin{verbatim}
+Instance #1:
++-------+
+|# # ###|
+|# #   #|
+|# #   #|
+|### ###|
+|  # #  |
+|  # #  |
+|  # ###|
++-------+
+Number of solutions: 1
+\end{verbatim}
+\end{minipage}\hfill 
+\begin{minipage}[r]{.5\textwidth} 
+\begin{verbatim}
+Instance #2:
++--------+
+|###     |
+|#       |
+|#       |
+|#    ###|
+|###  # #|
+|     ###|
+|     #  |
+|     #  |
++--------+
+Number of solutions: 1
+\end{verbatim}
+\end{minipage}
+
+\ \\
+\ \\
+
+\begin{minipage}[l]{.5\textwidth} 
+ \begin{verbatim}
+Instance #3:
++---------------------+
+|                     |
+| # # ### #   #   ### |
+| # # #   #   #   # # |
+| ### ##  #   #   # # |
+| # # #   #   #   # # |
+| # # ### ### ### ### |
+|                     |
++---------------------+
+Number of solutions: 1
+\end{verbatim}
+\end{minipage}\hfill 
+\begin{minipage}[r]{.5\textwidth} 
+
+\end{minipage}
+
+
+
+
+
+
+
+
+\begin{minipage}[l]{.5\textwidth} 
+\begin{verbatim}
+Instance #4:
++--------------------------------+
+|                                |
+| ###                            |
+| #                              |
+| #           ###  ###    #  # # |
+| #    ###      #  # #   ##  # # |
+| ###  # #    ###  # #  # #  ### |
+|      ###    #    # #    #    # |
+|      #      ###  ###    #    # |
+|      #                         |
+|                                |
++--------------------------------+
++--------------------------------+
+|                                |
+| ###                            |
+| #                              |
+| #      #    # #  ###    #  # # |
+| #    #      ###  # #   ##  # # |
+| ###  ###     ##  # #  # #  ### |
+|      ###    #    # #    #    # |
+|      #      ###  ###    #    # |
+|      #                         |
+|                                |
++--------------------------------+
+\end{verbatim}
+\end{minipage}\hfill 
+\begin{minipage}[r]{.5\textwidth} 
+\begin{verbatim}
+
+
++--------------------------------+
+|                                |
+| ###                            |
+| #                              |
+| #      #    # #  ###    #  # # |
+| #    # #    # #  # #   ##  # # |
+| ###  # #    ###  # #  # #  ### |
+|      ##     ##   # #    #    # |
+|      ##      ##  ###    #    # |
+|      #                         |
+|                                |
++--------------------------------+
++--------------------------------+
+|                                |
+| ###                            |
+| #                              |
+| #      #    ##   ###    #  # # |
+| #    # #     ##  # #   ##  # # |
+| ###  # #    ###  # #  # #  ### |
+|      ##     # #  # #    #    # |
+|      ##     # #  ###    #    # |
+|      #                         |
+|                                |
++--------------------------------+
+Number of solutions: 4
+\end{verbatim}
+\end{minipage}
+
+
+
+
+
+
 \section{NQueens}
 For each question here, you can find the corresponding code joined in the archive. 
 \subsection{Modify the code of the search procedure such as to assign only values that are still in the domain of the variables.}
