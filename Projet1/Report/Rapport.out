@@ -1,1 +1,8 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1}{Nightmare in INGI}{}% 1
+\BOOKMARK [1][-]{section.2}{Discrete tomography}{}% 2
+\BOOKMARK [1][-]{section.3}{NQueens}{}% 3
+\BOOKMARK [1][-]{section.4}{Bin packing}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Explain intuitively what is a domain consistency for a CSP.}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Suppose that we put objects number 2 and 4 into the first bin. What are the domains of the variables after applying domain consistency on this CSP ?}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Explain what a redundant constraint is. What are the advantages and disadvantages of such constraints ?}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{Add the following constraint to the model : [...]}{section.4}% 8

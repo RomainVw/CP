@@ -199,18 +199,8 @@ François Aubry
 \section{NQueens}
 \section{Bin packing}
 \subsection{Explain intuitively what is a domain consistency for a CSP.}
-The domain consistency for a CSP is a technique that removes for every variables the impossible values for this variable. In opposition to the bound consistency that only removes values that belongs to the boundary of the domain (and that are impossible), the domain consistency will remove \textbf{every} value of the domain that violates the constraints in which the variable participates. We end up with an equivalent CSP but much simpler thanks to the smaller domains of its variables. Moreover, if one domain finishes with no possible values then the problem in impossible and we can safely terminate the execution.  
+The domain consistency for a CSP is a technique that removes for every variables the impossible values for this variable. In opposition to the bound consistency that only removes values that belongs to the boundary of the domain (and that are impossible), the domain consistency will remove \textbf{every} value of the domain that violates the constraints in which the variable participates. We end up with an equivalent CSP but much simpler thanks to the smaller domains of its 
 \subsection{Suppose that we put objects number 2 and 4 into the first bin. What are the domains of the variables after applying domain consistency on this CSP ?}
-By doing so, we force the weight of the first bin to 9. This implies that no variable of the problem will be able to enter this particular bin since there are no object of weight 1. We have then: \begin{itemize}
-\item Item 1: bins 2 or 3
-\item Item 2: bin 1
-\item Item 3: bins 2 or 3
-\item Item 4: bin 1
-\item Item 5: bins 2 or 3
-\item Item 6: bins 2 or 3
-\item Item 7: bins 2 or 3
-
-\end{itemize}
 \subsection{Explain what a redundant constraint is. What are the advantages and disadvantages of such constraints ?}
 \subsection{Add the following constraint to the model : [...]}
 
