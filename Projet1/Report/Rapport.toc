@@ -2,8 +2,14 @@
 \contentsline {section}{\numberline {1}Nightmare in INGI}{1}{section.1}
 \contentsline {section}{\numberline {2}Discrete tomography}{1}{section.2}
 \contentsline {section}{\numberline {3}NQueens}{1}{section.3}
-\contentsline {section}{\numberline {4}Bin packing}{1}{section.4}
-\contentsline {subsection}{\numberline {4.1}Explain intuitively what is a domain consistency for a CSP.}{1}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Suppose that we put objects number 2 and 4 into the first bin. What are the domains of the variables after applying domain consistency on this CSP ?}{1}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Explain what a redundant constraint is. What are the advantages and disadvantages of such constraints ?}{1}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Add the following constraint to the model : [...]}{1}{subsection.4.4}
+\contentsline {subsection}{\numberline {3.1}Modify the code of the search procedure such as to assign only values that are still in the domain of the variables.}{1}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Add a by statement to the forall loop in order to first assign the variables with the smallest number of values in their domains}{1}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Give the search procedure to first assign the queens in the odd columns.}{1}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Give the search procedure to first assign the queens in the odd columns and first try to assign values that are less present in the domain of the other variables.}{1}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Give the search procedure to split (in 2) the domain of an unbound queen.}{1}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Give the search procedure to assign the queens from the sides to the center (so first the queen 1, then queen N, then queen 2,...)}{2}{subsection.3.6}
+\contentsline {section}{\numberline {4}Bin packing}{2}{section.4}
+\contentsline {subsection}{\numberline {4.1}Explain intuitively what is a domain consistency for a CSP.}{2}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Suppose that we put objects number 2 and 4 into the first bin. What are the domains of the variables after applying domain consistency on this CSP ?}{2}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Explain what a redundant constraint is. What are the advantages and disadvantages of such constraints ?}{3}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Add the following constraint to the model : [...]}{3}{subsection.4.4}

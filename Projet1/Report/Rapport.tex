@@ -197,6 +197,28 @@ François Aubry
 \section{Nightmare in INGI}
 \section{Discrete tomography}
 \section{NQueens}
+For each question here, you can find the corresponding code joined in the archive. 
+\subsection{Modify the code of the search procedure such as to assign only values that are still in the domain of the variables.}
+The step here is to force the domain consistency over the CSP by adding the lines HEREADDLINE
+\subsection{Add a by statement to the forall loop in order to first assign the variables with the smallest number of values in their domains}
+This heuristic is widely known as the Minimum Remaining Values or MRV and consists of a fail first approach: we constantly choose the variable with the smallest domain in order to try and find rapidly if the current assignment is impossible or not (when the domain size falls to zero). 
+\subsection{Give the search procedure to first assign the queens in the odd columns.}
+This can be done by replacing the previous ordering function (MRV) by a simpler one: (queen\%2) where queen is an unbound variable of the CSP. This forces the search to first bind the queens situated on the odd columns and then the other ones. 
+\subsection{Give the search procedure to first assign the queens in the odd columns and first try to assign values that are less present in the domain of the other variables.}
+This heuristic is inspired by the MRV one but requires more computation time since we have to compute for each unbound variables the frequency of each remaining possible value of the current queen (queen we want to assign at this iteration).
+\subsection{Give the search procedure to split (in 2) the domain of an unbound queen.}
+This heuristic forces to first consider the first values of the domain of the variable over the last ones. This heuristic is here not really indicated since we can't say that the first values are more likely to yield a solution than the other however this heuristic can be really interesting in problems where some values have a more important probability to result in an answer than others.
+\subsection{Give the search procedure to assign the queens from the sides to the center (so first
+the queen 1, then queen N, then queen 2,...)}
+Our choice here is a function that projects the set of queens on to a negative growing list of values that corresponds to the order in which we have to consider them. This function is the following:
+\begin{equation}
+order = - \mid originalSet - \frac{max(originalSet)}{2} - 1 \mid
+\end{equation}
+The minus one is there to make sure that the first queen (column 1) is considered before the last one (column 8):
+\begin{equation}
+(-\mid 1-4-1\mid = -4) < (-3 = - \mid 8-4-1 \mid)
+\end{equation}
+
 \section{Bin packing}
 \subsection{Explain intuitively what is a domain consistency for a CSP.}
 The domain consistency for a CSP is a technique that removes for every variables the impossible values for this variable. In opposition to the bound consistency that only removes values that belongs to the boundary of the domain (and that are impossible), the domain consistency will remove \textbf{every} value of the domain that violates the constraints in which the variable participates. We end up with an equivalent CSP but much simpler thanks to the smaller domains of its variables. Moreover, if one domain finishes with no possible values then the problem in impossible and we can safely terminate the execution.  
@@ -212,7 +234,7 @@ By doing so, we force the weight of the first bin to 9. This implies that no var
 
 \end{itemize}
 \subsection{Explain what a redundant constraint is. What are the advantages and disadvantages of such constraints ?}
+A redundant constraint is a constraint that is a duplicate of another one or a constraint that is a relaxed version of another - meaning a constraint that can be derived from another one. Such a redundant constraint could allow us to approximate the solution using the relaxed constraint and verify it with the "stronger" one. In opposition, a redundant constraint, if treated like any other constraint (without taking advantage of it) generates more non useful computation since we already have the "strong" version of the constraint. 
 \subsection{Add the following constraint to the model : [...]}
-
-
+By adding the new constraint and keeping the problem with the forced assignations of the second point, we make the CSP impossible: the sum of the bins can only be 29 which is different from the sum of the weights which is 30. The programs stops the search of a solution since the maximum weight for each bin is 10 and the weight of the bin 1 is maxed out at 9 due to the assignment. 
 \end{document}
