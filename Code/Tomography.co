@@ -7,7 +7,7 @@ Solver<CP> cp();
 
 // read input
 // fill in the absolute path for the instance
-string path = "/Users/Romain/Desktop/Q8/LINGI2365_Constraint_Programming/LINGI2365_Constraint_Programming/Tomography_Instances/input4.txt";
+string path = "/Users/Romain/Desktop/Test/LINGI2365_Constraint_Programming/Code/Tomography_Instances/input4.txt";
 // create file reader
 ifstream file(path);
 // read data

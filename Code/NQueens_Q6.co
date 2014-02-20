@@ -22,20 +22,19 @@ Integer np(m.getNPropag());
 
 cout << "Initiating search..." << endl;
 Integer c(0);
-solve<m> {
 
+solve<m> {
   // We set the consistency level with the strongest possible filtering (MAC heuristic)
   m.post(alldifferent(all(i in S) q[i] + i),onDomains);
   m.post(alldifferent(all(i in S) q[i] - i),onDomains);
   m.post(alldifferent(q),onDomains);
-  
+
 } using {
-   forall(queen in S) by (q[queen].getSize()) //MRV
-      tryall<m>(val in S : q[queen].memberOf(val)) //check if value is member of the queen's domain
+   forall(queen in S) by (-abs(queen - n/2 - 1)) // will give to the queens values -4 to 0
+      tryall<m>(val in S : q[queen].memberOf(val))
          label(q[queen],val);
   c := c + 1;
 }
-
 cout << "Nb : " << c << endl;
 int t1 = System.getCPUTime();
 cout << "Solution = " << q << endl;

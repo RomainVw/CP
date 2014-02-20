@@ -1,10 +1,13 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
-import cpsolver;
+import cotfd;
+int t0 = System.getCPUTime();
 
 // create the CP Solver 
 Solver<CP> cp();
 
+Integer np(cp.getNPropag());
+cout << "Initiating search..." << endl;
 /**
 INSTANCE:
 
@@ -28,7 +31,22 @@ var<CP>{int} load[1..nb](cp, 0..C);
 solve<cp> {
 	forall(b in 1..nb)
 		cp.post(sum(i in 1..no) (bin[i] == b) * weight[i] == load[b]);
+           cp.post(sum (b in 1..nb) load[b] == sum (obj in 1..no) weight[obj]);
 } using {
+         label(bin[2],1);
+         label(bin[4],1);
+         forall (obj in 1..no){   
+             cout << "Objet #" << obj << " has domain " << bin[obj] << endl; 
+         }
 	// label the bins of objects 2 and 4 to to see the result of propagation 
 }
+
+int t1 = System.getCPUTime();
+cout << "Solution = " << bin << endl;
+cout << "Solution = " << load << endl;
+cout << "time: " << t1 - t0 << endl;
+cout << "#choices = " << cp.getNChoice() << endl;
+cout << "#fail    = " << cp.getNFail() << endl;
+cout << "#propag  = " << cp.getNPropag() - np << endl;
+
 
