@@ -30,10 +30,14 @@ solve<m> {
   m.post(alldifferent(q),onDomains);
 
 } using {
-   forall(queen in S) by (queen%2) 
-      tryall<m>(val in S : q[queen].memberOf(val)) by (sum (qu in S) q[qu].memberOf(val))
+   forall(queen in S) {
+      tryall<m>(val in S : q[queen].memberOf(val)) by (1 - (val < n/2)){ // order the values such that the first half of the domain is tried before
+         cout << "queen : " << queen << " - " << "trying :" << val << endl;// the last part.
          label(q[queen],val);
-  c := c + 1;
+      }
+    }
+   c := c + 1;
+   cout << "c " << c << endl;
 }
 cout << "Nb : " << c << endl;
 int t1 = System.getCPUTime();
