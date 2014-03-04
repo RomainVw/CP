@@ -1,0 +1,45 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cpsolver;
+
+abstract class AC2001Constraint extends UserConstraint<CP> {
+// constraint variables
+// support structures
+
+    
+   AC2001Constraint(var<CP>{int} x, var<CP>{int} Y) : UserConstraint<CP>() {
+			// todo
+      // assign constraint variables
+      // create support structures
+   }
+  
+
+   // the postAC2001 method
+   Outcome<CP> post(Consistency<CP> cl) { 
+			 // todo
+       // initialize support structures
+       // do initial propagation
+       // subscribe your constraint to some events
+   }
+    
+   // the propagateAC2001 method   
+   Outcome<CP> propagate() {
+			// todo     
+      //propagate_varAC2001 for X
+      //propagate_varAC2001 for Y
+   }  
+
+
+   // method removing value v from the domain of the variable z
+   bool addInDelta(var<CP>{int} z, int v){
+      return z.removeValue(v) != Failure;
+   }
+
+   // the abstract method to be implemented by
+   // a sepcific constraint class extending this abstract class
+   abstract boolean check(int a, int b);
+
+}
+
+
+

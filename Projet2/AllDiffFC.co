@@ -1,0 +1,30 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cpsolver;
+
+class AllDiffFC extends UserConstraint<CP> {
+   
+   var<CP>{int}[] _X;
+   var<CP>{int}[] _vars;
+
+   AllDiffFC(var<CP>{int}[] X) : UserConstraint<CP>() {
+      _X = X;
+      _vars = new var<CP>{int}[1.._X.getSize()];
+      forall(i in 1..X.getSize()) {
+         _vars[i] = _X[i];
+      }
+   }
+
+   var<CP>{int}[] getIntVariables() {
+      return _vars;
+   }
+
+   Outcome<CP> post(Consistency<CP> cl) {
+   		// todo
+   }
+   
+   Outcome<CP> valBind(var<CP>{int} z, int val) {
+      // todo
+   }
+
+}

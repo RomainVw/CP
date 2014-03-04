@@ -1,0 +1,41 @@
+/**/
+import cotfd;
+
+// Propagator for X >= Y + a
+class Geq extends UserConstraint<CP> {
+
+	var<CP>{int} _x;
+	var<CP>{int} _y;
+	int _a;
+	var<CP>{int}[] _vars;
+
+	Geq(int a, var<CP>{int} X, var<CP>{int} Y) : UserConstraint<CP>() {
+		_x = X;
+		_y = Y;
+		_a = a;
+		_vars = new var<CP>{int}[0..1];
+		_vars[0] =_x;
+		_vars[1] =_y;
+	}
+
+	var<CP>{int}[] getIntVariables() {
+		return _vars;
+	}
+
+	Outcome<CP> post(Consistency<CP> cl){
+		Outcome<CP> resPropag = propagate();
+		_x.addMax(this);
+		_y.addMin(this);  
+		return resPropag;
+	}
+
+	Outcome<CP> propagate(){
+		int newMaxY = _x.getMax() - _a;
+		if(_y.updateMax(newMaxY) == Failure) return Failure;
+		int newMinX = _y.getMin() + _a;
+		if(_x.updateMin(newMinX) == Failure) return Failure;
+		if(_x.getMin() >= _y.getMax() + _a) return Success;
+		return Suspend;
+	}
+
+}

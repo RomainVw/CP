@@ -1,0 +1,43 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cpsolver;
+
+class Channel extends UserConstraint<CP> {
+   
+   var<CP>{int}[] _X;
+   var<CP>{int} _Y;
+   var<CP>{int}[] _vars;
+
+   Channel(var<CP>{int}[] X, var<CP>{int} Y) : UserConstraint<CP>() {
+      _X = X;
+      _Y = Y;
+      _vars = new var<CP>{int}[1..(_X.getSize() + 1)];
+      forall(i in 1..X.getSize()) {
+         _vars[i] = _X[i];
+      }
+      _vars[X.getSize() + 1] = _Y;
+   }
+
+   var<CP>{int}[] getIntVariables() {
+      return _vars;
+   }
+
+   Outcome<CP> post(Consistency<CP> cl) {
+      forall(i in 1.._X.getSize()) {
+         _X[i].addAC5(this);
+         _X[i].addAC5Bind(this);
+      }
+      _Y.addAC5(this);
+      _Y.addAC5Bind(this);
+      return Suspend;
+   }
+
+   Outcome<CP> valRemove(var<CP>{int} z, int val) {
+      // todo
+   }
+
+   Outcome<CP> valBind(var<CP>{int} z, int val) {
+      // todo
+   }
+
+}
