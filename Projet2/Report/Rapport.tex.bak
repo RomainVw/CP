@@ -217,4 +217,10 @@ The algorithm would not be correct since it would never terminate. Indeed, movin
 \subsection{Q. 2.3}
 \subsubsection{a}
 This directly derives from the definition of domain consistent : suppose that a value that belongs to X generates a value $X' = X - a$ that does not belong to the domain of Y then the domain would not be consistent since the definition of domain consistent is that for all values that belong to the domain of the variable, there exists at least one value in the domains of the other variables of the constraint that satisfies the constraint. 
+\subsubsection{b}
+The bound consistency is a weaker form of domain consistency in the sense that it only considers the bounds of the domain. This means that we actually have two conditions: one on the minima of the variables and one on the maxima: \begin{itemize}
+\item on the minima: $\min_{x\in D(X)}(x) - a = \min_{y\in D(Y)}(y)$
+\item on the maxima: $\max_{x\in D(X)}(x) - a = \max_{y\in D(Y)}(y)$
+\end{itemize}
+We can observe that the bound consistency is actually here a domain consistency since the other values of the set are all superior to it's minima and inferior to it's maxima by definition. 
 \end{document}
