@@ -222,10 +222,25 @@ The bound consistency is a weaker form of domain consistency in the sense that i
 \item on the minima: $\min_{x\in D(X)}(x) - a = \min_{y\in D(Y)}(y)$
 \item on the maxima: $\max_{x\in D(X)}(x) - a = \max_{y\in D(Y)}(y)$
 \end{itemize}
-We can observe that the bound consistency is actually here a domain consistency since the other values of the set are all superior to it's minima and inferior to it's maxima by definition.
 \subsubsection{c)}
 Indeed, if the constraint is domain consistent, this means that the bound are also consistent since they belong to the domain and that all the values in the domain satisfies the constraint. Bound consistency is a weaker form of domain consistency. 
 
 \subsubsection{d)}
 No the implication if false in this sense. Indeed for a constraint such as $x^2 = y$, and the domains $[0, 1, 2, 3, 4, 5, 6, 7, 8]$ for both variables, bound consistency would return the domains: $\{x := [0, 1, 2], y := [0, 1, 2, 3, 4] \}$ while domain consistency would give the domains: $\{x := [0, 1, 2], y := [0, 1, 4] \}$.
+\section{Problems}
+\subsection{Q. 3.1}
+\subsubsection{1), 2)}
+Intuitively, the domain consistency is the set of values of the domain that have a support (meaning a value that satisfies the constraint) in the domain of the other variables of the constraint. In this case, the domain consistency and bound consistency are equivalent under the assumption that the domain for $X$ and $Y$ are ordonable values. Indeed, since the constraint is linear, the condition on the bounds of the domains is sufficient to provoke a domain consistency. We have then the conditions: 
+\begin{itemize}
+\item $\min_{x\in D(X)}(x) \geq \min_{y\in D(Y)}(y) + a$
+\item $\max_{x\in D(X)}(x) \geq \max_{y\in D(Y)}(y) + a$
+\end{itemize}
+Note that the $\geq$ plays an important role as well : in the previous case of constraint (same constraint but with equality), the domain consistency was different from the bound consistency. Indeed, the equality forces the values in the domain of Y to follow a linear function of the values of X while in the case of the $\geq$, the values of Y "just" have to belong to a subset of the plane that is defined by the minima and maxima of the domain of X.
+\subsubsection{3)}
+Since we are using bound consistency (equivalent to domain consistency in this case), we can implement the CDC algorithm by using two different queues of propagation: one for the maxima and one for the minima). This is a simple optimization that allows to reconsider only the constraints that have been "touched" by the modification of the maxima \textit{or} minima of a domain. The two lines in questions defines those queues and initialises them by putting all the constraints of the CSP into the queues. This corresponds to the initCDC method of the algorithm 5.1 of the book.
+\subsubsection{4)}
+This implementation begins by updating the min and max of the domains of the variables and, if one of the domain boils down to zero, the propagation returns a failure. Otherwise, the propagation will test if the current assignment satisfies the constraint and, if it's the case, it returns a success. 
+In the last case, the implementation will return a suspend meaning that the current assignment does not satisfies the constraint but that there are still values in the domain that have to be tried. 
+
+Furthermore, the propagate method has important side effects: it reduces the domain of the variables in order to accelerate the search by removing bounds of the domains. The specifications demand the new domain to be a subset of the previous one and that it still contains all the possible solutions for the CSP. This is easy to see considering the fact that the propagate method only removes values (via update$Max\vert Min$) that are proved to not satisfy the constraint.
 \end{document}
