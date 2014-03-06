@@ -11,9 +11,7 @@ class AC2001DoubleModulo extends AC2001Constraint{
     AC2001DoubleModulo(var<CP>{int} x, var<CP>{int} y,int k) : AC2001Constraint(x,y){
         _k = k;
     }
-    boolean check(int a, int b) {
-			// todo
-		}
+    boolean check(int a, int b) {return ((a%_k)==(b%_k)) ;}
 }
 
 //sum cstr //  x+y= k  (k is a constant)
@@ -23,9 +21,7 @@ class AC2001Sum extends AC2001Constraint{
     AC2001Sum(var<CP>{int} x,var<CP>{int} y,int k) : AC2001Constraint(x,y){
         _k=k;   
     }
-    boolean check(int a, int b) {
-			// todo
-		}
+    boolean check(int a, int b) {return ((a+b) == _k); }
 }
 
 //distance positive |x-y| = k
@@ -34,9 +30,7 @@ class  AC2001Dist  extends  AC2001Constraint {
   AC2001Dist(var<CP>{int} x, var<CP>{int} y, int k) : AC2001Constraint(x,y) {
      _k = k;  
   }
-  boolean check(int a, int b) {
-		// todo
-	}
+  boolean check(int a, int b) { return (abs(a-b)==_k); }
 }
 
 
