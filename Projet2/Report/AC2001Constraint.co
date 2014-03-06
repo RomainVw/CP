@@ -14,7 +14,7 @@ import cotfd;
 
 abstract class AC2001Constraint extends UserConstraint<CP> {
    
-   // constraint variables
+   // constraint variables done
    var<CP>{int} _x;
    var<CP>{int} _y;
    // support structures
@@ -78,11 +78,7 @@ abstract class AC2001Constraint extends UserConstraint<CP> {
          if (!support && _y.removeValue(u) == Failure)
             return Failure;
       }
-
-
       return Suspend;
-     
-
    }  
 
 

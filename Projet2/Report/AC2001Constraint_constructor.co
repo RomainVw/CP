@@ -1,0 +1,9 @@
+   AC2001Constraint(var<CP>{int} x, var<CP>{int} Y) : UserConstraint<CP>() {
+      // assign constraint variables
+      _x = x;
+      _y = Y;
+
+      // create support structures
+      _firstYSupport = new trail {int}[_x.getMin().._x.getMax()](_x.getSolver());
+      _firstXSupport = new trail {int}[_y.getMin().._y.getMax()](_y.getSolver());     
+   }

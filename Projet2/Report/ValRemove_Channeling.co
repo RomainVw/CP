@@ -1,0 +1,27 @@
+   Outcome<CP> valRemove(var<CP>{int} z, int val) {
+      if (z.getId() == _Y.getId()) {
+         if (_X[val].bindValue(0) == Failure) return Failure;
+      } else {
+         // Since the value removed is zero, the associated var is directly binded to 1
+         // All the others of the boolean table have to be at zero
+         if (val == 0){
+            forall (u in _X.getRange()){
+               if (_X[u].getId() == z.getId()){
+                   if (_Y.bindValue(u) == Failure) return Failure;
+                   if (_X[u].bindValue(1) == Failure) return Failure;
+               } else {
+                   if (_X[u].bindValue(0) == Failure) return Failure;
+               }
+            }
+         // If the value removed is one, we bind zero to the associated var
+         } else if (val == 1) {
+            forall (u in _X.getRange()){
+               if (_X[u].getId() == z.getId()){
+                   if (_X[u].bindValue(0) == Failure) return Failure;
+                   if (_Y.removeValue(u) == Failure) return Failure;
+               }
+            }
+         }
+      }
+      return Suspend;
+   }

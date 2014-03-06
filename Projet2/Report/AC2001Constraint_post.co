@@ -1,0 +1,16 @@
+   // the postAC2001 method
+   Outcome<CP> post(Consistency<CP> cl) { 
+      // initialize support structures
+      forall (u in _x.getMin().._x.getMax() : _x.memberOf(u))
+         _firstYSupport[u] := _y.getMin();
+      forall (v in _y.getMin().._y.getMax() : _y.memberOf(v))
+         _firstYSupport[v] := _x.getMin();
+
+       // do initial propagation
+      Outcome<CP> resPropag = propagate();
+
+       // subscribe your constraint to some events
+      _x.addDomain(this);
+      _y.addDomain(this);  
+      return resPropag;
+   }

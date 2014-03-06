@@ -1,3 +1,0 @@
-forall(i in 1..n) cp.post( sum (j in 1..m) x[i,j] == row[i] );	
-forall(j in 1..m) cp.post( sum (i in 1..n) x[i,j] == col[j] );	
-forall(i in 1..(n + m - 1)) cp.post( sum (j in 1..n, k in 1..m : ((j+k) == (i+1)) )  x[j,k] == dia[i] );	

@@ -62,6 +62,7 @@ class Channel extends UserConstraint<CP> {
             forall (u in _X.getRange()){
                if (_X[u].getId() == z.getId()){
                    if (_X[u].bindValue(0) == Failure) return Failure;
+                   if (_Y.removeValue(u) == Failure) return Failure;
                }
             }
          }

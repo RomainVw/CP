@@ -249,11 +249,41 @@ Furthermore, the propagate method has important side effects: it reduces the dom
 \subsection{The channeling constraint}
 \subsubsection{Give the definition of domain consistency for this constraint}
 \subsubsection{Implement an AC5 propagator achieving domain consistency for this constraint.}
+We had to implement method \texttt{valRemove} and \texttt{valBind}.
 
+A important fact to notice for the next of the exercise is that the array can only contain one true value since the Y variable is an integer.\\
+
+For the valRemove method, we first determine if the value removed is from Y domain or from one of the $X_i$ domains.\\
+If the value has been removed  from the Y domain, we can directly determine that $\_X[value] == 0$. (Thanks to the constraint).\\
+If we remove the value from one of the $X_i$ domains, we can deduce more informations depending on the value. \textbf{If value equals 0}, we know that the only remaining value to that domain is 1. Then, we can thus deduce the only remaining value we can attribute to the variable Y which is the index of the $X_i$ variable binded. We can furthermore bind all others $X_i$ varaibles to 0.  \textbf{If value equals 1}, we know that the only remaining value to that domain is 0, and we can remove the index of the $X_i$ variable binded from the Y domain.
+
+\lstinputlisting[language=C]{ValRemove_Channeling.co}
+
+The valRemove method do similar things.\\
+First, if the binded variable is Y, we can deduce the entire corresponding array.\\
+If the binded varaible is on of the $X_i$ variables, we can determine some informations depending of the value binded.\\
+\textbf{If the value is 1}, we can determine that all the others $X_i$ variables equals 0 and that the Y variable equals the index of the binded $X_i$ variable. \\ \textbf{If the value is 0}, we can just remove the corresponding index of the domain of Y.
+\lstinputlisting[language=C]{ValBind_Channeling.co}
 
 \subsection{AC2001 propagator}
+
+
 \subsubsection{Generic constraint}
+We first declare the two constraints variables and the two support structures.
+\lstinputlisting[language=C]{AC2001Constraint_variables.co}
+
+In the constructor, we assign constraints variables, and we instantiate the support structure.
+\lstinputlisting[language=C]{AC2001Constraint_constructor.co}
+
+Then, in the post method, we initialize support structures, we do the initial propagation, and we suscribe to some events.
+\lstinputlisting[language=C]{AC2001Constraint_post.co}
+
+The propagate method is the most important one. It propagates for X and Y. We iterate on all variables, and beginning at the firstSupportValue, we try to find the new one (which could remain the same). Once there are no more firstSupportValue, we remove the value of the corresponding domain.
+\lstinputlisting[language=C]{AC2001Constraint_propagate.co}
+
 \subsubsection{Specific constraints}
+Here is the method check for the first three constraints.
+\lstinputlisting[language=C]{AllConstraints.co}
 
 \subsection{The AllDifferent constraint}
 \subsubsection{Define forward-checking consistency for the decomposition of AllDiff in binary constraints.}

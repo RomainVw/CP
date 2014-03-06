@@ -1,0 +1,19 @@
+abstract class AC2001Constraint extends UserConstraint<CP> {
+   
+   // constraint variables
+   var<CP>{int} _x;
+   var<CP>{int} _y;
+   // support structures
+   trail{int}[] _firstYSupport;
+   trail{int}[] _firstXSupport;
+    
+   AC2001Constraint(var<CP>{int} x, var<CP>{int} Y) : UserConstraint<CP>() {
+     ...
+   }
+  
+...
+
+}
+
+
+

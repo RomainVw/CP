@@ -1,0 +1,26 @@
+   Outcome<CP> valBind(var<CP>{int} z, int val) {
+      // Binded var is Y
+      if (z.getId() == _Y.getId()) {
+         forall (u in _X.getRange()){
+            // we can bind all the others vars of X
+            if (_X[u].bindValue(u == val) == Failure) return Failure;     
+         }
+      } else { // Binded var is one of the X vars
+         forall (u in _X.getRange()){
+            if (_X[u].getId() == z.getId()){
+               // If val==0, we remove the index of Dom(Y)
+               if (val == 0)
+                  if (_Y.removeValue(u)== Failure) return Failure;
+               // If val==1, we bind variable Y
+               if (val == 1)
+                  if (_Y.bindValue(u)== Failure) return Failure;
+            
+            } else if (_X[u].getId() != z.getId()){ 
+                  // If val==1, we bind all other var of X to 0      
+                if (val == 1)
+                  if (_X[u].bindValue(0)== Failure) return Failure;
+            }
+         }
+      }
+      return Suspend;
+   }
