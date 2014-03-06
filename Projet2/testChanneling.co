@@ -1,3 +1,13 @@
+/*
+ * LINGI2365 - Constraint Programming
+ * Project 2 - Propagation
+ *
+ * Groupe 7 :
+ * Crochelet Martin (2236-10-00)
+ * Vanwelde Romain (3143-10-00)
+ *
+ */
+
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
 include "Channeling";
@@ -18,6 +28,7 @@ solveall<m> {
    cout << "X = " << first << endl;
    cout << "Y = " << second << endl;
 }
+
 
 cout << "#choices = " << m.getNChoice() << endl;
 cout << "#fail    = " << m.getNFail() << endl;

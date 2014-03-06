@@ -157,7 +157,8 @@
 \begin{flushleft} \large
 \emph{Auteurs:}\\
 {Vanwelde Romain (3143-10-00)\\
-Crochelet Martin (2236-10-00)} 
+Crochelet Martin (2236-10-00)\\ \ \\
+Groupe 7} 
 \end{flushleft}
 \end{minipage} & \begin{minipage}{0.46\textwidth}
 \centering
@@ -243,4 +244,24 @@ This implementation begins by updating the min and max of the domains of the var
 In the last case, the implementation will return a suspend meaning that the current assignment does not satisfies the constraint but that there are still values in the domain that have to be tried. 
 
 Furthermore, the propagate method has important side effects: it reduces the domain of the variables in order to accelerate the search by removing bounds of the domains. The specifications demand the new domain to be a subset of the previous one and that it still contains all the possible solutions for the CSP. This is easy to see considering the fact that the propagate method only removes values (via update$Max\vert Min$) that are proved to not satisfy the constraint.
+
+
+\subsection{The channeling constraint}
+\subsubsection{Give the definition of domain consistency for this constraint}
+\subsubsection{Implement an AC5 propagator achieving domain consistency for this constraint.}
+
+
+\subsection{AC2001 propagator}
+\subsubsection{Generic constraint}
+\subsubsection{Specific constraints}
+
+\subsection{The AllDifferent constraint}
+\subsubsection{Define forward-checking consistency for the decomposition of AllDiff in binary constraints.}
+\subsubsection{Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff (\dots)}
+
+
+\subsubsection{Modify the Nqueens.co file provided into file NqueensFC.co such that it uses your implementation of alldifferent.}
+\subsubsection{Test both yours (NqueensFC.co) and Comet’s (Nqueens.co) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices be- tween the two implementations and for each n = 12 . . . 32 in a table.}
+\subsubsection{What did you find in your comparative study? Explain the results!}
+
 \end{document}

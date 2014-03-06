@@ -1,4 +1,12 @@
-/**/
+/*
+ * LINGI2365 - Constraint Programming
+ * Project 2 - Propagation
+ *
+ * Groupe 7 :
+ * Crochelet Martin (2236-10-00)
+ * Vanwelde Romain (3143-10-00)
+ *
+ */
 
 include "AC2001Constraint";
 

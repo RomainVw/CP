@@ -11,6 +11,16 @@
   DYNADEC TM and COMET TM are trademarks of Dynamic Decision Technologies, Inc.
   ********************************************************************************/
 
+/*
+ * LINGI2365 - Constraint Programming
+ * Project 2 - Propagation
+ *
+ * Groupe 7 :
+ * Crochelet Martin (2236-10-00)
+ * Vanwelde Romain (3143-10-00)
+ *
+ */
+
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
 import cotfd;
