@@ -33,11 +33,23 @@ class Channel extends UserConstraint<CP> {
    }
 
    Outcome<CP> valRemove(var<CP>{int} z, int val) {
-      // todo
+      if (z.getId() == _Y.getId()) {
+         if (_X[val].bindValue(0) == Failure) return Failure;
+      } else {
+         //todo
+      }
+      return Suspend;
    }
 
    Outcome<CP> valBind(var<CP>{int} z, int val) {
-      // todo
+      if (z.getId() == _Y.getId()) {
+         forall (u in _X.getMin().._X.getMax() : _X.memberOf(u)){ //GetRange todo ?
+            if (_X[u].bindValue(u == val) == Failure) return Failure;
+         }
+      } else {
+         if (_Y.removeValue(val)== Failure) return Failure;
+      }
+      return Suspend;
    }
 
 }
