@@ -1,6 +1,6 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
-import cpsolver;
+import cotfd;
 
 class AllDiffFC extends UserConstraint<CP> {
    
@@ -20,11 +20,24 @@ class AllDiffFC extends UserConstraint<CP> {
    }
 
    Outcome<CP> post(Consistency<CP> cl) {
-   		// todo
+      forall(i in 1.._X.getSize()) {
+         if (!_X[i].bound()){ 
+            _X[i].addAC5Bind(this);
+         }       
+      }
+      return Suspend;
    }
    
    Outcome<CP> valBind(var<CP>{int} z, int val) {
-      // todo
+      forall(i in 1.._X.getSize()) {
+         if (z.getId() != _X[i].getId())
+         {
+            if(_X[i].removeValue(val) == Failure)
+               return Failure;
+         }
+         
+      }
+      return Suspend;
    }
 
 }

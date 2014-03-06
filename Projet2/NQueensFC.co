@@ -14,6 +14,8 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
 import cotfd;
+include "AllDiffFC";
+
 
 Solver<CP> m();
 int t0 = System.getCPUTime();
@@ -27,9 +29,9 @@ cout << "Initiating search..." << endl;
 Integer c(0);
 solve<m> {
 
-  m.post(alldifferent(all(i in S) q[i] + i),onDomains);
-  m.post(alldifferent(all(i in S) q[i] - i),onDomains);
-  m.post(alldifferent(q),onDomains);
+  m.post(AllDiffFC(all(i in S) new var<CP>{int}(m,q[i], i)),onDomains);
+  m.post(AllDiffFC(all(i in S) new var<CP>{int}(m,q[i], - i)),onDomains);
+  m.post(AllDiffFC(q),onDomains);
   
 } using {
   label(q);
