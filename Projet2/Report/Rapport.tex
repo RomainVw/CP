@@ -1,0 +1,220 @@
+\documentclass[a4paper ,12pt,french]{article}
+% Packages usuels
+%\usepackage{etex} % pour circuitikz
+%\usepackage{tikz}
+%\usepackage{circuitikz} % pour les circuits électriques
+
+\usepackage[utf8]{inputenc}
+%\usepackage[margin=1.55cm]{geometry}
+\usepackage[bottom=2cm , left=2.5cm ,right=2.5cm, top=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+%\usepackage{color}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[indentfirst]{titlesec}
+\usepackage[dvips]{graphicx}
+\usepackage{eurosym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage[table,dvipsnames,svgnames]{xcolor}
+\usepackage{xspace}
+\usepackage{fancybox}
+\usepackage{textcomp}
+\usepackage{listings}
+
+
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+%\usepackage[margin=0.75in]{geometry}
+\usepackage[version=3]{mhchem}
+%\usepackage{chemist}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{wrapfig} %écrire txt et image côte à côte
+\usepackage[rightcaption]{sidecap}
+\usepackage{amsthm}
+\usepackage[squaren, Gray, cdot]{SIunits}
+\usepackage[absolute]{textpos}%positionnement de cadres
+\usepackage[final]{pdfpages} %traitement des pdf
+\usepackage{subfigure}
+%\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}%pour traiter le code matlab
+%\usepackage{setspace}% pour les interlignes
+%\onehalfspacing %interligne 1.5
+%\doublespacing %interligne 2
+%\renewcommand{\baselinestretch}{1.5}  %interligne défini
+%\usepackage{vmargin}% pour les marges
+%\setmarginsrb{2.5}{2.5}{2.5}{2.5}{}{}{}{} % marges de 2.5 cm 
+%\addto\captionsfrench{\def\tablename{Tableau}} % pour avoir TABLEAU et pas TABLE dans la légende des tableaux..
+%\setlength{\parskip}{1cm}   %espacement fixe entre chaque paragraphe
+\setlength{\parindent}{1cm}  %modifie la valeur de l'alinéas
+%\addtolength{\voffset}{-1.5cm} % (diminue la marge du haut)
+\addtolength{\textheight}{-2cm} % (augmente la longueur du texte)
+%\addtolength{\hoffset}{-1cm} (diminue la marge de gauche)
+%\addtolength{\textwidth}{2cm}  (augmente la largeur du texte)
+%\addtocounter{secnumdepth}{1}  si jamais on veut utiliser \subsubsubsecion
+\usepackage[hang,center,bf]{caption} %pour les légendes
+\setlength{\captionmargin}{30pt}
+\usepackage[hang,flushmargin]{footmisc} %à mettre avec ENGLISH dans babel pour avoir les notes de bas de page à gauche et non indentées
+\usepackage[nonumberlist,style=altlist,toc]{glossaries} % Pour faire un glossaire
+\makeglossaries
+%\addto\captionsfrench{\renewcommand*{\glossaryname}{Glossary}}
+\usepackage{wasysym}
+\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+%\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+\title{Project 2 - Constraint Programming } % Defines the thesis title - don't touch this
+%-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+\begin{document}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  language=c,                				% the language of the code
+  basicstyle=\footnotesize,           	% the size of the fonts that are used for the code
+  numbers=left,                   			% where to put the line-numbers
+  numberstyle=\tiny\color{gray},  	% the style that is used for the line-numbers
+  stepnumber=1,                   			% the step between two line-numbers. If it's 1, each line 
+                                  						% will be numbered
+  numbersep=5pt,                  			% how far the line-numbers are from the code
+  backgroundcolor=\color{white},   % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=4,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...}               % if you want to add more keywords to the set
+}
+
+\floatstyle{plain}
+%\newfloat{graphique}{!hb}{lgr}[chapter]
+\floatname{graphique}{Graph}
+
+%\setstretch{1.1} % Line spacing of 1.3
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\rhead{\thepage} % Sets the right side header to show the page number
+\lhead{} % Clears the left side page header
+
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
+\begin{titlepage}
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+\begin{tabular}{cc}
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft}
+\includegraphics[scale=0.1]{./logoingisbleu.jpg} % University/department logo - uncomment to place it
+\end{flushleft}
+\end{minipage}
+ & 
+ \begin{minipage}{0.43\textwidth}
+\begin{flushright}
+\includegraphics[scale=0.5]{./epl.jpg} % University/department logo - uncomment to place it
+\end{flushright}
+\end{minipage}
+\end{tabular} 
+
+
+
+\begin{center}
+\vspace{100 px}
+\textsc{\LARGE Catholic University of Louvain}\\[1cm] % University name
+\textsc{\Large Project 2 : Propagation}\\[0.5cm] % Thesis type
+ 
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries LINGI2365 - Constraint Programming}\\[0.4cm] % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+
+\begin{tabular}{cc}
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Auteurs:}\\
+{Vanwelde Romain (3143-10-00)\\
+Crochelet Martin (2236-10-00)} 
+\end{flushleft}
+\end{minipage} & \begin{minipage}{0.46\textwidth}
+\centering
+\begin{flushright} \large
+\emph{Superviseurs:} \\
+{Pr. Yves Deville\\
+François Aubry
+}
+\end{flushright}
+\end{minipage}\\[3cm] \\ 
+\end{tabular} 
+
+ 
+%\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+%\textit{in the}\\[0.4cm]
+%\groupname\\\deptname\\[2cm] % Research group name and department name
+
+ \begin{center}
+{\large \today }\\[4cm] % Date 
+ \end{center}
+
+
+\vfill
+\end{center}
+
+\end{titlepage}
+
+\lhead{\emph{Table of Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
+
+\thispagestyle{fancy}
+
+\pagebreak
+\setcounter{page}{1}
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+\section{Questions}
+\subsection{Q. 2.1}
+With the notations: \begin{itemize}
+\item $e = \#C$ where $C$ is the set of constraints that set up the problem and $e$, the number of constraints.
+\item $d = \max_{1\leq i \leq n}(\#D(x))$ where $D(x)$ is the domain of the variable $x$ and thus $d$, the maximum size of the domains. 
+\item $r$ that is defined as the maximum arity of a constraint for the CSP.
+\end{itemize}
+And the supposition that each variable is involved in at least one constraint (and that the constraints might have an arity superior to two - otherwise we would reduce to AC3).\\
+
+Analysing the algorithm shows us that DC3 keeps a queue that contains the set of constraints for whom the domain consistency is no longer guaranteed. In the worst case, we can easily imagine that every constraint of the problem will find it's place in that queue. Knowing that the number of constraints for a CSP is defined as $e$, we can deduce that the worst-case space complexity involved with the DC3 algorithm is $O(e)$ (Note that this is independent of for data-structures used by the propagate method)\\
+
+Concerning the time complexity, we will split our analysis into two different parts: first, we will analyse the time-complexity of the standard CDC algorithm since the DC3 one in a basic instance of CDC. Lastly, we will tackle the analysis of the DC3-specific propagate method.
+
+For a non binary CSP, we begin by observing that a constraint can be put at most $r\cdot d$ times in the queue (maximum arity of a constraint time the maximum size of a domain) and that at most, since we iterate over that queue to call propagate, the propagate method will be executed $e\cdot r\cdot d$ times (the number of constraints times the maximum number of times a constraint can be put into the queue). 
+
+Furthermore, we can remark that the DC3-specific propagate method iterates over each variables of a constraint and over the domain of that constraint $O(r\cdot d)$ This iteration executes a code verifies for each value if it is still consistent with the constraint and construct the delta set. This implies that the algorithm has to iterates over all other variables of the constraint to check if a possible assignment exists for the current choice of assignment: the execute runs in $O(r\cdot d^{r-1})$ and is executed at most $r$ times. The time-complexity of the DC3-specific propagate method is thus $O(r^2 \cdot d^{r})$.
+
+We can then deduce that the overall complexity of DC3 is the product of the two complexities and equals $O(e\cdot r\cdot d\cdot r^2\cdot d^{r}) = O(e\cdot r^3 \cdot d^{r+1})$
+\subsection{Q. 2.2}
+The algorithm would not be correct since it would never terminate. Indeed, moving the line just after line 16 would remove the constraint from the queue and then re add it into the queue since the enqueueCDC would contain the constraint itself. The algorithm would iterate forever over the constraints and never leave the loop. 
+\subsection{Q. 2.3}
+\subsubsection{a}
+This directly derives from the definition of domain consistent : suppose that a value that belongs to X generates a value $X' = X - a$ that does not belong to the domain of Y then the domain would not be consistent since the definition of domain consistent is that for all values that belong to the domain of the variable, there exists at least one value in the domains of the other variables of the constraint that satisfies the constraint. 
+\end{document}
