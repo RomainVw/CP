@@ -1,6 +1,6 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
-import cpsolver;
+import cotfd;
 
 class Channel extends UserConstraint<CP> {
    
@@ -36,14 +36,29 @@ class Channel extends UserConstraint<CP> {
       if (z.getId() == _Y.getId()) {
          if (_X[val].bindValue(0) == Failure) return Failure;
       } else {
-         //todo
+         if (val == 0){
+            forall (u in _X.getLow().._X.getUp()){ //GetRange todo ?
+               if (_X[u].getId() == z.getId()){
+                   if (_Y.bindValue(u) == Failure) return Failure;
+                   if (_X[u].bindValue(1) == Failure) return Failure;
+               } else {
+                   if (_X[u].bindValue(0) == Failure) return Failure;
+               }
+            }
+         } else if (val == 1) {
+            forall (u in _X.getLow().._X.getUp()){ //GetRange todo ?
+               if (_X[u].getId() == z.getId()){
+                   if (_X[u].bindValue(0) == Failure) return Failure;
+               }
+            }
+         }
       }
       return Suspend;
    }
 
    Outcome<CP> valBind(var<CP>{int} z, int val) {
       if (z.getId() == _Y.getId()) {
-         forall (u in _X.getMin().._X.getMax() : _X.memberOf(u)){ //GetRange todo ?
+         forall (u in _X.getLow().._X.getUp()){ //GetRange todo ?
             if (_X[u].bindValue(u == val) == Failure) return Failure;
          }
       } else {

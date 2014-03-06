@@ -1,0 +1,23 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+include "Channeling";
+
+
+Solver<CP> m();
+var<CP>{int} first[1..10](m,0..1);
+var<CP>{int} second(m,4..6);
+
+cout << "Initiating search..." << endl;
+
+solveall<m> {
+
+  m.post(Channel(first,second));
+  
+} using {
+  label(m);
+   cout << "X = " << first << endl;
+   cout << "Y = " << second << endl;
+}
+
+cout << "#choices = " << m.getNChoice() << endl;
+cout << "#fail    = " << m.getNFail() << endl;
