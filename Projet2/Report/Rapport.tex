@@ -250,6 +250,9 @@ Furthermore, the propagate method has important side effects: it reduces the dom
 
 \subsection{The channeling constraint}
 \subsubsection{Give the definition of domain consistency for this constraint}
+\noindent$\forall x \epsilon X$, $\exists y \epsilon Y$ • x[i] = (y==i)\\
+$\forall y \epsilon Y$, $\exists x \epsilon X$ • x[i] = (y==i)\\
+
 \subsubsection{Implement an AC5 propagator achieving domain consistency for this constraint.}
 We had to implement method \texttt{valRemove} and \texttt{valBind}.
 
@@ -289,6 +292,13 @@ Here is the method check for the first three constraints.
 
 \subsection{The AllDifferent constraint}
 \subsubsection{Define forward-checking consistency for the decomposition of AllDiff in binary constraints.}
+
+A constraint c($x_m$,$x_n$) is FC consistent wrt D(X) iff:
+\begin{itemize}
+\item if $\forall x_i$ $\epsilon$ $\{x_m,x_n\}$ : $D(x_i) = \{a_i\}$, then c($a_m$,$a_n$) 
+\item if $\exists y$ $\epsilon$ $\{x_m,x_n\}$ $\forall x$ $\epsilon$ $\{x_m,x_n\}\backslash\{y\}$ : \#D(x) = 1, then c is domain consistent wrt D(X)
+\end{itemize}
+
 \subsubsection{Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff (\dots)}
 In the post method, we iterate on all the variables. Those who are not bind are subscribed to bind event.
 \lstinputlisting[language=C]{AllDiffFC_post.co}
