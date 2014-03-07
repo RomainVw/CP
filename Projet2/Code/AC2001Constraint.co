@@ -1,0 +1,101 @@
+/*
+ * LINGI2365 - Constraint Programming
+ * Project 2 - Propagation
+ *
+ * Groupe 7 :
+ * Crochelet Martin (2236-10-00)
+ * Vanwelde Romain (3143-10-00)
+ *
+ */
+
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cotfd;
+
+abstract class AC2001Constraint extends UserConstraint<CP> {
+   
+   // constraint variables
+   var<CP>{int} _x;
+   var<CP>{int} _y;
+   // support structures
+   trail{int}[] _firstYSupport;
+   trail{int}[] _firstXSupport;
+    
+   AC2001Constraint(var<CP>{int} x, var<CP>{int} Y) : UserConstraint<CP>() {
+      // assign constraint variables
+      _x = x;
+      _y = Y;
+
+      // create support structures
+      _firstYSupport = new trail {int}[_x.getMin().._x.getMax()](_x.getSolver());
+      _firstXSupport = new trail {int}[_y.getMin().._y.getMax()](_y.getSolver());     
+   }
+  
+
+   // the postAC2001 method
+   Outcome<CP> post(Consistency<CP> cl) { 
+      // initialize support structures
+      forall (u in _x.getMin().._x.getMax() : _x.memberOf(u))
+         _firstYSupport[u] := _y.getMin();
+      forall (v in _y.getMin().._y.getMax() : _y.memberOf(v))
+         _firstYSupport[v] := _x.getMin();
+
+       // do initial propagation
+      Outcome<CP> resPropag = propagate();
+
+       // subscribe your constraint to some events
+      _x.addDomain(this);
+      _y.addDomain(this);  
+      return resPropag;
+   }
+    
+
+
+   // the propagateAC2001 method   
+   Outcome<CP> propagate() {
+       //propagate_varAC2001 for X
+      forall (u in _x.getMin().._x.getMax() : _x.memberOf(u)){
+         bool support = false;
+         forall (v in _firstYSupport[u].._y.getMax())
+            if (check(u,v)){
+               support = true;
+               _firstYSupport[u] := v;
+               break;
+            }
+         if (!support && _x.removeValue(u) == Failure)
+            return Failure;
+      }
+      
+      //propagate_varAC2001 for Y
+      forall (u in _y.getMin().._y.getMax() : _y.memberOf(u)){
+         bool support = false;
+         forall (v in _firstXSupport[u].._x.getMax())
+            if (check(u,v)){
+               support = true;
+               _firstXSupport[u] := v;
+               break;
+            }
+         if (!support && _y.removeValue(u) == Failure)
+            return Failure;
+      }
+
+
+      return Suspend;
+     
+
+   }  
+
+
+   // method removing value v from the domain of the variable z
+   bool addInDelta(var<CP>{int} z, int v){
+      return z.removeValue(v) != Failure;
+   }
+
+   // the abstract method to be implemented by
+   // a sepcific constraint class extending this abstract class
+   abstract boolean check(int a, int b);
+
+}
+
+
+

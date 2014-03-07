@@ -1,0 +1,100 @@
+/*
+ * LINGI2365 - Constraint Programming
+ * Project 2 - Propagation
+ *
+ * Groupe 7 :
+ * Crochelet Martin (2236-10-00)
+ * Vanwelde Romain (3143-10-00)
+ *
+ */
+
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cotfd;
+
+class Channel extends UserConstraint<CP> {
+   
+   var<CP>{int}[] _X;
+   var<CP>{int} _Y;
+   var<CP>{int}[] _vars;
+
+   Channel(var<CP>{int}[] X, var<CP>{int} Y) : UserConstraint<CP>() {
+      _X = X;
+      _Y = Y;
+      _vars = new var<CP>{int}[1..(_X.getSize() + 1)];
+      forall(i in 1..X.getSize()) {
+         _vars[i] = _X[i];
+      }
+      _vars[X.getSize() + 1] = _Y;
+   }
+
+   var<CP>{int}[] getIntVariables() {
+      return _vars;
+   }
+
+   Outcome<CP> post(Consistency<CP> cl) {
+      forall(i in 1.._X.getSize()) {
+         _X[i].addAC5(this);
+         _X[i].addAC5Bind(this);
+      }
+      _Y.addAC5(this);
+      _Y.addAC5Bind(this);
+      return Suspend;
+   }
+
+   Outcome<CP> valRemove(var<CP>{int} z, int val) {
+      if (z.getId() == _Y.getId()) {
+         if (_X[val].bindValue(0) == Failure) return Failure;
+      } else {
+         // Since the value removed is zero, the associated var is directly binded to 1
+         // All the others of the boolean table have to be at zero
+         if (val == 0){
+            forall (u in _X.getRange()){
+               if (_X[u].getId() == z.getId()){
+                   if (_Y.bindValue(u) == Failure) return Failure;
+                   if (_X[u].bindValue(1) == Failure) return Failure;
+               } else {
+                   if (_X[u].bindValue(0) == Failure) return Failure;
+               }
+            }
+         // If the value removed is one, we bind zero to the associated var
+         } else if (val == 1) {
+            forall (u in _X.getRange()){
+               if (_X[u].getId() == z.getId()){
+                   if (_X[u].bindValue(0) == Failure) return Failure;
+                   if (_Y.removeValue(u) == Failure) return Failure;
+               }
+            }
+         }
+      }
+      return Suspend;
+   }
+
+   Outcome<CP> valBind(var<CP>{int} z, int val) {
+      // Binded var is Y
+      if (z.getId() == _Y.getId()) {
+         forall (u in _X.getRange()){
+            // we can bind all the others vars of X
+            if (_X[u].bindValue(u == val) == Failure) return Failure;     
+         }
+      } else { // Binded var is one of the X vars
+         forall (u in _X.getRange()){
+            if (_X[u].getId() == z.getId()){
+               // If val==0, we remove the index of Dom(Y)
+               if (val == 0)
+                  if (_Y.removeValue(u)== Failure) return Failure;
+               // If val==1, we bind variable Y
+               if (val == 1)
+                  if (_Y.bindValue(u)== Failure) return Failure;
+            
+            } else if (_X[u].getId() != z.getId()){ 
+                  // If val==1, we bind all other var of X to 0      
+                if (val == 1)
+                  if (_X[u].bindValue(0)== Failure) return Failure;
+            }
+         }
+      }
+      return Suspend;
+   }
+
+}
