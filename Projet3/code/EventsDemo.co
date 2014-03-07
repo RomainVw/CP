@@ -1,0 +1,46 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cpsolver;
+
+Solver<CP> cp();
+int t0 = System.getCPUTime();
+int n;
+
+// -----------> UNCOMMENT LINE BELOW TO SEE EVENT ONCOMPLETION EXECUTED
+// n = 2;
+
+// -----------> UNCOMMENT LINE BELOW TO SEE EVENT ONFEASIBLESOLUTION EXECUTED (and comment line above)
+// n = 8;
+
+range S = 1..n;
+var<CP>{int} q[i in S](cp,S);
+
+// You need to tell Comet you want to listen for a specific event using the whenever keyword
+// You tell Comet what you want to be executed in case an event happens inside the {...} block
+// The whenever event(...){...} lines must follow the declaration of the solver, but precede the solve<cp>{...} block
+
+whenever cp.getSearchController()@onCompletion(){
+	cout << endl;
+	cout << " *******************************************************" << endl;
+	cout << " This is executed when the search is complete and no solution has been found" << endl;
+	cout << endl;
+}
+
+whenever cp.getSearchController()@onFeasibleSolution(Solution s){
+	cout << endl;
+	cout << " *******************************************************" << endl;
+	cout << " This is executed when the search stops and a feasible solution s has been found" << endl;
+	cout << " I can even extract information from s using variable.getSnapshot(s)" << endl;
+	cout << " For example queen " << n - 1 << " is on row " << q[n-1].getSnapshot(s) << " in this solution" << endl;
+	cout << endl;
+}
+
+solve<cp> {
+  cp.post(alldifferent(all(i in S) q[i] + i));
+  cp.post(alldifferent(all(i in S) q[i] - i));
+  cp.post(alldifferent(q));
+  
+} using {
+  label(q);
+}
+cout << q << endl;
