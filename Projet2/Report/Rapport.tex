@@ -250,8 +250,12 @@ Furthermore, the propagate method has important side effects: it reduces the dom
 
 \subsection{The channeling constraint}
 \subsubsection{Give the definition of domain consistency for this constraint}
-\noindent$\forall x \epsilon X$, $\exists y \epsilon Y$ • x[i] = (y==i)\\
-$\forall y \epsilon Y$, $\exists x \epsilon X$ • x[i] = (y==i)\\
+The definition of domain consistency for this constraint is the following one :
+\begin{center}
+$\forall x$ $\epsilon X$, $\exists y$ $\epsilon Y$ • x[i] = (y==i) \& $\forall y$ $\epsilon Y$, $\exists x$ $\epsilon X$ • x[i] = (y==i)\\
+\end{center} 
+
+
 
 \subsubsection{Implement an AC5 propagator achieving domain consistency for this constraint.}
 We had to implement method \texttt{valRemove} and \texttt{valBind}.
@@ -296,8 +300,13 @@ Here is the method check for the first three constraints.
 A constraint c($x_m$,$x_n$) is FC consistent wrt D(X) iff:
 \begin{itemize}
 \item if $\forall x_i$ $\epsilon$ $\{x_m,x_n\}$ : $D(x_i) = \{a_i\}$, then c($a_m$,$a_n$) 
-\item if $\exists y$ $\epsilon$ $\{x_m,x_n\}$ $\forall x$ $\epsilon$ $\{x_m,x_n\}\backslash\{y\}$ : \#D(x) = 1, then c is domain consistent wrt D(X)
+\item if $\exists y$ $\epsilon$ $\{x_m,x_n\}$ $\forall x$ $\epsilon$ $\{x_m,x_n\}\backslash\{y\}$ : \#D(x) = 1, then c is domain consistent wrt D(X)\\
 \end{itemize}
+
+Here, AllDiff is FC consistent if
+\begin{center}
+$\forall i$ $\epsilon$ $\{1,k\}$, $\forall j$ $\epsilon$ $\{1,k\}$, $i!=j$ • c($x_m$,$x_n$) is FC consistent.
+\end{center}
 
 \subsubsection{Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff (\dots)}
 In the post method, we iterate on all the variables. Those who are not bind are subscribed to bind event.
@@ -310,7 +319,27 @@ The only lines which have been modified are the lines who post the constraints. 
 \lstinputlisting[language=C]{NQueensFC.co}
 \subsubsection{Test both yours (NqueensFC.co) and Comet’s (Nqueens.co) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices between the two implementations and for each n = 12 . . . 32 in a table.}
 
-
+\begin{figure}[!h]\hspace{-1cm}
+\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+n&12&13&14&15&16&17&18&19&20&21&22 &23&24  \\
+\hline\hline
+NQueens &20&11&117&79&597&327&1.936&71&7.341&160&57.834 &339 &8.203   \\
+\hline
+NQueensFC &34&32&208&143&1.123&752&4.508&381&22.220&943& 162.268 &2.510 &38.902\\
+\hline
+\end{tabular}
+\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+n&25&26&27&28&29&30&31&32   \\
+\hline\hline
+NQueens &455&5.138&4.649&36.342&13.672&758.650&112.867&826.632     \\
+\hline
+NQueensFC &4.507&34.458&39.943&252.503&126.158&4.574.951&1.087.399&7.040.698  \\
+\hline
+\end{tabular}
+\caption{Choices}
+\end{figure}
 \begin{figure}[!h]\hspace{-1.2cm}
 \begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
@@ -333,32 +362,13 @@ NQueensFC &9.149&69.903& 84.175&523.005&266.235& 9.374.708&2.250.869&14.336.324 
 \end{tabular}
 \caption{Failures}
 \end{figure}
-\begin{figure}[!h]\hspace{-1cm}
-\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
-\hline
-n&12&13&14&15&16&17&18&19&20&21&22 &23&24  \\
-\hline\hline
-NQueens &20&11&117&79&597&327&1.936&71&7.341&160&57.834 &339 &8.203   \\
-\hline
-NQueensFC &34&32&208&143&1.123&752&4.508&381&22.220&943& 162.268 &2.510 &38.902\\
-\hline
-\end{tabular}
-\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
-\hline
-n&25&26&27&28&29&30&31&32   \\
-\hline\hline
-NQueens &455&5.138&4.649&36.342&13.672&758.650&112.867&826.632     \\
-\hline
-NQueensFC &4.507&34.458&39.943&252.503&126.158&4.574.951&1.087.399&7.040.698  \\
-\hline
-\end{tabular}
-\caption{Choices}
-\end{figure}
 
 
 
+\newpage
 \subsubsection{What did you find in your comparative study? Explain the results!}
 
+First, we observe that our implementation of allDifferent has each time a number of choices bigger than in the comet's implementation. Since this number is bigger, we will have to try more values before finding a good one. Thus, we will have more failures.
 
 
 \end{document}

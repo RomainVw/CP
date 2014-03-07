@@ -17,7 +17,7 @@ import cotfd;
 
 Solver<CP> m();
 int t0 = System.getCPUTime();
-int n = 32;
+int n = 8;
 range S = 1..n;
 var<CP>{int} q[i in S](m,S);
 
@@ -35,8 +35,11 @@ solve<m> {
   label(q);
   c := c + 1;
 }
+cout << "Nb : " << c << endl;
 int t1 = System.getCPUTime();
-cout << "n = " << n << endl;
-cout << "#fail    = " << m.getNFail() << endl;
+cout << "Solution = " << q << endl;
+cout << "time: " << t1 - t0 << endl;
 cout << "#choices = " << m.getNChoice() << endl;
+cout << "#fail    = " << m.getNFail() << endl;
+cout << "#propag  = " << m.getNPropag() - np << endl;
 

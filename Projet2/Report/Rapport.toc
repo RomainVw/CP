@@ -24,4 +24,4 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff (\dots )}{8}{subsubsection.2.4.2}
 \contentsline {subsubsection}{\numberline {2.4.3}Modify the Nqueens.co file provided into file NqueensFC.co such that it uses your implementation of alldifferent.}{9}{subsubsection.2.4.3}
 \contentsline {subsubsection}{\numberline {2.4.4}Test both yours (NqueensFC.co) and Comet\IeC {\textquoteright }s (Nqueens.co) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices between the two implementations and for each n = 12 . . . 32 in a table.}{9}{subsubsection.2.4.4}
-\contentsline {subsubsection}{\numberline {2.4.5}What did you find in your comparative study? Explain the results!}{9}{subsubsection.2.4.5}
+\contentsline {subsubsection}{\numberline {2.4.5}What did you find in your comparative study? Explain the results!}{10}{subsubsection.2.4.5}
