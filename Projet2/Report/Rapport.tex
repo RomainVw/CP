@@ -196,7 +196,7 @@ François Aubry
 \pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
 
 \section{Questions}
-\subsection{Q. 2.1}
+\subsection{Explain in detail the time and space complexities of the DC3 algorithm. What is the time complexity if all the constraints are domain consistent when algorithm DC3 is called?}
 With the notations: \begin{itemize}
 \item $e = \#C$ where $C$ is the set of constraints that set up the problem and $e$, the number of constraints.
 \item $d = \max_{1\leq i \leq n}(\#D(x))$ where $D(x)$ is the domain of the variable $x$ and thus $d$, the maximum size of the domains. 
@@ -213,33 +213,35 @@ For a non binary CSP, we begin by observing that a constraint can be put at most
 Furthermore, we can remark that the DC3-specific propagate method iterates over each variables of a constraint and over the domain of that constraint $O(r\cdot d)$ This iteration executes a code verifies for each value if it is still consistent with the constraint and construct the delta set. This implies that the algorithm has to iterates over all other variables of the constraint to check if a possible assignment exists for the current choice of assignment: the execute runs in $O(r\cdot d^{r-1})$ and is executed at most $r$ times. The time-complexity of the DC3-specific propagate method is thus $O(r^2 \cdot d^{r})$.
 
 We can then deduce that the overall complexity of DC3 is the product of the two complexities and equals $O(e\cdot r\cdot d\cdot r^2\cdot d^{r}) = O(e\cdot r^3 \cdot d^{r+1})$
-\subsection{Q. 2.2}
+\subsection{In the algorithm CDC (5.1 in the book), what would be the effect of moving the instruction of line 21 (Q -= c) after line 16? Would the algorithm still be correct?}
 The algorithm would not be correct since it would never terminate. Indeed, moving the line just after line 16 would remove the constraint from the queue and then re add it into the queue since the enqueueCDC would contain the constraint itself. The algorithm would iterate forever over the constraints and never leave the loop. 
-\subsection{Q. 2.3}
-\subsubsection{a)}
+\subsection{Consider the constraint X - a = Y .}
+\subsubsection{Show that it is domain consistent if and only if D(X) - a = D(Y ).}
 This directly derives from the definition of domain consistent : suppose that a value that belongs to X generates a value $X' = X - a$ that does not belong to the domain of Y then the domain would not be consistent since the definition of domain consistent is that for all values that belong to the domain of the variable, there exists at least one value in the domains of the other variables of the constraint that satisfies the constraint. 
-\subsubsection{b)}
+\subsubsection{What is the definition of bound consistency for this constraint?}
 The bound consistency is a weaker form of domain consistency in the sense that it only considers the bounds of the domain. This means that we actually have two conditions: one on the minima of the variables and one on the maxima: \begin{itemize}
 \item on the minima: $\min_{x\in D(X)}(x) - a = \min_{y\in D(Y)}(y)$
 \item on the maxima: $\max_{x\in D(X)}(x) - a = \max_{y\in D(Y)}(y)$
 \end{itemize}
-\subsubsection{c)}
+\subsubsection{Is this constraint automatically bound consistent if it is domain consistent?}
 Indeed, if the constraint is domain consistent, this means that the bound are also consistent since they belong to the domain and that all the values in the domain satisfies the constraint. Bound consistency is a weaker form of domain consistency. 
 
-\subsubsection{d)}
+\subsubsection{Is this constraint automatically domain consistent if it is bound consistent?}
 No the implication if false in this sense. Indeed for a constraint such as $x^2 = y$, and the domains $[0, 1, 2, 3, 4, 5, 6, 7, 8]$ for both variables, bound consistency would return the domains: $\{x := [0, 1, 2], y := [0, 1, 2, 3, 4] \}$ while domain consistency would give the domains: $\{x := [0, 1, 2], y := [0, 1, 4] \}$.
 \section{Problems}
-\subsection{Q. 3.1}
-\subsubsection{1), 2)}
+\subsection{AC3 propagator}
+\subsubsection{What is the definition of domain consistency for this constraint}
 Intuitively, the domain consistency is the set of values of the domain that have a support (meaning a value that satisfies the constraint) in the domain of the other variables of the constraint. In this case, the domain consistency and bound consistency are equivalent under the assumption that the domain for $X$ and $Y$ are ordonable values. Indeed, since the constraint is linear, the condition on the bounds of the domains is sufficient to provoke a domain consistency. We have then the conditions: 
 \begin{itemize}
 \item $\min_{x\in D(X)}(x) \geq \min_{y\in D(Y)}(y) + a$
 \item $\max_{x\in D(X)}(x) \geq \max_{y\in D(Y)}(y) + a$
 \end{itemize}
 Note that the $\geq$ plays an important role as well : in the previous case of constraint (same constraint but with equality), the domain consistency was different from the bound consistency. Indeed, the equality forces the values in the domain of Y to follow a linear function of the values of X while in the case of the $\geq$, the values of Y "just" have to belong to a subset of the plane that is defined by the minima and maxima of the domain of X.
-\subsubsection{3)}
+\subsubsection{Are domain consistency and bound consistency equivalent for this constraint? Prove why they are, or why they are not.}
+See previous question.
+\subsubsection{What do the lines \_x.addMax(this) and \_y.addMin(this) in post do?}
 Since we are using bound consistency (equivalent to domain consistency in this case), we can implement the CDC algorithm by using two different queues of propagation: one for the maxima and one for the minima). This is a simple optimization that allows to reconsider only the constraints that have been "touched" by the modification of the maxima \textit{or} minima of a domain. The two lines in questions defines those queues and initialises them by putting all the constraints of the CSP into the queues. This corresponds to the initCDC method of the algorithm 5.1 of the book.
-\subsubsection{4)}
+\subsubsection{Explain why the propagate method is correct.}
 This implementation begins by updating the min and max of the domains of the variables and, if one of the domain boils down to zero, the propagation returns a failure. Otherwise, the propagation will test if the current assignment satisfies the constraint and, if it's the case, it returns a success. 
 In the last case, the implementation will return a suspend meaning that the current assignment does not satisfies the constraint but that there are still values in the domain that have to be tried. 
 
@@ -288,10 +290,65 @@ Here is the method check for the first three constraints.
 \subsection{The AllDifferent constraint}
 \subsubsection{Define forward-checking consistency for the decomposition of AllDiff in binary constraints.}
 \subsubsection{Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff (\dots)}
+In the post method, we iterate on all the variables. Those who are not bind are subscribed to bind event.
+\lstinputlisting[language=C]{AllDiffFC_post.co}
 
-
+In the valBind method, we remove from all variable's domain different from the one which have been binded, the value that have been binded.
+\lstinputlisting[language=C]{AllDiffFC_valBind.co}
 \subsubsection{Modify the Nqueens.co file provided into file NqueensFC.co such that it uses your implementation of alldifferent.}
-\subsubsection{Test both yours (NqueensFC.co) and Comet’s (Nqueens.co) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices be- tween the two implementations and for each n = 12 . . . 32 in a table.}
+The only lines which have been modified are the lines who post the constraints. The constructor used creates a "fake" variable known as a view.
+\lstinputlisting[language=C]{NQueensFC.co}
+\subsubsection{Test both yours (NqueensFC.co) and Comet’s (Nqueens.co) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices between the two implementations and for each n = 12 . . . 32 in a table.}
+
+
+\begin{figure}[!h]\hspace{-1.2cm}
+\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+n&12&13&14&15&16&17&18&19&20&21&22 &23&24  \\
+\hline\hline
+NQueens &39&13&270&176&1.358&714&4.540&172&17.921&399&135.923&847&19.603    \\
+\hline
+NQueensFC &64&16&423&290&2.305&1.561&9.557&742&48.059&1.959&343.151& 5.193 &81.171    \\
+\hline
+\end{tabular}
+\\
+\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+n&25&26&27&28&29&30&31&32   \\
+\hline\hline
+NQueens &1.150&12.032&12.211&89.509&35.369&1.837.227&288.305&2.057.346    \\
+\hline
+NQueensFC &9.149&69.903& 84.175&523.005&266.235& 9.374.708&2.250.869&14.336.324 \\
+\hline
+\end{tabular}
+\caption{Failures}
+\end{figure}
+\begin{figure}[!h]\hspace{-1cm}
+\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+n&12&13&14&15&16&17&18&19&20&21&22 &23&24  \\
+\hline\hline
+NQueens &20&11&117&79&597&327&1.936&71&7.341&160&57.834 &339 &8.203   \\
+\hline
+NQueensFC &34&32&208&143&1.123&752&4.508&381&22.220&943& 162.268 &2.510 &38.902\\
+\hline
+\end{tabular}
+\begin{tabular}{|c||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+n&25&26&27&28&29&30&31&32   \\
+\hline\hline
+NQueens &455&5.138&4.649&36.342&13.672&758.650&112.867&826.632     \\
+\hline
+NQueensFC &4.507&34.458&39.943&252.503&126.158&4.574.951&1.087.399&7.040.698  \\
+\hline
+\end{tabular}
+\caption{Choices}
+\end{figure}
+
+
+
 \subsubsection{What did you find in your comparative study? Explain the results!}
+
+
 
 \end{document}

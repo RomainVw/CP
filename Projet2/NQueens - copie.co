@@ -11,25 +11,13 @@
   DYNADEC TM and COMET TM are trademarks of Dynamic Decision Technologies, Inc.
   ********************************************************************************/
 
-/*
- * LINGI2365 - Constraint Programming
- * Project 2 - Propagation
- *
- * Groupe 7 :
- * Crochelet Martin (2236-10-00)
- * Vanwelde Romain (3143-10-00)
- *
- */
-
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
 import cotfd;
-include "AllDiffFC";
-
 
 Solver<CP> m();
 int t0 = System.getCPUTime();
-int n = 32;
+int n = 8;
 range S = 1..n;
 var<CP>{int} q[i in S](m,S);
 
@@ -39,18 +27,19 @@ cout << "Initiating search..." << endl;
 Integer c(0);
 solve<m> {
 
-  m.post(AllDiffFC(all(i in S) new var<CP>{int}(m,q[i], i)),onDomains);
-  m.post(AllDiffFC(all(i in S) new var<CP>{int}(m,q[i], - i)),onDomains);
-  m.post(AllDiffFC(q),onDomains);
+  m.post(alldifferent(all(i in S) q[i] + i),onDomains);
+  m.post(alldifferent(all(i in S) q[i] - i),onDomains);
+  m.post(alldifferent(q),onDomains);
   
 } using {
   label(q);
   c := c + 1;
 }
-
+cout << "Nb : " << c << endl;
 int t1 = System.getCPUTime();
-cout << "n = " << n << endl;
-cout << "#fail    = " << m.getNFail() << endl;
+cout << "Solution = " << q << endl;
+cout << "time: " << t1 - t0 << endl;
 cout << "#choices = " << m.getNChoice() << endl;
-
+cout << "#fail    = " << m.getNFail() << endl;
+cout << "#propag  = " << m.getNPropag() - np << endl;
 

@@ -1,0 +1,12 @@
+   Outcome<CP> valBind(var<CP>{int} z, int val) {
+      forall(i in 1.._X.getSize()) {
+         if (z.getId() != _X[i].getId())
+         {
+            // we remove the value from the others domains
+            if(_X[i].removeValue(val) == Failure)
+               return Failure;
+         }
+         
+      }
+      return Suspend;
+   }

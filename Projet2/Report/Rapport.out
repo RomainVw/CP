@@ -1,25 +1,26 @@
 \BOOKMARK [1][-]{section.1}{Questions}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Q. 2.1}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Q. 2.2}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Q. 2.3}{section.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.3.1}{a\)}{subsection.1.3}% 5
-\BOOKMARK [3][-]{subsubsection.1.3.2}{b\)}{subsection.1.3}% 6
-\BOOKMARK [3][-]{subsubsection.1.3.3}{c\)}{subsection.1.3}% 7
-\BOOKMARK [3][-]{subsubsection.1.3.4}{d\)}{subsection.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.1}{Explain in detail the time and space complexities of the DC3 algorithm. What is the time complexity if all the constraints are domain consistent when algorithm DC3 is called?}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{In the algorithm CDC \(5.1 in the book\), what would be the effect of moving the instruction of line 21 \(Q -= c\) after line 16? Would the algorithm still be correct?}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Consider the constraint X - a = Y .}{section.1}% 4
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Show that it is domain consistent if and only if D\(X\) - a = D\(Y \).}{subsection.1.3}% 5
+\BOOKMARK [3][-]{subsubsection.1.3.2}{What is the definition of bound consistency for this constraint?}{subsection.1.3}% 6
+\BOOKMARK [3][-]{subsubsection.1.3.3}{Is this constraint automatically bound consistent if it is domain consistent?}{subsection.1.3}% 7
+\BOOKMARK [3][-]{subsubsection.1.3.4}{Is this constraint automatically domain consistent if it is bound consistent?}{subsection.1.3}% 8
 \BOOKMARK [1][-]{section.2}{Problems}{}% 9
-\BOOKMARK [2][-]{subsection.2.1}{Q. 3.1}{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.1.1}{1\), 2\)}{subsection.2.1}% 11
-\BOOKMARK [3][-]{subsubsection.2.1.2}{3\)}{subsection.2.1}% 12
-\BOOKMARK [3][-]{subsubsection.2.1.3}{4\)}{subsection.2.1}% 13
-\BOOKMARK [2][-]{subsection.2.2}{The channeling constraint}{section.2}% 14
-\BOOKMARK [3][-]{subsubsection.2.2.1}{Give the definition of domain consistency for this constraint}{subsection.2.2}% 15
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Implement an AC5 propagator achieving domain consistency for this constraint.}{subsection.2.2}% 16
-\BOOKMARK [2][-]{subsection.2.3}{AC2001 propagator}{section.2}% 17
-\BOOKMARK [3][-]{subsubsection.2.3.1}{Generic constraint}{subsection.2.3}% 18
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Specific constraints}{subsection.2.3}% 19
-\BOOKMARK [2][-]{subsection.2.4}{The AllDifferent constraint}{section.2}% 20
-\BOOKMARK [3][-]{subsubsection.2.4.1}{Define forward-checking consistency for the decomposition of AllDiff in binary constraints.}{subsection.2.4}% 21
-\BOOKMARK [3][-]{subsubsection.2.4.2}{Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff \(\203\)}{subsection.2.4}% 22
-\BOOKMARK [3][-]{subsubsection.2.4.3}{Modify the Nqueens.co file provided into file NqueensFC.co such that it uses your implementation of alldifferent.}{subsection.2.4}% 23
-\BOOKMARK [3][-]{subsubsection.2.4.4}{Test both yours \(NqueensFC.co\) and Comet\220s \(Nqueens.co\) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices be- tween the two implementations and for each n = 12 . . . 32 in a table.}{subsection.2.4}% 24
-\BOOKMARK [3][-]{subsubsection.2.4.5}{What did you find in your comparative study? Explain the results!}{subsection.2.4}% 25
+\BOOKMARK [2][-]{subsection.2.1}{AC3 propagator}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.1}{What is the definition of domain consistency for this constraint}{subsection.2.1}% 11
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Are domain consistency and bound consistency equivalent for this constraint? Prove why they are, or why they are not.}{subsection.2.1}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.3}{What do the lines \137x.addMax\(this\) and \137y.addMin\(this\) in post do?}{subsection.2.1}% 13
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Explain why the propagate method is correct.}{subsection.2.1}% 14
+\BOOKMARK [2][-]{subsection.2.2}{The channeling constraint}{section.2}% 15
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Give the definition of domain consistency for this constraint}{subsection.2.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Implement an AC5 propagator achieving domain consistency for this constraint.}{subsection.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.3}{AC2001 propagator}{section.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Generic constraint}{subsection.2.3}% 19
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Specific constraints}{subsection.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.4}{The AllDifferent constraint}{section.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Define forward-checking consistency for the decomposition of AllDiff in binary constraints.}{subsection.2.4}% 22
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Implement a propagator ensuring a consistency for AllDiff equivalent to forward- checking consistency for the decomposition of AllDiff \(\203\)}{subsection.2.4}% 23
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Modify the Nqueens.co file provided into file NqueensFC.co such that it uses your implementation of alldifferent.}{subsection.2.4}% 24
+\BOOKMARK [3][-]{subsubsection.2.4.4}{Test both yours \(NqueensFC.co\) and Comet\220s \(Nqueens.co\) implementation of AllDifferent on the NQueens problem. Compare the number of failures and choices between the two implementations and for each n = 12 . . . 32 in a table.}{subsection.2.4}% 25
+\BOOKMARK [3][-]{subsubsection.2.4.5}{What did you find in your comparative study? Explain the results!}{subsection.2.4}% 26

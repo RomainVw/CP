@@ -1,0 +1,10 @@
+   Outcome<CP> post(Consistency<CP> cl) {
+      forall(i in 1.._X.getSize()) {
+         // if _X[i] is not binded
+         if (!_X[i].bound()){ 
+            // We suscribe it to the bind event
+            _X[i].addAC5Bind(this);
+         }       
+      }
+      return Suspend;
+   }

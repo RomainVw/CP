@@ -1,0 +1,10 @@
+solve<m> {
+
+  m.post(AllDiffFC(all(i in S) new var<CP>{int}(m,q[i], i)),onDomains);
+  m.post(AllDiffFC(all(i in S) new var<CP>{int}(m,q[i], - i)),onDomains);
+  m.post(AllDiffFC(q),onDomains);
+  
+} using {
+  label(q);
+  c := c + 1;
+}
