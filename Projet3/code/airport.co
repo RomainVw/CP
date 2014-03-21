@@ -52,19 +52,25 @@ subject to {
 		cp.post(land[i] == idealTime[i] + delay[i]);
 } using {
 
-
-   forall(i in P) by (idealTime[i])
-   //forall(i in P) by (-penality[i])
-
-   //forall(i in P) by (penality[i])
-   //forall(i in P) by (-idealTime[i])
-     {
-      //cout << (idealTime[i]) << endl;
+   /* Stratégie 1 */
+   /*forall(i in P) by (idealTime[i])
       tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
          label(delay[i],v);
-     }
-  // labelFF(land);
-  // labelFF(delay);
+     }*/
+
+   /* Stratégie 2 */
+   /*forall(i in P) by (-(block[i] * penality[i]))
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);
+     }*/
+   
+   /* Stratégie 3 */
+   forall(i in P) by (-(block[i] * penality[i] / idealTime[i]))
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);
+  
+
+   //labelFF(delay);
 }
 
 cout << "OPTIMAL VALUE: " << sum(i in P) delay[i] * delay[i] * penality[i] << endl;
