@@ -8,15 +8,6 @@ Solver<CP> cp();
 
 Integer np(cp.getNPropag());
 cout << "Initiating search..." << endl;
-/**
-INSTANCE:
-
-object number:  1 2 3 4 5 6 7
-object weight:  6 5 5 4 4 4 2
-
-3 bins each of capacity 10
-
-**/
 
 // fill in input file path
 string path = "knapsack instances/A/knapsack-A-1.txt";
@@ -27,7 +18,7 @@ int no = file.getInt();
 // create a range for the objects
 range P = 1..no;
 // create data variables
-int weight[P];          // weight of item
+int weight[P];         // weight of item
 int usefulness[P];     // sefulness
 
 // read data from file
@@ -50,12 +41,29 @@ maximize<cp>
 subject to {
 	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == load);
 } using {
-   //forall(i in P) by (weight[i])
-   //forall(i in P) by (-weight[i])
-   forall(i in P) by (- usefulness[i])
-      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) 
+
+   
+   /* First strategy */
+   forall(i in P) by (- usefulness[i] / weight[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
          label(bin[i]);
-   //labelFF(bin)
+
+
+   /* Second strategy */
+   /*forall(i in P) by (weight[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+         label(bin[i]);*/
+
+   /* Third strategy */
+   /*forall(i in P) by (- usefulness[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+         label(bin[i]);*/
+
+
+   //labelFF(bin);
+
+   
+
          forall (obj in 1..no){   
              cout << "Objet #" << obj << " has domain " << bin[obj] << endl; 
          }
