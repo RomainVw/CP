@@ -1,6 +1,6 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
-import cpsolver;
+import cotfd;
 
 // create the CP Solver 
 Solver<CP> cp();
@@ -8,7 +8,7 @@ Solver<CP> cp();
 /* read input file */
 
 // fill in input file path
-string path = "";
+string path = "brussels.txt";
 ifstream file(path);
 // read the number of planes
 int n = file.getInt();
@@ -51,7 +51,20 @@ subject to {
 	forall(i in P)
 		cp.post(land[i] == idealTime[i] + delay[i]);
 } using {
-	// todo
+
+
+   forall(i in P) by (idealTime[i])
+   //forall(i in P) by (-penality[i])
+
+   //forall(i in P) by (penality[i])
+   //forall(i in P) by (-idealTime[i])
+     {
+      //cout << (idealTime[i]) << endl;
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);
+     }
+  // labelFF(land);
+  // labelFF(delay);
 }
 
 cout << "OPTIMAL VALUE: " << sum(i in P) delay[i] * delay[i] * penality[i] << endl;
