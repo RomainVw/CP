@@ -1,0 +1,83 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cotfd;
+
+// create the CP Solver 
+Solver<CP> cp();
+
+/* read input file */
+
+// fill in input file path
+string path = "brussels.txt";
+ifstream file(path);
+// read the number of planes
+int n = file.getInt();
+// create a range for the planes
+range P = 1..n;
+// create data variables
+int idealTime[P];    // prefered landing time p_i
+int penality[P];     // penality cost c_i
+int block[P];        // time the lane is blocked b_i
+int maxDelay = n;    // maximum delay a plane will need to have
+// read data from file
+forall(i in P) {
+	idealTime[i] = file.getInt();
+	block[i] = file.getInt();
+	penality[i] = file.getInt();
+	maxDelay += block[i];
+}
+
+maxDelay = maxDelay / 2 + 1;
+range D = -maxDelay..maxDelay;
+
+/* create model variables */
+
+// delay of plane i relative to  p_i. 
+var<CP>{int} delay[P](cp, D);
+
+// auxiliary variable.
+// land[i] = time at witch plane i will land
+var<CP>{int} land[P](cp, 0..System.getMAXINT());
+
+int t0 = System.getCPUTime();
+
+minimize<cp>
+	sum(i in P) delay[i] * delay[i] * penality[i]
+subject to {
+	// main constraint
+  forall (i in P, j in P : j != i)
+		cp.post(land[j] < land[i] || land[j] > land[i] + block[i]);
+	// constraint to link variables
+	forall(i in P)
+		cp.post(land[i] == idealTime[i] + delay[i]);
+} using {
+
+   /* Strategie 1 */
+   /*forall(i in P) by (idealTime[i])
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);*/
+    
+
+   /* Strategie 2 */
+   forall(i in P) by (-(block[i] * penality[i]))
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);
+    
+   
+   /* Strategie 3 */
+  /* forall(i in P) by (-(block[i] * penality[i] / idealTime[i]))
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);*/
+  
+
+   //labelFF(delay);
+}
+
+cout << "OPTIMAL VALUE: " << sum(i in P) delay[i] * delay[i] * penality[i] << endl;
+
+int t1 = System.getCPUTime();
+cout << "TIME TAKEN: " << (t1 - t0) << endl;
+
+forall(i in P)
+	cout << "Plane " << i << " lands at time\t" << land[i] << endl; 
+

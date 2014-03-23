@@ -1,9 +1,8 @@
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
 import cotfd;
-include "knapsackLBUB";
 
-// Initial time
+// initial time
 int t0 = System.getCPUTime();
 
 // create the CP Solver 
@@ -40,38 +39,44 @@ forall(i in P) {
 }
 
 int C = file.getInt();
-Integer ub(0);
-ub := getUB(no, C, weight, usefulness);
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
 var<CP>{int} load(cp, 0..C);
-var<CP>{int} totalUsefulness(cp, 0..ub);
 
-whenever cp.getSearchController()@onCompletion(){
-           ub := ub-1;
-           cp.reStart();
-}
 
-whenever cp.getSearchController()@onFeasibleSolution(Solution s){
-           cp.exit();
-}
 
-solve<cp> {
+maximize<cp>
+           sum(i in P) bin[i]  * usefulness[i]
+subject to {
 	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == load);
-           
 } using {
-      cp.post(totalUsefulness==ub);
-      forall(i in P) by (- usefulness[i])
-         tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
-            label(bin[i],v);
+
+   
+   /* First strategy */
+   /*forall(i in P) by (weight[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+         label(bin[i],v);*/
+
+   /* Second strategy */
+   forall(i in P) by (- usefulness[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+         label(bin[i],v);
+
+
+   /* Third strategy */
+   /*forall(i in P) by (- usefulness[i] / weight[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+         label(bin[i],v);*/
+
+   /* First Fail strategy */
+   //labelFF(bin);
+
 }
-
-
 
 
 int t1 = System.getCPUTime();
-cout << "totalUsefulness = " << totalUsefulness << endl;
+cout << "Solution = " << bin << endl;
 cout << "time: " << t1 - t0 << endl;
 cout << "#choices = " << cp.getNChoice() << endl;
 cout << "#fail    = " << cp.getNFail() << endl;
