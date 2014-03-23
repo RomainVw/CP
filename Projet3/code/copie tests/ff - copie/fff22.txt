@@ -1,0 +1,78 @@
+**************************************************************************
+Comet Version 2.1-1 (2 cores) [Build 3958667593fb52975ed9cab820e4a31bc7741ec9]
+COPYRIGHTS AND TRADEMARKS
+Copyright (c) 2007, 2008, 2009 Dynamic Decision Technologies, Inc.  All rights reserved.  
+
+Portions of this product are copyright of, and licensed from, Brown University 
+or the University of Connecticut.  This product also includes open source software 
+developed by the OpenSSL Project, Free Software Foundation, Inc., the Regents 
+of the University of California and NetBSD Foundation, Inc.  See copyright notice 
+included with the software for additional copyright information.
+
+DYNADEC TM and COMET TM are trademarks of Dynamic Decision Technologies, Inc.
+**************************************************************************
+This software uses an unmodified version of the GNU LGPL lightning library
+version 1.3. Lightning is packaged in the jit shared library and a copy of
+its source is distributed alongside.
+**************************************************************************
+jit code segment enlarged 0x3f7ff88 :: 0x407ff88 detect: 0x407fda7
+jit code segment enlarged 0x4efff98 :: 0x50fff98 detect: 0x50ffd98
+bundle loading succesful for [/Library/Frameworks/Comet.framework/Resources/cotfd.bundle]
+info: bundle found symbol [cotfdModuleRegistry] @ 0x55af260
+Registration in progress(CP)...
+Initiating search...
+objective tightened to: 0
+objective tightened to: 10
+objective tightened to: 13
+objective tightened to: 23
+objective tightened to: 24
+objective tightened to: 32
+objective tightened to: 33
+objective tightened to: 38
+objective tightened to: 39
+objective tightened to: 43
+objective tightened to: 44
+objective tightened to: 47
+objective tightened to: 48
+objective tightened to: 49
+objective tightened to: 51
+objective tightened to: 52
+objective tightened to: 57
+objective tightened to: 58
+objective tightened to: 62
+objective tightened to: 63
+objective tightened to: 66
+objective tightened to: 67
+objective tightened to: 68
+objective tightened to: 69
+objective tightened to: 72
+objective tightened to: 73
+objective tightened to: 74
+objective tightened to: 76
+objective tightened to: 77
+objective tightened to: 78
+objective tightened to: 79
+objective tightened to: 82
+objective tightened to: 83
+objective tightened to: 84
+objective tightened to: 85
+objective tightened to: 86
+objective tightened to: 88
+objective tightened to: 89
+objective tightened to: 90
+objective tightened to: 91
+objective tightened to: 94
+objective tightened to: 95
+objective tightened to: 96
+objective tightened to: 97
+objective tightened to: 98
+objective tightened to: 101
+objective tightened to: 102
+objective tightened to: 103
+objective tightened to: 104
+Solution = bin[0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1]
+Solution = 104
+time: 22898
+#choices = 844301
+#fail    = 1246026
+#propag  = 7843373

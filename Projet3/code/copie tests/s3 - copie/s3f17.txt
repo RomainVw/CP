@@ -1,0 +1,30 @@
+**************************************************************************
+Comet Version 2.1-1 (2 cores) [Build 3958667593fb52975ed9cab820e4a31bc7741ec9]
+COPYRIGHTS AND TRADEMARKS
+Copyright (c) 2007, 2008, 2009 Dynamic Decision Technologies, Inc.  All rights reserved.  
+
+Portions of this product are copyright of, and licensed from, Brown University 
+or the University of Connecticut.  This product also includes open source software 
+developed by the OpenSSL Project, Free Software Foundation, Inc., the Regents 
+of the University of California and NetBSD Foundation, Inc.  See copyright notice 
+included with the software for additional copyright information.
+
+DYNADEC TM and COMET TM are trademarks of Dynamic Decision Technologies, Inc.
+**************************************************************************
+This software uses an unmodified version of the GNU LGPL lightning library
+version 1.3. Lightning is packaged in the jit shared library and a copy of
+its source is distributed alongside.
+**************************************************************************
+jit code segment enlarged 0x3f7ff88 :: 0x407ff88 detect: 0x407fde1
+jit code segment enlarged 0x4efff98 :: 0x50fff98 detect: 0x50ffd98
+bundle loading succesful for [/Library/Frameworks/Comet.framework/Resources/cotfd.bundle]
+info: bundle found symbol [cotfdModuleRegistry] @ 0x55af260
+Registration in progress(CP)...
+Initiating search...
+objective tightened to: 89
+Solution = bin[1,1,1,1,1,1,0,0,1,0,1,0,0,1,1,0,0,1,0,0,1,0,0,0,0]
+Solution = 89
+time: 15918
+#choices = 511056
+#fail    = 1011177
+#propag  = 4584359

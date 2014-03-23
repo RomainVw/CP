@@ -1,0 +1,5 @@
+Solution = 44
+time: 318
+#choices = 10206
+#fail    = 20306
+#propag  = 129069

@@ -65,12 +65,12 @@ subject to {
      }*/
    
    /* Stratégie 3 */
-   forall(i in P) by (-(block[i] * penality[i] / idealTime[i]))
+   /*forall(i in P) by (-(block[i] * penality[i] / idealTime[i]))
       tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
-         label(delay[i],v);
+         label(delay[i],v);*/
   
 
-   //labelFF(delay);
+   labelFF(delay);
 }
 
 cout << "OPTIMAL VALUE: " << sum(i in P) delay[i] * delay[i] * penality[i] << endl;

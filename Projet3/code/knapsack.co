@@ -10,7 +10,14 @@ Integer np(cp.getNPropag());
 cout << "Initiating search..." << endl;
 
 // fill in input file path
-string path = "knapsack instances/A/knapsack-A-1.txt";
+int nbArgs = System.argc();
+string[] args = System.getArgs();
+string path = "deffault";
+forall (i in 2..nbArgs)
+   if (args[i-1].prefix(2).equals("-f"))
+      path = args[i-1].suffix(2);
+//cout << path << endl; 
+//string path = "knapsack instances/A/knapsack-A-24.txt";
 ifstream file(path);
 // read the number of objects
 int no = file.getInt();
@@ -43,21 +50,23 @@ subject to {
 } using {
 
    
+
+
    /* First strategy */
-   forall(i in P) by (- usefulness[i] / weight[i])
-      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
-         label(bin[i]);
-
-
-   /* Second strategy */
    /*forall(i in P) by (weight[i])
       tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
-         label(bin[i]);*/
+         label(bin[i],v);*/
+
+   /* Second strategy */
+   forall(i in P) by (- usefulness[i])
+      tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+         label(bin[i],v);
+
 
    /* Third strategy */
-   /*forall(i in P) by (- usefulness[i])
+   /*forall(i in P) by (- usefulness[i] / weight[i])
       tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
-         label(bin[i]);*/
+         label(bin[i],v);*/
 
 
    //labelFF(bin);
@@ -65,7 +74,7 @@ subject to {
    
 
          forall (obj in 1..no){   
-             cout << "Objet #" << obj << " has domain " << bin[obj] << endl; 
+             //cout << "Objet #" << obj << " has domain " << bin[obj] << endl; 
          }
 }
 
