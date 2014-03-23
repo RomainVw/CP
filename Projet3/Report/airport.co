@@ -1,0 +1,35 @@
+...
+...
+
+minimize<cp>
+	sum(i in P) delay[i] * delay[i] * penality[i]
+subject to {
+	// main constraint
+  forall (i in P, j in P : j != i)
+		cp.post(land[j] < land[i] || land[j] > land[i] + block[i]);
+	// constraint to link variables
+	forall(i in P)
+		cp.post(land[i] == idealTime[i] + delay[i]);
+} using {
+
+   /* Strategie 1 */
+   /*forall(i in P) by (idealTime[i])
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);*/
+    
+
+   /* Strategie 2 */
+   forall(i in P) by (-(block[i] * penality[i]))
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);
+    
+   
+   /* Strategie 3 */
+  /* forall(i in P) by (-(block[i] * penality[i] / idealTime[i]))
+      tryall<cp>(v in D : delay[i].memberOf(v) ) by (abs(v)) 
+         label(delay[i],v);*/
+  
+
+   //labelFF(delay);
+}
+...

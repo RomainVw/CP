@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.2.5)  23 MAR 2014 22:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.2.5)  23 MAR 2014 23:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1507,12 +1507,27 @@ been already used, duplicate ignored
                    \relax 
 l.195 \setcounter
                  {page}{1} [1]
-Overfull \hbox (0.32259pt too wide) in paragraph at lines 204--204
- |[]\T1/lmr/bx/n/14.4 Which cri-te-ria are mea-ning-ful for com-pa-ring dif-fer
-ent search
+Underfull \hbox (badness 10000) in paragraph at lines 201--207
+
  []
 
-(./knapsack.co
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--211
+
+ []
+
+(./airport.co
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 5.
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 22.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 22.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 22.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1523,97 +1538,25 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.17    usefulness[
-                   i] = file.getInt(); [1]
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 29.
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 37.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 37.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 37.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
-
+l.33    //
+          labelFF(delay); [1])
+Overfull \hbox (0.32259pt too wide) in paragraph at lines 217--217
+ |[]\T1/lmr/bx/n/14.4 Which cri-te-ria are mea-ning-ful for com-pa-ring dif-fer
+ent search
  []
 
+
+LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
+(Font)              using `T1/lmr/bx/n' instead on input line 229.
+
+(./knapsack.co
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
-
- []
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 235.
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 256--257
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--275
-
- []
-
-
-LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 275.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 280--295
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (4.203pt too wide) in paragraph at lines 299--313
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 299--313
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (45.3279pt too wide) in paragraph at lines 318--332
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
-
- []
-
+[2])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1621,22 +1564,96 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
+Underfull \hbox (badness 10000) in paragraph at lines 251--252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 261.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--349
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--321
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (4.203pt too wide) in paragraph at lines 325--339
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--339
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (45.3279pt too wide) in paragraph at lines 344--358
+[][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--371
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
@@ -1646,14 +1663,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4] (./knapsackUB.co)
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[5]
+[5] (./knapsackUB.co)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1667,20 +1677,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7] (./knapsackUB_LB.co
+[7]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8])
-Underfull \hbox (badness 10000) in paragraph at lines 518--519
+[8] (./knapsackUB_LB.co
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9])
+Underfull \hbox (badness 10000) in paragraph at lines 544--545
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 518--519
+Underfull \hbox (badness 10000) in paragraph at lines 544--545
 
  []
 
@@ -1690,13 +1707,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 520--521
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 546--547
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 522--523
+Underfull \hbox (badness 10000) in paragraph at lines 548--549
 
  []
 
@@ -1713,14 +1730,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 644.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 670.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1742,26 +1752,33 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 644.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 670.
  (./Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 644.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 644.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 670.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 670.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
 (rerunfilecheck)             Checksum: B068402835D5C01140151ED0CEDF212B;2948.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 644.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 670.
  ) 
 Here is how much of TeX's memory you used:
- 18728 strings out of 493315
- 269916 string characters out of 6137905
- 598329 words of memory out of 5000000
- 21509 multiletter control sequences out of 15000+600000
+ 18788 strings out of 493315
+ 270685 string characters out of 6137905
+ 598397 words of memory out of 5000000
+ 21528 multiletter control sequences out of 15000+600000
  79563 words of font info for 76 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 46i,14n,78p,1457b,2029s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,14n,78p,1457b,2031s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
 texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 13/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2013/texmf-dist/
@@ -1776,10 +1793,10 @@ type1/public/lm/lmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
 /lm/lmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Rapport.pdf (15 pages, 364278 bytes).
+Output written on Rapport.pdf (16 pages, 371599 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 463 compressed objects within 5 object streams
- 219 named destinations out of 1000 (max. 500000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 510 compressed objects within 6 object streams
+ 257 named destinations out of 1000 (max. 500000)
  219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

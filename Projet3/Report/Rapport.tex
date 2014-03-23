@@ -198,15 +198,41 @@ François Aubry
 \section{The Brussels airport problem}
 
 \subsection{Explain the given model}
-TODO
+There are 5 data variables :\\
+\textbf{n}, the number of plane.\\
+\textbf{idealTime}, the prefered landing time for each plane.\\
+\textbf{penality}, the penalty by unit time from the preffered landing time.\\
+\textbf{block}, the time the plane blocks the lane.\\
+\textbf{maxDelay}, maximum difference of time between landing and preferred landing time.\\
+
+Then, we have two decision variables:\\
+\textbf{delay}, the delay of each plane.\\
+\textbf{land}, the landing time of each plane.\\
+
+Last, we use the constraint optimisation problem structure to solve our problem with an objective function which is the sum of all penalties of each planes, the constraints, and the heuristics.
+It's obvious that we want to minimize the accumulated penalties.
+
 \subsection{Design 2 different variable and/or value ordering heuristics for this problem.}
-TODO
+\lstinputlisting[language=C]{airport.co}
 \subsection{Which criteria are meaningful for comparing different search strategies?}
-TODO
+We want our heuristic to minimize the number of next choices (we want good pruning), but what we basically want is a resolution as fast as possible.
+
 \subsection{Based on your criteria, compare your heuristics with the labelFF heuristic by testing them on the instance on iCampus.}
-TODO
+\begin{figure}[!h]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&Strategy 1&Strategy 1&Strategy 1&labelFF\\
+\hline
+Time&75&34&37&OUT OF TIME\\
+\hline
+\end{tabular}
+\caption{Time taken for different strategies}
+\label{Airport}
+\end{figure}
+Based on the execution time, we will choose the 2nd strategy which is the best. LabelFF ran out of time because it implement the First Fail strategy, without any "ordering" on the values in the domain. Since the amount of variables and values inside their domains is quite enormous, it will take a lot of time to complete.
+
 \subsection{Consider the following strategy. \dots Give an example with three planes where this strategy is wrong}
-TODO
+
 
 \section{The Knapsack Problem}
 
