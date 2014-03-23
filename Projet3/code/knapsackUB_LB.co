@@ -44,11 +44,11 @@ int C = file.getInt();
 Integer ub(0);
 ub := getUB(no, C, weight, usefulness);
 //cout << "UB: " << ub << endl;
-Integer firstUb(0);
-firstUb := ub;
+int firstUb = ub;
 Integer lb(0);
 lb := getLB(no, C, weight, usefulness);
 //cout << "LB: " << lb << endl;
+int firstLb = lb;
 Integer count(1);
 
 // model variables
@@ -59,18 +59,20 @@ var<CP>{int} totalUsefulness(cp, lb..ub);
 whenever cp.getSearchController()@onCompletion(){
            //cout << "FAIL" << endl;
            ub := (int) ceil((lb+ub)/2.0) - 1;
-            count := count + 1;
+           count := count + 1;
            //cout << lb << "-" << ub << endl;
            cp.reStart();
 }
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
-           //cout << "SUCEED" << endl;
+           
            lb := (int) ceil((lb+ub)/2.0);
            //cout << lb << "-" << ub << endl;
            if (lb == ub){
               cp.exit();
            }
+           //cout << "SUCEED" << endl;
+           count := count + 1;
            cp.reStart();
 }
 
@@ -90,7 +92,7 @@ solve<cp> {
 
 int t1 = System.getCPUTime();
 
-cout << firstUb << "&" << totalUsefulness << "&" << count << "&" << t1-t0 << "COUCOU" << endl;
+cout << firstLb << "&" << firstUb << "&" << totalUsefulness << "&" << count << "&" << t1-t0 << "COUCOU" << endl;
 
 /*cout << "totalUsefulness = " << totalUsefulness << endl;
 cout << "time: " << t1 - t0 << endl;

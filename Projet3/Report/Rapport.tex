@@ -509,106 +509,107 @@ In case of failure, we have no solutions in the interval $[ceil(\frac{lb + ub}{2
 \subsubsection{Experiment this version on the instances knapsack-A,-B,-C}
 
 \begin{figure}[!h]
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-file&lb&ub&\# search&time\\
+file&lb&ub&totalUsefulness&\# search&time\\
 \hline
 \hline
-A1&21&21&1&10\\ \hline
-A2&21&21&1&10\\ \hline
-A3&21&21&1&10\\ \hline
-A4&21&21&1&11\\ \hline
-A5&26&26&1&9\\ \hline
-A6&34&34&1&11\\ \hline
-A7&43&43&1&10\\ \hline
-A8&44&44&1&10\\ \hline
-A9&45&45&1&10\\ \hline
-A10&47&47&1&11\\ \hline
-A11&50&50&1&10\\ \hline
-A12&65&65&1&10\\ \hline
-A13&69&69&1&11\\ \hline
-A14&73&73&1&10\\ \hline
-A15&70&70&1&10\\ \hline
-A16&78&78&1&10\\ \hline
-A17&89&89&1&10\\ \hline
-A18&86&86&1&10\\ \hline
-A19&106&106&1&9\\ \hline
-A20&110&110&1&10\\ \hline
-A21&117&117&1&10\\ \hline
-A22&104&104&1&11\\ \hline
-A23&98&98&1&10\\ \hline
-A24&131&131&1&12\\ \hline
-A25&103&103&1&10\\ \hline
+A1&20&21&21&1&10\\ \hline
+A2&21&21&21&1&9\\ \hline
+A3&21&21&21&1&10\\ \hline
+A4&21&21&21&1&10\\ \hline
+A5&25&26&26&1&10\\ \hline
+A6&33&34&34&1&9\\ \hline
+A7&43&43&43&1&10\\ \hline
+A8&44&44&44&1&10\\ \hline
+A9&45&45&45&1&11\\ \hline
+A10&47&47&47&1&9\\ \hline
+A11&50&50&50&1&10\\ \hline
+A12&65&65&65&1&11\\ \hline
+A13&69&69&69&1&11\\ \hline
+A14&73&73&73&1&10\\ \hline
+A15&69&70&70&1&11\\ \hline
+A16&76&78&78&2&10\\ \hline
+A17&89&89&89&1&11\\ \hline
+A18&86&86&86&1&10\\ \hline
+A19&106&106&106&1&10\\ \hline
+A20&110&110&110&1&10\\ \hline
+A21&117&117&117&1&9\\ \hline
+A22&104&104&104&1&10\\ \hline
+A23&98&98&98&1&10\\ \hline
+A24&130&131&131&1&10\\ \hline
+A25&103&103&103&1&10\\ \hline
 \end{tabular}
 \end{figure}
 
 
 \begin{figure}[!h]
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-file&lb&ub&\# search&time\\
+file&lb&ub&totalUsefulness&\# search&time\\
 \hline
 \hline
-B1&934&934&1&15\\ \hline
-B2&934&934&1&14\\ \hline
-B3&947&947&1&16\\ \hline
-B4&943&943&1&15\\ \hline
-B5&872&872&1&14\\ \hline
-B6&835&835&1&15\\ \hline
-B7&826&826&1&15\\ \hline
-B8&859&859&1&17\\ \hline
-B9&836&836&1&14\\ \hline
-B10&951&951&1&15\\ \hline
-B11&891&891&1&15\\ \hline
-B12&817&817&1&15\\ \hline
-B13&880&880&1&17\\ \hline
-B14&836&836&1&17\\ \hline
-B15&826&826&1&14\\ \hline
-B16&796&796&1&15\\ \hline
-B17&878&878&1&14\\ \hline
-B18&858&858&1&15\\ \hline
-B19&843&843&1&14\\ \hline
-B20&904&904&1&18\\ \hline
-B21&836&836&1&16\\ \hline
-B22&883&883&1&14\\ \hline
-B23&794&794&1&14\\ \hline
-B24&802&802&1&15\\ \hline
-B25&805&805&1&14\\ \hline
+B1&622&934&934&9&15\\ \hline
+B2&642&934&934&9&15\\ \hline
+B3&774&947&947&8&15\\ \hline
+B4&696&943&943&8&15\\ \hline
+B5&602&872&872&9&15\\ \hline
+B6&651&835&835&8&14\\ \hline
+B7&589&826&826&8&15\\ \hline
+B8&636&859&859&8&15\\ \hline
+B9&582&836&836&8&15\\ \hline
+B10&811&951&951&8&15\\ \hline
+B11&775&891&891&7&14\\ \hline
+B12&676&817&817&8&15\\ \hline
+B13&671&880&880&8&16\\ \hline
+B14&592&836&836&8&15\\ \hline
+B15&706&826&826&7&14\\ \hline
+B16&738&796&796&6&14\\ \hline
+B17&618&878&878&9&15\\ \hline
+B18&628&858&858&8&15\\ \hline
+B19&642&843&843&8&15\\ \hline
+B20&734&904&904&8&14\\ \hline
+B21&640&836&836&8&14\\ \hline
+B22&741&883&883&8&14\\ \hline
+B23&670&794&794&7&15\\ \hline
+B24&524&802&802&9&15\\ \hline
+B25&665&805&805&8&14\\ \hline
 \end{tabular}
 \end{figure}
 
 
 \begin{figure}[!h]
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-file&lb&ub&\# search&time\\
+file&lb&ub&totalUsefulness&\# search&time\\
 \hline
 \hline
-C1&103&103&1&18\\ \hline
-C2&99&99&1&16\\ \hline
-C3&94&94&1&15\\ \hline
-C4&110&110&1&16\\ \hline
-C5&108&108&1&15\\ \hline
-C6&97&97&1&16\\ \hline
-C7&113&113&1&15\\ \hline
-C8&128&128&1&16\\ \hline
-C9&116&116&1&16\\ \hline
-C10&105&105&1&15\\ \hline
-C11&125&125&1&16\\ \hline
-C12&115&115&1&18\\ \hline
-C13&115&115&1&16\\ \hline
-C14&115&115&1&15\\ \hline
-C15&120&120&1&14\\ \hline
-C16&116&116&1&15\\ \hline
-C17&98&98&1&16\\ \hline
-C18&111&111&1&15\\ \hline
-C19&99&99&1&15\\ \hline
-C20&117&117&1&17\\ \hline
-C21&110&110&1&16\\ \hline
-C22&108&108&1&14\\ \hline
-C23&115&115&1&17\\ \hline
-C24&109&109&1&16\\ \hline
-C25&116&116&1&16\\ \hline
+C1&62&103&103&6&16\\ \hline
+C2&72&99&99&5&15\\ \hline
+C3&77&94&94&5&15\\ \hline
+C4&86&110&110&5&15\\ \hline
+C5&87&108&108&5&15\\ \hline
+C6&86&97&97&4&14\\ \hline
+C7&87&113&113&5&16\\ \hline
+C8&87&128&128&6&16\\ \hline
+C9&92&116&116&5&15\\ \hline
+C10&85&105&105&5&15\\ \hline
+C11&93&125&125&6&15\\ \hline
+C12&67&115&115&6&16\\ \hline
+C13&91&115&115&5&14\\ \hline
+C14&76&115&115&6&16\\ \hline
+C15&99&120&120&5&15\\ \hline
+C16&91&116&116&5&15\\ \hline
+C17&67&98&98&5&16\\ \hline
+C18&83&111&111&5&15\\ \hline
+C19&72&99&99&5&15\\ \hline
+C20&75&117&117&6&16\\ \hline
+C21&73&110&110&6&15\\ \hline
+C22&84&108&108&5&15\\ \hline
+C23&73&115&115&6&17\\ \hline
+C24&90&109&109&5&15\\ \hline
+C25&82&116&116&6&16\\ \hline
+
 
 \end{tabular}
 \end{figure}
