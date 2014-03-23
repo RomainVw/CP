@@ -1,9 +1,0 @@
-UB: 45
-LB: 45
-SUCEED
-45-45
-totalUsefulness = 45
-time: 10
-#choices = 25
-#fail    = 0
-#propag  = 28

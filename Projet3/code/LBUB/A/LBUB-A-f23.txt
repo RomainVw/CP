@@ -1,9 +1,0 @@
-UB: 98
-LB: 98
-SUCEED
-98-98
-totalUsefulness = 98
-time: 10
-#choices = 25
-#fail    = 0
-#propag  = 31

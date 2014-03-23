@@ -1,9 +1,0 @@
-UB: 89
-LB: 88
-SUCEED
-89-89
-totalUsefulness = 89
-time: 10
-#choices = 25
-#fail    = 0
-#propag  = 30

@@ -44,9 +44,12 @@ int C = file.getInt();
 Integer ub(0);
 ub := getUB(no, C, weight, usefulness);
 //cout << "UB: " << ub << endl;
+Integer firstUb(0);
+firstUb := ub;
 Integer lb(0);
 lb := getLB(no, C, weight, usefulness);
 //cout << "LB: " << lb << endl;
+Integer count(1);
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
@@ -56,6 +59,7 @@ var<CP>{int} totalUsefulness(cp, lb..ub);
 whenever cp.getSearchController()@onCompletion(){
            //cout << "FAIL" << endl;
            ub := (int) ceil((lb+ub)/2.0) - 1;
+            count := count + 1;
            //cout << lb << "-" << ub << endl;
            cp.reStart();
 }
@@ -85,10 +89,13 @@ solve<cp> {
 
 
 int t1 = System.getCPUTime();
-cout << "totalUsefulness = " << totalUsefulness << endl;
+
+cout << firstUb << "&" << totalUsefulness << "&" << count << "&" << t1-t0 << "COUCOU" << endl;
+
+/*cout << "totalUsefulness = " << totalUsefulness << endl;
 cout << "time: " << t1 - t0 << endl;
 cout << "#choices = " << cp.getNChoice() << endl;
 cout << "#fail    = " << cp.getNFail() << endl;
 cout << "#propag  = " << cp.getNPropag() - np << endl;
-
+*/
 
