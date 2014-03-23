@@ -1,0 +1,86 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cotfd;
+include "knapsackLBUB";
+
+int t0 = System.getCPUTime();
+
+// create the CP Solver 
+Solver<CP> cp();
+
+Integer np(cp.getNPropag());
+cout << "Initiating search..." << endl;
+
+// fill in input file path
+int nbArgs = System.argc();
+string[] args = System.getArgs();
+string path = "deffault";
+forall (i in 2..nbArgs)
+   if (args[i-1].prefix(2).equals("-f"))
+      path = args[i-1].suffix(2);
+//cout << path << endl; 
+//string path = "knapsack_instances/A/knapsack-A-24.txt";
+ifstream file(path);
+// read the number of objects
+int no = file.getInt();
+
+// create a range for the objects
+range P = 1..no;
+// create data variables
+int weight[P];         // weight of item
+int usefulness[P];     // usefulness
+
+// read data from file
+forall(i in P) {
+   file.getInt();
+   weight[i] = file.getInt();
+   usefulness[i] = file.getInt();
+}
+
+int C = file.getInt();
+cout << " Before UB" << endl;
+int ub = getUB(no, C, weight, usefulness);
+
+// model variables
+var<CP>{int} bin[1..no](cp, 0..1);
+var<CP>{int} totalUsefulness(cp, 0..C);
+
+whenever cp.getSearchController()@onCompletion(){
+	cout << endl;
+	cout << " *******************************************************" << endl;
+	cout << " This is executed when the search is complete and no solution has been found" << endl;
+	cout << endl;
+           ub = ub - 1;
+           cp.reStart();
+}
+
+whenever cp.getSearchController()@onFeasibleSolution(Solution s){
+	cout << endl;
+	cout << " *******************************************************" << endl;
+	cout << " This is executed when the search stops and a feasible solution s has been found" << endl;
+	cout << endl;
+           cp.exit();
+}
+
+solve<cp> {
+	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == totalUsefulness);
+           
+} using {
+      cp.post(totalUsefulness==ub);
+      forall(i in P) by (- usefulness[i])
+         tryall<cp>(v in 0..1 : bin[i].memberOf(v)) by (-v)
+            label(bin[i],v);
+}
+
+
+
+
+int t1 = System.getCPUTime();
+cout << "Solution = " << bin << endl;
+cout << "Solution = " << totalUsefulness << endl;
+cout << "time: " << t1 - t0 << endl;
+cout << "#choices = " << cp.getNChoice() << endl;
+cout << "#fail    = " << cp.getNFail() << endl;
+cout << "#propag  = " << cp.getNPropag() - np << endl;
+
+

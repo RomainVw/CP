@@ -2,8 +2,11 @@
 
 // import the CP library. 
 // replace cpsolver by cotfd if you use and older version of comet
-import lssolver;
-import lnsolver;
+//import lssolver;
+//import lnsolver;
+import cotls;
+import cotln;
+
 
 /*****************************************
  * Using LS to find a feasible solution.
