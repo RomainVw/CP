@@ -3,28 +3,31 @@
 import cotfd;
 include "knapsackLBUB";
 
+// Initial time
 int t0 = System.getCPUTime();
+
 // create the CP Solver 
 Solver<CP> cp();
 
 Integer np(cp.getNPropag());
 cout << "Initiating search..." << endl;
 
-// fill in input file path
+// get input file path
 int nbArgs = System.argc();
 string[] args = System.getArgs();
 string path = "deffault";
 forall (i in 2..nbArgs)
    if (args[i-1].prefix(2).equals("-f"))
       path = args[i-1].suffix(2);
-//cout << path << endl; 
-//string path = "knapsack_instances/A/knapsack-A-24.txt";
+
 ifstream file(path);
+
 // read the number of objects
 int no = file.getInt();
 
 // create a range for the objects
 range P = 1..no;
+
 // create data variables
 int weight[P];         // weight of item
 int usefulness[P];     // usefulness
@@ -37,29 +40,30 @@ forall(i in P) {
 }
 
 int C = file.getInt();
+
 Integer ub(0);
 ub := getUB(no, C, weight, usefulness);
-cout << "UB: " << ub << endl;
+//cout << "UB: " << ub << endl;
 Integer lb(0);
 lb := getLB(no, C, weight, usefulness);
-cout << "LB: " << lb << endl;
+//cout << "LB: " << lb << endl;
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
 var<CP>{int} load(cp, 0..C);
-var<CP>{int} totalUsefulness(cp, 0..ub);
+var<CP>{int} totalUsefulness(cp, lb..ub);
 
 whenever cp.getSearchController()@onCompletion(){
-           cout << "FAIL" << endl;
+           //cout << "FAIL" << endl;
            ub := (int) ceil((lb+ub)/2.0) - 1;
-           cout << lb << "-" << ub << endl;
+           //cout << lb << "-" << ub << endl;
            cp.reStart();
 }
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
-           cout << "SUCEED" << endl;
+           //cout << "SUCEED" << endl;
            lb := (int) ceil((lb+ub)/2.0);
-           cout << lb << "-" << ub << endl;
+           //cout << lb << "-" << ub << endl;
            if (lb == ub){
               cp.exit();
            }

@@ -198,29 +198,67 @@ François Aubry
 \section{The Brussels airport problem}
 
 \subsection{Explain the given model}
+TODO
 \subsection{Design 2 different variable and/or value ordering heuristics for this problem.}
+TODO
 \subsection{Which criteria are meaningful for comparing different search strategies?}
+TODO
 \subsection{Based on your criteria, compare your heuristics with the labelFF heuristic by testing them on the instance on iCampus.}
+TODO
 \subsection{Consider the following strategy. \dots Give an example with three planes where this strategy is wrong}
+TODO
 
 \section{The Knapsack Problem}
 
 \subsection{A Branch \& Bound approach}
 
 \subsubsection{Model the knapsack problem as Constraint Optimization}
+\lstinputlisting[language=C]{knapsack.co}
+
 \subsubsection{Describe your model in the report.}
+
+We use 4 data variables: 
+\begin{itemize}
+\item \textbf{no}, the number of objects
+\item \textbf{weight}, an array with the weight of each object
+\item \textbf{usefulness}, an array with the usefulness of each object
+\item \textbf{C}, the capacity of the knapsack\\
+\end{itemize}
+
+and 2 model variables:
+\begin{itemize}
+\item \textbf{bin}, with a domain wich is [0,1]. When an object has the value 0, it is not in the knapsack, and when it has value 1, it is in the knapsack.
+\item \textbf{load} is the weight of all the objects wich are curently in the knapsack.\\
+\end{itemize}
+
+Then we use the structure to solve constraint optimisation problems :
+\begin{verbatim}
+maximize<cp>
+    objective_function
+subject to {
+    constraints
+} using {
+    search_heuristic
+}
+\end{verbatim}
+
+The objective function (that we maximize) is the total of the actual usefulness of the knapsack.\\
+The constraints prevent to fill the knapsack with more weight than allowed.\\
+Search\_heuristic are discussed in the following section.
+
+
+
 \subsubsection{Design 3 different heuristics for variable selection.}
+The first heuristic assigns variables which have the smallest weight first. Indeed, we could probably put more object in the knapsack, and fill it better with this strategy.\\
+The second heuristic assigns variables which have the biggest utility first. Since the utility of those objects is bigger, they will probably be in the final solution.\\
+The third heuristic tries to combine the 2 presented here above. It assigns objects with the higher value for ratio usefulness/weight. Object with higher ratio will also tend to be in the final solution.\\
+
 \subsubsection{Test your heuristics and the labelFF heuristic on the knapsack-A instances.}
-\subsubsection{Present and discuss the results in your report}
 
-
-%Solution&21&21&21&21&26&34&43&44&45&47\\
-
-
-time :\\
+\begin{figure}[!h]
 \begin{tabular}{|r||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
+time :&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
 s1&76&37&21&50&73&95&219&318&1098&2189\\
@@ -232,11 +270,14 @@ s3&29&21&22&28&34&63&145&166&899&1476\\
 ff&17&15&10&18&26&45&98&113&672&1034\\
 \hline
 \end{tabular}\\
+\caption{Search time depending on instances and heuristics}
+\end{figure}
 
-\#choices\\
+
+\begin{figure}[!h]
 \begin{tabular}{|r||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
+\#choices&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
 s1&2151&1068&609&1488&2058&2668&6177&10206&36020&73265\\
@@ -249,12 +290,13 @@ s4&538&468&339&617&860&1590&3756&4431&26737&41081\\
 \hline
 
 \end{tabular}\\
+\caption{Number of choices depending on instances and heuristics}
+\end{figure}
 
-
-\#fail\\
+\begin{figure}[!h]
 \begin{tabular}{|r||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
+\#fail&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
 s1&4266&2098&1140&2940&3975&5298&12193&20306&71907&146472\\
@@ -266,12 +308,14 @@ s3&1731&1120&1045&1454&1852&3667&8608&10247&55578&90988\\
 s4&722&574&437&847&1149&1966&4781&5723&33206&54804\\
 \hline
 \end{tabular}\\
+\caption{Number of failures depending on instances and heuristics}
+\end{figure}
 
 
-\#propag:\\
+\begin{figure}[!h]
 \begin{tabular}{|r||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
+\#propag:&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
 s1&25586&12644&7115&16302&25829&36401&81296&129069&427978&819394\\
@@ -283,25 +327,60 @@ s3&6250&5299&3798&6189&8609&17699&41002&48293&280535&391867\\
 s4&6306&5371&3867&6210&8680&17772&41030&48393&280603&391948\\
 \hline
 \end{tabular}
+\caption{Number of propagation depending on instances and heuristics}
+\end{figure}
 
+
+Results here above only show the results for the 10 first files. The other results are available in the directory ... TODO
+
+\subsubsection{Present and discuss the results in your report}
+
+
+TODO
+
+
+The search strategy we will use for the remainder of this assignment is the second one.
 
 \subsection{Optimization over iterations}
 
 \subsubsection{Model the knapsack problem as a Constraint Satisfaction Problem.}
+
+\lstinputlisting[language=C]{knapsackUB.co}
+
 \subsubsection{In order to implement the optimization over iterations \dots}
 
+We added Integer ub which will be the upper bound, and is assigned thanks to the \texttt{getUB} function. We added a decision variable totalUsefulness which will be forced to take the value of the upper bound. Suceed event that will finish the search, and failure events that will reduce the upper bound from 1 and restart the search.
+
 \subsubsection{Which of these points (i., ii., iii.) do you need to execute on which events?}
+In case of success, we succeed in finding the best value for the totalUseffulness (since it can't be bigger than the upper bound). So we end the search (iii). Otherwise, in case of failure, we modify ub value (we decrease by 1), and we restart the search (i and ii).
+We will continue like that until the upper bound will be the optimal solution, and then will succeed and end the search.
+
+
 \subsubsection{How do you modify the value of ub to be sure to find the optimal solution?}
+
+Since we only use integer, we can decrease ub by 1 at each failure.
+
 \subsubsection{Can you explain why we initialize ub with an upper bound instead of any other value?}
+
+If ub is not an upper bound, it means that the search could end with an non optimal value.
+
 \subsubsection{Experiment this program on the instances knapsack-A, -B. }
+
+TODO
+
 \subsubsection{Present and discuss the results in your report.}
+
+TODO
 
 \subsection{Optimization via divide and conquer}
 
 \subsubsection{In order to implement the optimization via divide and conquer you will have to \dots}
-
+\lstinputlisting[language=C]{knapsackUB_LB.co}
 \subsubsection{Which of these points (i., ii., iii., iv.) do you need to execute on which events?}
+TODO : Vérifier la condition d'arret
+In case of success, we have to 
 \subsubsection{Experiment this version on the instances knapsack-A,-B,-C}
+TODO
 \subsubsection{Present and discuss the results in your report.}
-
+TODO
 \end{document}
