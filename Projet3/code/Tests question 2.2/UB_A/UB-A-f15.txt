@@ -1,0 +1,6 @@
+UB: 70
+totalUsefulness = 70
+time: 9
+#choices = 25
+#fail    = 0
+#propag  = 29

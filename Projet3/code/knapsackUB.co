@@ -4,7 +4,6 @@ import cotfd;
 include "knapsackLBUB";
 
 int t0 = System.getCPUTime();
-
 // create the CP Solver 
 Solver<CP> cp();
 
@@ -38,32 +37,27 @@ forall(i in P) {
 }
 
 int C = file.getInt();
-cout << " Before UB" << endl;
-int ub = getUB(no, C, weight, usefulness);
+Integer ub(0);
+ub := getUB(no, C, weight, usefulness);
+cout << "UB: " << ub << endl;
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
-var<CP>{int} totalUsefulness(cp, 0..C);
+var<CP>{int} load(cp, 0..C);
+var<CP>{int} totalUsefulness(cp, 0..ub);
 
 whenever cp.getSearchController()@onCompletion(){
-	cout << endl;
-	cout << " *******************************************************" << endl;
-	cout << " This is executed when the search is complete and no solution has been found" << endl;
-	cout << endl;
-           ub = ub - 1;
+           cout << "FAIL" << endl;
+           ub := ub-1;
            cp.reStart();
 }
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
-	cout << endl;
-	cout << " *******************************************************" << endl;
-	cout << " This is executed when the search stops and a feasible solution s has been found" << endl;
-	cout << endl;
            cp.exit();
 }
 
 solve<cp> {
-	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == totalUsefulness);
+	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == load);
            
 } using {
       cp.post(totalUsefulness==ub);
@@ -76,8 +70,7 @@ solve<cp> {
 
 
 int t1 = System.getCPUTime();
-cout << "Solution = " << bin << endl;
-cout << "Solution = " << totalUsefulness << endl;
+cout << "totalUsefulness = " << totalUsefulness << endl;
 cout << "time: " << t1 - t0 << endl;
 cout << "#choices = " << cp.getNChoice() << endl;
 cout << "#fail    = " << cp.getNFail() << endl;
