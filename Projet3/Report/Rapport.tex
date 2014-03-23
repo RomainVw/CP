@@ -249,25 +249,27 @@ Search\_heuristic are discussed in the following section.
 
 
 \subsubsection{Design 3 different heuristics for variable selection.}
-The first heuristic assigns variables which have the smallest weight first. Indeed, we could probably put more object in the knapsack, and fill it better with this strategy.\\
-The second heuristic assigns variables which have the biggest utility first. Since the utility of those objects is bigger, they will probably be in the final solution.\\
-The third heuristic tries to combine the 2 presented here above. It assigns objects with the higher value for ratio usefulness/weight. Object with higher ratio will also tend to be in the final solution.\\
+\textbf{The first heuristic} assigns variables which have the smallest weight first. Indeed, we could probably put more object in the knapsack, and fill it better with this strategy.\\
+
+\textbf{The second heuristic} assigns variables which have the biggest utility first. Since the utility of those objects is bigger, they will probably be in the final solution.\\
+
+\textbf{The third heuristic} tries to combine the 2 presented here above. It assigns objects with the higher value for ratio usefulness/weight. Object with higher ratio will also tend to be in the final solution.\\
 
 \subsubsection{Test your heuristics and the labelFF heuristic on the knapsack-A instances.}
 
 \begin{figure}[!h]
 \begin{tabular}{|r||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-time :&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
+time&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
-s1&76&37&21&50&73&95&219&318&1098&2189\\
+Heuristic 1&76&37&21&50&73&95&219&318&1098&2189\\
 \hline
-s2&15&10&9&14&20&27&63&124&213&349\\
+Heuristic 2&15&10&9&14&20&27&63&124&213&349\\
 \hline
-s3&29&21&22&28&34&63&145&166&899&1476\\
+Heuristic 3&29&21&22&28&34&63&145&166&899&1476\\
 \hline
-ff&17&15&10&18&26&45&98&113&672&1034\\
+labelFF&17&15&10&18&26&45&98&113&672&1034\\
 \hline
 \end{tabular}\\
 \caption{Search time depending on instances and heuristics}
@@ -280,13 +282,13 @@ ff&17&15&10&18&26&45&98&113&672&1034\\
 \#choices&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
-s1&2151&1068&609&1488&2058&2668&6177&10206&36020&73265\\
+Heuristic 1&2151&1068&609&1488&2058&2668&6177&10206&36020&73265\\
 \hline
-s2&489&343&329&569&697&891&2309&3986&8218&12734\\
+Heuristic 2&489&343&329&569&697&891&2309&3986&8218&12734\\
 \hline
-s3&1219&678&736&858&1016&2103&4877&5850&29973&49940\\
+Heuristic 3&1219&678&736&858&1016&2103&4877&5850&29973&49940\\
 \hline
-s4&538&468&339&617&860&1590&3756&4431&26737&41081\\
+labelFF&538&468&339&617&860&1590&3756&4431&26737&41081\\
 \hline
 
 \end{tabular}\\
@@ -299,13 +301,13 @@ s4&538&468&339&617&860&1590&3756&4431&26737&41081\\
 \#fail&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
 \hline
 \hline
-s1&4266&2098&1140&2940&3975&5298&12193&20306&71907&146472\\
+Heuristic 1&4266&2098&1140&2940&3975&5298&12193&20306&71907&146472\\
 \hline
-s2&796&507&473&790&1186&1451&3792&7176&13027&21112\\
+Heuristic 2&796&507&473&790&1186&1451&3792&7176&13027&21112\\
 \hline
-s3&1731&1120&1045&1454&1852&3667&8608&10247&55578&90988\\
+Heuristic 3&1731&1120&1045&1454&1852&3667&8608&10247&55578&90988\\
 \hline
-s4&722&574&437&847&1149&1966&4781&5723&33206&54804\\
+labelFF&722&574&437&847&1149&1966&4781&5723&33206&54804\\
 \hline
 \end{tabular}\\
 \caption{Number of failures depending on instances and heuristics}
@@ -315,31 +317,37 @@ s4&722&574&437&847&1149&1966&4781&5723&33206&54804\\
 \begin{figure}[!h]
 \begin{tabular}{|r||r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
 \hline
-\#propag:&H1&H2&H3&H4&H5&H6&H7&H8&H9&H10\\
+\#propag:&A1&A2&A3&A4&A5&A6&A7&A8&A9&A10\\
 \hline
 \hline
-s1&25586&12644&7115&16302&25829&36401&81296&129069&427978&819394\\
+Heuristic 1&25586&12644&7115&16302&25829&36401&81296&129069&427978&819394\\
 \hline
-s2&3634&2197&1840&2451&4878&6845&15387&34646&50685&91129\\
+Heuristic 2&3634&2197&1840&2451&4878&6845&15387&34646&50685&91129\\
 \hline
-s3&6250&5299&3798&6189&8609&17699&41002&48293&280535&391867\\
+Heuristic 3&6250&5299&3798&6189&8609&17699&41002&48293&280535&391867\\
 \hline
-s4&6306&5371&3867&6210&8680&17772&41030&48393&280603&391948\\
+labelFF&6306&5371&3867&6210&8680&17772&41030&48393&280603&391948\\
 \hline
 \end{tabular}
 \caption{Number of propagation depending on instances and heuristics}
 \end{figure}
 
 
-Results here above only show the results for the 10 first files. The other results are available in the directory ... TODO
+Results here above only show the results for the 10 first files. The other results are available in the directory \texttt{Tests\_Q\_2\_3\_1}.
 
 \subsubsection{Present and discuss the results in your report}
 
+We can observe on results here above that the second heuristic is always better while looking at time values (behave on file A7, but difference is minor), which is the most important criterium.\\
 
-TODO
+Looking at the table with number of choices, we can observe, once again, that the second heuristic is better since it has less different choices (It shows a better pruning).\\
 
+Looking at table with number of failures, we can observe that the second heuristic is better since it has a low number of failures. It converges more quickly on good values.\\
 
-The search strategy we will use for the remainder of this assignment is the second one.
+Finally, we can observe that with heuristic 2, we have less propagation than with other heuristics.\\
+
+In fact, those four tables are linked. Since this heuristic has better pruning (low \# of choices), it will converges faster (low \# of fails), which implies less propagation and faster times.\\
+
+Considering all those results, the search strategy we will use for the remainder of this assignment is the second one.
 
 \subsection{Optimization over iterations}
 
