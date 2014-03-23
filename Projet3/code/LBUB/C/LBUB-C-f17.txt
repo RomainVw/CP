@@ -1,0 +1,19 @@
+UB: 98
+LB: 57
+SUCEED
+78-98
+SUCEED
+88-98
+SUCEED
+93-98
+SUCEED
+96-98
+SUCEED
+97-98
+SUCEED
+98-98
+totalUsefulness = 98
+time: 16
+#choices = 420
+#fail    = 0
+#propag  = 416

@@ -1,0 +1,19 @@
+UB: 111
+LB: 71
+SUCEED
+91-111
+SUCEED
+101-111
+SUCEED
+106-111
+SUCEED
+109-111
+SUCEED
+110-111
+SUCEED
+111-111
+totalUsefulness = 111
+time: 17
+#choices = 420
+#fail    = 0
+#propag  = 428

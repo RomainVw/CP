@@ -1,0 +1,17 @@
+UB: 105
+LB: 74
+SUCEED
+90-105
+SUCEED
+98-105
+SUCEED
+102-105
+SUCEED
+104-105
+SUCEED
+105-105
+totalUsefulness = 105
+time: 15
+#choices = 350
+#fail    = 0
+#propag  = 361

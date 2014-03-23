@@ -1,0 +1,23 @@
+UB: 880
+LB: 628
+SUCEED
+754-880
+SUCEED
+817-880
+SUCEED
+849-880
+SUCEED
+865-880
+SUCEED
+873-880
+SUCEED
+877-880
+SUCEED
+879-880
+SUCEED
+880-880
+totalUsefulness = 880
+time: 14
+#choices = 400
+#fail    = 0
+#propag  = 433

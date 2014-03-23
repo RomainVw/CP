@@ -1,0 +1,17 @@
+UB: 94
+LB: 73
+SUCEED
+84-94
+SUCEED
+89-94
+SUCEED
+92-94
+SUCEED
+93-94
+SUCEED
+94-94
+totalUsefulness = 94
+time: 15
+#choices = 350
+#fail    = 0
+#propag  = 352

@@ -1,0 +1,9 @@
+UB: 47
+LB: 47
+SUCEED
+47-47
+totalUsefulness = 47
+time: 10
+#choices = 25
+#fail    = 0
+#propag  = 28

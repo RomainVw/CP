@@ -1,0 +1,9 @@
+UB: 70
+LB: 69
+SUCEED
+70-70
+totalUsefulness = 70
+time: 10
+#choices = 25
+#fail    = 0
+#propag  = 29

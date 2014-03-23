@@ -1,0 +1,9 @@
+UB: 21
+LB: 21
+SUCEED
+21-21
+totalUsefulness = 21
+time: 10
+#choices = 25
+#fail    = 0
+#propag  = 27

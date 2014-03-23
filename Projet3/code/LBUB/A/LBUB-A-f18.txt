@@ -1,0 +1,9 @@
+UB: 86
+LB: 86
+SUCEED
+86-86
+totalUsefulness = 86
+time: 10
+#choices = 25
+#fail    = 0
+#propag  = 30

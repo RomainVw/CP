@@ -1,0 +1,15 @@
+UB: 97
+LB: 85
+SUCEED
+91-97
+SUCEED
+94-97
+SUCEED
+96-97
+SUCEED
+97-97
+totalUsefulness = 97
+time: 15
+#choices = 280
+#fail    = 0
+#propag  = 289

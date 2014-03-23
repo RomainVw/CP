@@ -1,0 +1,23 @@
+UB: 817
+LB: 601
+SUCEED
+709-817
+SUCEED
+763-817
+SUCEED
+790-817
+SUCEED
+804-817
+SUCEED
+811-817
+SUCEED
+814-817
+SUCEED
+816-817
+SUCEED
+817-817
+totalUsefulness = 817
+time: 15
+#choices = 400
+#fail    = 0
+#propag  = 425

@@ -1,0 +1,9 @@
+UB: 131
+LB: 131
+SUCEED
+131-131
+totalUsefulness = 131
+time: 10
+#choices = 25
+#fail    = 0
+#propag  = 33

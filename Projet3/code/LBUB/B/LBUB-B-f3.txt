@@ -1,0 +1,23 @@
+UB: 947
+LB: 800
+SUCEED
+874-947
+SUCEED
+911-947
+SUCEED
+929-947
+SUCEED
+938-947
+SUCEED
+943-947
+SUCEED
+945-947
+SUCEED
+946-947
+SUCEED
+947-947
+totalUsefulness = 947
+time: 14
+#choices = 400
+#fail    = 0
+#propag  = 402

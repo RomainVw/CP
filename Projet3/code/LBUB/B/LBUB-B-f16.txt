@@ -1,0 +1,23 @@
+UB: 796
+LB: 593
+SUCEED
+695-796
+SUCEED
+746-796
+SUCEED
+771-796
+SUCEED
+784-796
+SUCEED
+790-796
+SUCEED
+793-796
+SUCEED
+795-796
+SUCEED
+796-796
+totalUsefulness = 796
+time: 15
+#choices = 400
+#fail    = 0
+#propag  = 425

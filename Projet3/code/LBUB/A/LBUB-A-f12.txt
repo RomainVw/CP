@@ -1,0 +1,9 @@
+UB: 65
+LB: 65
+SUCEED
+65-65
+totalUsefulness = 65
+time: 10
+#choices = 25
+#fail    = 0
+#propag  = 29

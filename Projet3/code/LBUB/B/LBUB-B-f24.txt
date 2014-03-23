@@ -1,0 +1,23 @@
+UB: 802
+LB: 636
+SUCEED
+719-802
+SUCEED
+761-802
+SUCEED
+782-802
+SUCEED
+792-802
+SUCEED
+797-802
+SUCEED
+800-802
+SUCEED
+801-802
+SUCEED
+802-802
+totalUsefulness = 802
+time: 15
+#choices = 400
+#fail    = 0
+#propag  = 412

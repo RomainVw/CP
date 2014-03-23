@@ -1,0 +1,17 @@
+UB: 110
+LB: 79
+SUCEED
+95-110
+SUCEED
+103-110
+SUCEED
+107-110
+SUCEED
+109-110
+SUCEED
+110-110
+totalUsefulness = 110
+time: 16
+#choices = 350
+#fail    = 0
+#propag  = 361

@@ -1,0 +1,19 @@
+UB: 108
+LB: 74
+SUCEED
+91-108
+SUCEED
+100-108
+SUCEED
+104-108
+SUCEED
+106-108
+SUCEED
+107-108
+SUCEED
+108-108
+totalUsefulness = 108
+time: 16
+#choices = 420
+#fail    = 0
+#propag  = 427
