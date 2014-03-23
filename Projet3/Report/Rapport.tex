@@ -377,8 +377,13 @@ TODO
 \subsubsection{In order to implement the optimization via divide and conquer you will have to \dots}
 \lstinputlisting[language=C]{knapsackUB_LB.co}
 \subsubsection{Which of these points (i., ii., iii., iv.) do you need to execute on which events?}
-TODO : Vérifier la condition d'arret
-In case of success, we have to 
+Note : Since the search runs on domain $[ceil(\frac{lb + ub}{2}),ub]$, we are sure that if there is a solution , this is not the lb. So, if lb=34 and ub=35, ceil function will makes the search on the domain [35,35] and not [34,35] if we had used the floor function, wich would have made the rest of the program more complicated.\\\\
+
+In case of success, we have to update the lower bound to the lower value of the domain used for the search which is the new lower bound (since there were a solution with this bound) (i). If this new lower bound is equal to the upper bound, we have find the optimal value, and we can end the search (iv), otherwise, we have to continue the search (iii).\\
+
+In case of failure, we have no solutions in the interval $[ceil(\frac{lb + ub}{2}),ub]$, thus we can change the upper bound to $ceil(\frac{lb + ub}{2})-1$ (ii), and restart the search (iii).\\
+
+
 \subsubsection{Experiment this version on the instances knapsack-A,-B,-C}
 TODO
 \subsubsection{Present and discuss the results in your report.}
