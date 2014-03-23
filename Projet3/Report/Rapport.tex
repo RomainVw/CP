@@ -376,7 +376,7 @@ If ub is not an upper bound, it means that the search could end with an non opti
 
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 File & ub & totalUsefulness & time & \# choices & \# fail & \# propag\\
@@ -433,10 +433,12 @@ A24& 131& 131& 9&25&    0& 33\\
 A25& 103& 103& 9&25&    0& 32\\
 \hline
 \end{tabular}
+\caption{Knapsack results with upper bound}
+\label{FIGA}
 \end{figure}
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 File & ub & totalUsefulness & time & \# choices & \# fail & \# propag\\
@@ -493,14 +495,20 @@ B24&802&802&10&50&0&55
 B25&805&805&9&50&0&56
 \\ \hline
 \end{tabular}
+\caption{Knapsack results with upper bound}
+\label{FIGB}
 \end{figure}
 
-
-
-
+See Figures \ref{FIGA}, \ref{FIGB}.
 \subsubsection{Present and discuss the results in your report.}
 
-TODO
+The first thing we observe is that the upper bound determined at the beginning is always the totalUsefulness. It means that we don't change the upper bound value during the execution of the program.
+The execution time is really better than before, and same for the number of choices and number of propagations. Let's observe that the number of failures is always at 0, which means that we  immediately get the optimal solution.
+
+
+\newpage
+\
+\newpage
 
 \subsection{Optimization via divide and conquer}
 
@@ -548,6 +556,8 @@ A23&98&98&98&1&10\\ \hline
 A24&130&131&131&1&10\\ \hline
 A25&103&103&103&1&10\\ \hline
 \end{tabular}
+\caption{Knapsack results with lower and upper bound}
+\label{LUA}
 \end{figure}
 
 
@@ -583,6 +593,8 @@ B23&670&794&794&7&15\\ \hline
 B24&524&802&802&9&15\\ \hline
 B25&665&805&805&8&14\\ \hline
 \end{tabular}
+\caption{Knapsack results with lower and upper bound}
+\label{LUB}
 \end{figure}
 
 
@@ -617,13 +629,16 @@ C22&84&108&108&5&15\\ \hline
 C23&73&115&115&6&17\\ \hline
 C24&90&109&109&5&15\\ \hline
 C25&82&116&116&6&16\\ \hline
-
-
 \end{tabular}
+\caption{Knapsack results with lower and upper bound}
+\label{LUC}
 \end{figure}
 
 
+See Figures \ref{LUA}, \ref{LUB}, \ref{LUC}.
 
 \subsubsection{Present and discuss the results in your report.}
-TODO
+
+The time needed to find the optimal solution is really low. We can also observe that the solution is found with few search restart (untill 9), and same with search restart, it stay really fast. Using upper bound and lower bound reduces amazingly the time needed to find the optimal solution. 
+
 \end{document}

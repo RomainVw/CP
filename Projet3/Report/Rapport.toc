@@ -20,8 +20,8 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Can you explain why we initialize ub with an upper bound instead of any other value?}{6}{subsubsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.6}Experiment this program on the instances knapsack-A, -B. }{6}{subsubsection.2.2.6}
 \contentsline {subsubsection}{\numberline {2.2.7}Present and discuss the results in your report.}{6}{subsubsection.2.2.7}
-\contentsline {subsection}{\numberline {2.3}Optimization via divide and conquer}{6}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}In order to implement the optimization via divide and conquer you will have to \dots }{6}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Which of these points (i., ii., iii., iv.) do you need to execute on which events?}{9}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Experiment this version on the instances knapsack-A,-B,-C}{9}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Present and discuss the results in your report.}{9}{subsubsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3}Optimization via divide and conquer}{8}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}In order to implement the optimization via divide and conquer you will have to \dots }{8}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Which of these points (i., ii., iii., iv.) do you need to execute on which events?}{10}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Experiment this version on the instances knapsack-A,-B,-C}{10}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Present and discuss the results in your report.}{10}{subsubsection.2.3.4}
