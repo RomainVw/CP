@@ -10,7 +10,6 @@ int t0 = System.getCPUTime();
 Solver<CP> cp();
 
 Integer np(cp.getNPropag());
-cout << "Initiating search..." << endl;
 
 // get input file path
 int nbArgs = System.argc();
@@ -72,10 +71,7 @@ solve<cp> {
 
 
 int t1 = System.getCPUTime();
-cout << "totalUsefulness = " << totalUsefulness << endl;
-cout << "time: " << t1 - t0 << endl;
-cout << "#choices = " << cp.getNChoice() << endl;
-cout << "#fail    = " << cp.getNFail() << endl;
-cout << "#propag  = " << cp.getNPropag() - np << endl;
+
+cout << path << "&" << ub << "&" << totalUsefulness << "&" << t1 - t0 << "&" << cp.getNChoice() << "&" << cp.getNFail() << "&" << cp.getNPropag() - np << endl;
 
 

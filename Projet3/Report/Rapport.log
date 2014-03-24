@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.9.23)  24 MAR 2014 11:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.9.23)  24 MAR 2014 11:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1663,14 +1663,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] (./knapsackUB.co)
+[5] (./knapsackUB.co
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6]
+[6])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1692,12 +1692,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9])
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
@@ -1708,12 +1708,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
@@ -1730,7 +1730,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 670.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 643.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1759,22 +1759,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 670.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 643.
  (./Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 670.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 670.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 643.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 643.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
 (rerunfilecheck)             Checksum: B068402835D5C01140151ED0CEDF212B;2948.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 670.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 643.
  ) 
 Here is how much of TeX's memory you used:
- 18788 strings out of 493315
- 270685 string characters out of 6137904
- 598397 words of memory out of 5000000
+ 18790 strings out of 493315
+ 270715 string characters out of 6137904
+ 610423 words of memory out of 5000000
  21528 multiletter control sequences out of 15000+600000
  79563 words of font info for 76 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -1793,10 +1796,10 @@ type1/public/lm/lmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
 /lm/lmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Rapport.pdf (16 pages, 371603 bytes).
+Output written on Rapport.pdf (16 pages, 371989 bytes).
 PDF statistics:
- 547 PDF objects out of 1000 (max. 8388607)
- 510 compressed objects within 6 object streams
- 257 named destinations out of 1000 (max. 500000)
+ 550 PDF objects out of 1000 (max. 8388607)
+ 513 compressed objects within 6 object streams
+ 259 named destinations out of 1000 (max. 500000)
  219 words of extra memory for PDF output out of 10000 (max. 10000000)
 
