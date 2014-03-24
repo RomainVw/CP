@@ -69,7 +69,7 @@ whenever cp.getSearchController()@onCompletion(){
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
            
-           lb := totalUsefulness;//(int) ceil((lb+ub)/2.0);
+           lb := totalUsefulness;
            if (lb == ub){
                forall (i in 1..no)
               cp.exit();

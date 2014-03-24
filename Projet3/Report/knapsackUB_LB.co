@@ -21,10 +21,9 @@ int C = file.getInt();
 
 Integer ub(0);
 ub := getUB(no, C, weight, usefulness);
-//cout << "UB: " << ub << endl;
+
 Integer lb(0);
 lb := getLB(no, C, weight, usefulness);
-//cout << "LB: " << lb << endl;
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
@@ -39,9 +38,7 @@ whenever cp.getSearchController()@onCompletion(){
 }
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
-           //cout << "SUCEED" << endl;
-           lb := (int) ceil((lb+ub)/2.0);
-           //cout << lb << "-" << ub << endl;
+           lb := totalUsefulness;
            if (lb == ub){
               cp.exit();
            }

@@ -20,7 +20,7 @@ forall(i in P) {
 int C = file.getInt();
 Integer ub(0);
 ub := getUB(no, C, weight, usefulness);
-//cout << "UB: " << ub << endl;
+
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
@@ -28,7 +28,6 @@ var<CP>{int} load(cp, 0..C);
 var<CP>{int} totalUsefulness(cp, 0..ub);
 
 whenever cp.getSearchController()@onCompletion(){
-           //cout << "FAIL" << endl;
            ub := ub-1;
            cp.reStart();
 }
