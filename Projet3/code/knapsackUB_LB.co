@@ -43,10 +43,11 @@ int C = file.getInt();
 
 Integer ub(0);
 ub := getUB(no, C, weight, usefulness);
+cout << "upper : " << ub << endl;
 
 Integer lb(0);
 lb := getLB(no, C, weight, usefulness);
-
+cout << "lower : "<< lb << endl;
 
 // model variables
 var<CP>{int} bin[1..no](cp, 0..1);
@@ -60,8 +61,9 @@ whenever cp.getSearchController()@onCompletion(){
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
            
-           lb := (int) ceil((lb+ub)/2.0);
+           lb := totalUsefulness;//(int) ceil((lb+ub)/2.0);
            if (lb == ub){
+               forall (i in 1..no)
               cp.exit();
            }
            cp.reStart();
@@ -69,6 +71,7 @@ whenever cp.getSearchController()@onFeasibleSolution(Solution s){
 
 solve<cp> {
 	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == load);
+           cp.post(sum(i in 1..no) (bin[i] == 1) * usefulness[i] == totalUsefulness);
            
 } using {
       cp.post(totalUsefulness<=ub);
