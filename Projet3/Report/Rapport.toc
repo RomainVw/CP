@@ -5,12 +5,12 @@
 \contentsline {subsection}{\numberline {1.3}Which criteria are meaningful for comparing different search strategies?}{2}{subsection.1.3}
 \contentsline {subsection}{\numberline {1.4}Based on your criteria, compare your heuristics with the labelFF heuristic by testing them on the instance on iCampus.}{2}{subsection.1.4}
 \contentsline {subsection}{\numberline {1.5}Consider the following strategy. \dots Give an example with three planes where this strategy is wrong}{2}{subsection.1.5}
-\contentsline {section}{\numberline {2}The Knapsack Problem}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}A Branch \& Bound approach}{2}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Model the knapsack problem as Constraint Optimization}{2}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Describe your model in the report.}{3}{subsubsection.2.1.2}
+\contentsline {section}{\numberline {2}The Knapsack Problem}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}A Branch \& Bound approach}{3}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Model the knapsack problem as Constraint Optimization}{3}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Describe your model in the report.}{4}{subsubsection.2.1.2}
 \contentsline {subsubsection}{\numberline {2.1.3}Design 3 different heuristics for variable selection.}{4}{subsubsection.2.1.3}
-\contentsline {subsubsection}{\numberline {2.1.4}Test your heuristics and the labelFF heuristic on the knapsack-A instances.}{4}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.4}Test your heuristics and the labelFF heuristic on the knapsack-A instances.}{5}{subsubsection.2.1.4}
 \contentsline {subsubsection}{\numberline {2.1.5}Present and discuss the results in your report}{5}{subsubsection.2.1.5}
 \contentsline {subsection}{\numberline {2.2}Optimization over iterations}{6}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Model the knapsack problem as a Constraint Satisfaction Problem.}{6}{subsubsection.2.2.1}
@@ -19,9 +19,9 @@
 \contentsline {subsubsection}{\numberline {2.2.4}How do you modify the value of ub to be sure to find the optimal solution?}{7}{subsubsection.2.2.4}
 \contentsline {subsubsection}{\numberline {2.2.5}Can you explain why we initialize ub with an upper bound instead of any other value?}{7}{subsubsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.6}Experiment this program on the instances knapsack-A, -B. }{7}{subsubsection.2.2.6}
-\contentsline {subsubsection}{\numberline {2.2.7}Present and discuss the results in your report.}{7}{subsubsection.2.2.7}
-\contentsline {subsection}{\numberline {2.3}Optimization via divide and conquer}{9}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}In order to implement the optimization via divide and conquer you will have to \dots }{9}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Which of these points (i., ii., iii., iv.) do you need to execute on which events?}{10}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.2.7}Present and discuss the results in your report.}{8}{subsubsection.2.2.7}
+\contentsline {subsection}{\numberline {2.3}Optimization via divide and conquer}{10}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}In order to implement the optimization via divide and conquer you will have to \dots }{10}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Which of these points (i., ii., iii., iv.) do you need to execute on which events?}{11}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {2.3.3}Experiment this version on the instances knapsack-A,-B,-C}{11}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Present and discuss the results in your report.}{12}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.4}Present and discuss the results in your report.}{11}{subsubsection.2.3.4}

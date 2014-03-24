@@ -233,7 +233,24 @@ Based on the execution time, we will choose the 2nd strategy which is the best. 
 
 \subsection{Consider the following strategy. \dots Give an example with three planes where this strategy is wrong}
 Instinctively, it is easy to consider the fact that this strategy is attracted by local optima. Indeed, this strategy does not present any mechanism of diversification hence "forces" the solver to choose the first solution to the CSP. 
+With the following set: 
+\begin{center}
 
+
+\begin{tabular}{|c|c|c|}
+\hline 
+Preferred time & block & penalty \\ 
+\hline 
+4 & 2 & 100\\
+\hline 
+7 & 2 & 50\\
+\hline 
+5 & 2 & 1\\
+\hline 
+\end{tabular} 
+\end{center}
+
+we find the local solution with a cost of 45 for 1, 67 for 2 and 89 for 3 (=201) while the optimal solution is actually 146 (45 for plane 1, 78 for the second and 23 for the third).
 \section{The Knapsack Problem}
 
 \subsection{A Branch \& Bound approach}
