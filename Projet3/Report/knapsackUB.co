@@ -39,6 +39,7 @@ whenever cp.getSearchController()@onFeasibleSolution(Solution s){
 
 solve<cp> {
 	cp.post(sum(i in 1..no) (bin[i] == 1) * weight[i] == load);
+           cp.post(sum(i in 1..no) (bin[i] == 1) * usefulness[i] == totalUsefulness);
            
 } using {
       cp.post(totalUsefulness==ub);
