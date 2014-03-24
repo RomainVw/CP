@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.9.23)  24 MAR 2014 13:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.2.5)  24 MAR 2014 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1563,36 +1563,36 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3])
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 278.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 279.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 295--296
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--300
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--318
+Underfull \hbox (badness 10000) in paragraph at lines 305--319
 
  []
 
@@ -1603,32 +1603,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 323--338
+Underfull \hbox (badness 10000) in paragraph at lines 324--339
 
  []
 
 
-Overfull \hbox (4.203pt too wide) in paragraph at lines 342--356
+Overfull \hbox (4.203pt too wide) in paragraph at lines 343--357
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 342--356
+Underfull \hbox (badness 10000) in paragraph at lines 343--357
 
  []
 
 
-Overfull \hbox (45.3279pt too wide) in paragraph at lines 361--375
+Overfull \hbox (45.3279pt too wide) in paragraph at lines 362--376
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
 
  []
 
@@ -1639,17 +1639,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 387--388
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
 
  []
 
@@ -1689,22 +1689,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10])
-Underfull \hbox (badness 10000) in paragraph at lines 505--506
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--506
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
@@ -1721,7 +1721,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 639.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 640.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1750,21 +1750,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 639.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 640.
  (./Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 639.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 639.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 640.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 640.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
 (rerunfilecheck)             Checksum: B068402835D5C01140151ED0CEDF212B;2948.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 639.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 640.
  ) 
 Here is how much of TeX's memory you used:
  18784 strings out of 493315
- 270625 string characters out of 6137904
+ 270625 string characters out of 6137905
  592397 words of memory out of 5000000
  21528 multiletter control sequences out of 15000+600000
  79563 words of font info for 76 fonts, out of 8000000 for 9000
@@ -1784,7 +1784,7 @@ type1/public/lm/lmr6.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
 /lm/lmr8.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/l
 ocal/texlive/2013/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Rapport.pdf (16 pages, 372219 bytes).
+Output written on Rapport.pdf (16 pages, 372557 bytes).
 PDF statistics:
  543 PDF objects out of 1000 (max. 8388607)
  506 compressed objects within 6 object streams

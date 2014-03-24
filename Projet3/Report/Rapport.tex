@@ -237,20 +237,21 @@ With the following set:
 \begin{center}
 
 
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|}
 \hline 
-Preferred time & block & penalty \\ 
+&Preferred time & block & penalty \\ 
 \hline 
-4 & 2 & 100\\
+Plane 1&4 & 2 & 100\\
 \hline 
-7 & 2 & 50\\
+Plane 2&7 & 2 & 50\\
 \hline 
-5 & 2 & 1\\
+Plane 3&5 & 2 & 1\\
 \hline 
 \end{tabular} 
 \end{center}
 
-we find the local solution with a cost of 45 for 1, 67 for 2 and 89 for 3 (=201) while the optimal solution is actually 146 (45 for plane 1, 78 for the second and 23 for the third).
+With a delay of 0, there are no solutions. With a delay of 1, we find 2  solutions but the optimal one is with the plane 1 with time slot 4-5,  plane 3 with time slots 6-7 and plane 2 with time slots 8-9. The total penalty is 50. With a delay of 2, the optimal solution will be the same. The search would end here.\\
+But this is not the optimal solution for the problem. With delay bigger allowed, we will find as optimal solution time slots 4-5 for plane 1, 7-8 for the second and 2-3 for the third, which equals to a total penalty of 3 which is really lower than the one found before.
 \section{The Knapsack Problem}
 
 \subsection{A Branch \& Bound approach}
