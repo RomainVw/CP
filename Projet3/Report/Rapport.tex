@@ -543,7 +543,7 @@ The execution time is really better than before, and same for the number of choi
 \subsubsection{Which of these points (i., ii., iii., iv.) do you need to execute on which events?}
 Note : Since the search runs on domain $[ceil(\frac{lb + ub}{2}),ub]$, we are sure that if there is a solution , this is not the lb. So, if lb=34 and ub=35, ceil function will makes the search on the domain [35,35] and not [34,35] if we had used the floor function, wich would have made the rest of the program more complicated.\\\\
 
-In case of success, we have to update the lower bound to the lower value of the domain used for the search which is the new lower bound (since there were a solution with this bound) (i). If this new lower bound is equal to the upper bound, we have find the optimal value, and we can end the search (iv), otherwise, we have to continue the search (iii).\\
+In case of success, we have to update the lower bound to the solution we found during the new search which will be the new lower bound (since there were a solution with this bound) (i). If this new lower bound is equal to the upper bound, we have find the optimal value, and we can end the search (iv), otherwise, we have to continue the search (iii).\\
 
 In case of failure, we have no solutions in the interval $[ceil(\frac{lb + ub}{2}),ub]$, thus we can change the upper bound to $ceil(\frac{lb + ub}{2})-1$ (ii), and restart the search (iii).\\
 
@@ -669,6 +669,8 @@ See Figures \ref{LUA}, \ref{LUB}, \ref{LUC}.
 
 \subsubsection{Present and discuss the results in your report.}
 
-The time needed to find the optimal solution is really low. We can also observe that the solution is found with few search restart (untill 9), and same with search restart, it stay really fast. Using upper bound and lower bound reduces amazingly the time needed to find the optimal solution. 
+
+We can see that the time needed to find the optimal solution on the A files stays really low. Sometimes, we have a search that restarts, but it's rare.
+We can also observe that the solution is found with few search restart (untill 9 here). Using upper bound and lower bound reduces amazingly the time needed to find the optimal solution. 
 
 \end{document}
