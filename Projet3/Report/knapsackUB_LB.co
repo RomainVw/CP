@@ -31,9 +31,7 @@ var<CP>{int} load(cp, 0..C);
 var<CP>{int} totalUsefulness(cp, lb..ub);
 
 whenever cp.getSearchController()@onCompletion(){
-           //cout << "FAIL" << endl;
-           ub := (int) ceil((lb+ub)/2.0) - 1;
-           //cout << lb << "-" << ub << endl;
+           ub := totalUsefulness;
            cp.reStart();
 }
 

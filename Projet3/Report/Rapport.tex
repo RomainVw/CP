@@ -402,35 +402,62 @@ If ub is not an upper bound, it means that the search could end with an non opti
 
 
 
-
 \begin{figure}[!ht]
-\begin{tabular}{|c|c|c|c|c|c|c|}     
-File & ub & totalUsefulness & time & \# choices & \# fail & \# propag \\ \hline \hline
-A-1.txt&21&21&5&25&0&30   \\ \hline
-A-2.txt&21&21&5&25&0&30   \\ \hline
-A-3.txt&21&21&5&25&0&28   \\ \hline
-A-4.txt&21&21&5&25&0&30   \\ \hline
-A-5.txt&26&26&5&25&0&30   \\ \hline
-A-6.txt&34&34&6&25&0&30   \\ \hline
-A-7.txt&43&43&5&25&2&38   \\ \hline
-A-8.txt&44&44&7&25&3&41   \\ \hline
-A-9.txt&45&45&5&25&0&32   \\ \hline
-A-10.txt&47&47&8&25&0&32  \\ \hline
-A-11.txt&50&50&5&25&0&32  \\ \hline
-A-12.txt&65&65&5&25&0&34  \\ \hline
-A-13.txt&69&69&5&25&0&34  \\ \hline
-A-14.txt&73&73&5&25&0&36  \\ \hline
-A-15.txt&70&70&6&25&0&34  \\ \hline
-A-16.txt&78&78&6&25&1&39  \\ \hline
-A-17.txt&89&89&6&25&0&36  \\ \hline
-A-18.txt&86&86&5&25&0&36  \\ \hline
-A-19.txt&106&106&7&25&0&38\\ \hline
-A-20.txt&110&110&5&25&0&38\\ \hline
-A-21.txt&117&117&7&25&0&40\\ \hline
-A-22.txt&104&104&5&25&0&38\\ \hline
-A-23.txt&98&98&5&25&0&38  \\ \hline
-A-24.txt&131&131&5&25&0&42\\ \hline
-A-25.txt&103&103&6&25&0&40\\ \hline
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+File & ub & totalUsefulness & time & \# choices & \# fail & \# propag\\
+\hline
+\hline
+A1 & 21 & 21 & 9 & 25 & 0 & 27\\
+\hline
+A2& 21& 21& 9&25&    0& 27\\
+\hline
+A3& 21& 21& 9&25&    0& 27\\
+\hline
+A4& 21& 21& 9&25&    0& 27\\
+\hline
+A5& 26& 26& 9&25&    0& 28\\
+\hline
+A6& 34& 34& 9&25&    0& 27\\
+\hline
+A7& 43& 43& 10&25&    0& 28\\
+\hline
+A8& 44& 44& 10&25&    0& 28\\
+\hline
+A9& 45& 45& 9&25&    0& 28\\
+\hline
+A10& 47& 47& 8&25&    0& 28\\
+\hline
+A11& 50& 50& 9&25&    0& 28\\
+\hline
+A12& 65& 65& 9&25&    0& 29\\
+\hline
+A13& 69& 69& 9&25&    0& 29\\
+\hline
+A14& 73& 73& 9&25&    0& 30\\
+\hline
+A15& 70& 70& 9&25&    0& 29\\
+\hline
+A16& 78& 78& 9&25&    0& 29\\
+\hline
+A17& 89& 89& 9&25&    0& 30\\
+\hline
+A18& 86& 86& 9&25&    0& 30\\
+\hline
+A19& 106& 106& 9&25&    0& 31\\
+\hline
+A20& 110& 110& 10&25&    0& 31\\
+\hline
+A21& 117& 117& 9&25&    0& 32\\
+\hline
+A22& 104& 104& 8&25&    0& 33\\
+\hline
+A23& 98& 98& 9&25&    0& 31\\
+\hline
+A24& 131& 131& 9&25&    0& 33\\
+\hline
+A25& 103& 103& 9&25&    0& 32\\
+\hline
 \end{tabular}
 \caption{Knapsack results with upper bound}
 \label{FIGA}
