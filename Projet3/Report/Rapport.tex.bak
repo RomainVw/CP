@@ -404,33 +404,33 @@ If ub is not an upper bound, it means that the search could end with an non opti
 
 
 \begin{figure}[!ht]
-\begin{tabular}{|c|c|c|c|c|c|c|}     
-File & ub & totalUsefulness & time & \# choices & \# fail & \# propag \\ \hline \hline
-A-1.txt&21&21&5&25&0&30   \\ \hline
-A-2.txt&21&21&5&25&0&30   \\ \hline
-A-3.txt&21&21&5&25&0&28   \\ \hline
-A-4.txt&21&21&5&25&0&30   \\ \hline
-A-5.txt&26&26&5&25&0&30   \\ \hline
-A-6.txt&34&34&6&25&0&30   \\ \hline
-A-7.txt&43&43&5&25&2&38   \\ \hline
-A-8.txt&44&44&7&25&3&41   \\ \hline
-A-9.txt&45&45&5&25&0&32   \\ \hline
-A-10.txt&47&47&8&25&0&32  \\ \hline
-A-11.txt&50&50&5&25&0&32  \\ \hline
-A-12.txt&65&65&5&25&0&34  \\ \hline
-A-13.txt&69&69&5&25&0&34  \\ \hline
-A-14.txt&73&73&5&25&0&36  \\ \hline
-A-15.txt&70&70&6&25&0&34  \\ \hline
-A-16.txt&78&78&6&25&1&39  \\ \hline
-A-17.txt&89&89&6&25&0&36  \\ \hline
-A-18.txt&86&86&5&25&0&36  \\ \hline
-A-19.txt&106&106&7&25&0&38\\ \hline
-A-20.txt&110&110&5&25&0&38\\ \hline
-A-21.txt&117&117&7&25&0&40\\ \hline
-A-22.txt&104&104&5&25&0&38\\ \hline
-A-23.txt&98&98&5&25&0&38  \\ \hline
-A-24.txt&131&131&5&25&0&42\\ \hline
-A-25.txt&103&103&6&25&0&40\\ \hline
+\begin{tabular}{|c|c|c|c|c|c|c|}     \hline
+File & ub & totalUsefulness & time & \# choices & \# fail & \# propag \\ \hline 
+A1&21&21&5&25&0&30   \\ \hline
+A2&21&21&5&25&0&30   \\ \hline
+A3&19&21&5&25&0&28   \\ \hline
+A4&21&21&5&25&0&30   \\ \hline
+A5&25&26&5&25&0&30   \\ \hline
+A6&32&34&6&25&0&30   \\ \hline
+A7&43&43&5&25&2&38   \\ \hline
+A8&40&44&7&25&3&41   \\ \hline
+A9&45&45&5&25&0&32   \\ \hline
+A10&47&47&8&25&0&32  \\ \hline
+A11&49&50&5&25&0&32  \\ \hline
+A12&65&65&5&25&0&34  \\ \hline
+A13&68&69&5&25&0&34  \\ \hline
+A14&73&73&5&25&0&36  \\ \hline
+A15&69&70&6&25&0&34  \\ \hline
+A16&77&78&6&25&1&39  \\ \hline
+A17&89&89&6&25&0&36  \\ \hline
+A18&86&86&5&25&0&36  \\ \hline
+A19&105&106&7&25&0&38\\ \hline
+A20&109&110&5&25&0&38\\ \hline
+A21&117&117&7&25&0&40\\ \hline
+A22&104&104&5&25&0&38\\ \hline
+A23&97&98&5&25&0&38  \\ \hline
+A24&130&131&5&25&0&42\\ \hline
+A25&103&103&6&25&0&40\\ \hline
 \end{tabular}
 \caption{Knapsack results with upper bound}
 \label{FIGA}
@@ -438,61 +438,33 @@ A-25.txt&103&103&6&25&0&40\\ \hline
 
 
 \begin{figure}[!ht]
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-File & ub & totalUsefulness & time & \# choices & \# fail & \# propag\\
-\hline
-\hline
-B1&934&934&9&50&0&53
-\\ \hline
-B2&934&934&10&50&0&52
-\\ \hline
-B3&947&947&10&50&0&52
-\\ \hline
-B4&943&943&9&50&0&55
-\\ \hline
-B5&872&872&10&50&0&53
-\\ \hline
-B6&835&835&10&50&0&52
-\\ \hline
-B7&826&826&10&50&0&54
-\\ \hline
-B8&859&859&10&50&0&53
-\\ \hline
-B9&836&836&10&50&0&54
-\\ \hline
-B10&951&951&10&50&0&54
-\\ \hline
-B11&891&891&9&50&0&54
-\\ \hline
-B12&817&817&9&50&0&54
-\\ \hline
-B13&880&880&10&50&0&55
-\\ \hline
-B14&836&836&10&50&0&54
-\\ \hline
-B15&826&826&9&50&0&52
-\\ \hline
-B16&796&796&11&50&0&54
-\\ \hline
-B17&878&878&10&50&0&54
-\\ \hline
-B18&858&858&10&50&0&55
-\\ \hline
-B19&843&843&9&50&0&54
-\\ \hline
-B20&904&904&9&50&0&53
-\\ \hline
-B21&836&836&9&50&0&52
-\\ \hline
-B22&883&883&9&50&0&54
-\\ \hline
-B23&794&794&9&50&0&53
-\\ \hline
-B24&802&802&10&50&0&55
-\\ \hline
-B25&805&805&9&50&0&56
-\\ \hline
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+File & ub & totalUsefulness & time & \# choices & \# fail & \# propag\\ \hline
+B1&544&921&1112&73715&4208&407136         \\ \hline
+B2&594&929&108&8546&1876&32075            \\ \hline
+B3&819&908&617&46118&1412&204306          \\ \hline
+B4&673&933&171&12373&976&56971            \\ \hline
+B5&670&862&124&9136&1013&41892            \\ \hline
+B6&695&809&396&28125&1029&146337          \\ \hline
+B7&742&810&170&13926&475&57613            \\ \hline
+B8&549&841&298&21285&965&102120           \\ \hline
+B9&663&806&161&12400&438&57102            \\ \hline
+B10&634&918&2244&144921&6126&832368       \\ \hline
+B11&642&855&1208&80406&2223&451408        \\ \hline
+B12&621&801&355&26862&1093&123243         \\ \hline
+B13&716&879&18&1089&540&4233              \\ \hline
+B14&644&822&184&14599&872&54322           \\ \hline
+B15&674&817&500&31753&2171&175186         \\ \hline
+B16&686&783&197&15538&1331&69005          \\ \hline
+B17&594&851&790&57157&2065&264039         \\ \hline
+B18&750&825&323&27840&262&109188          \\ \hline
+B19&650&822&354&28969&1396&115793         \\ \hline
+B20&730&901&60&3998&1222&20041            \\ \hline
+B21&596&806&170&12070&217&68842           \\ \hline
+B22&760&855&349&24653&671&129623          \\ \hline
+B23&674&773&265&23505&515&91134           \\ \hline
+B24&639&794&77&6389&515&26978             \\ \hline
+B25&734&785&176&14402&240&59226           \\ \hline
 \end{tabular}
 \caption{Knapsack results with upper bound}
 \label{FIGB}
@@ -516,7 +488,7 @@ The execution time is really better than before, and same for the number of choi
 \subsubsection{Which of these points (i., ii., iii., iv.) do you need to execute on which events?}
 Note : Since the search runs on domain $[ceil(\frac{lb + ub}{2}),ub]$, we are sure that if there is a solution , this is not the lb. So, if lb=34 and ub=35, ceil function will makes the search on the domain [35,35] and not [34,35] if we had used the floor function, wich would have made the rest of the program more complicated.\\\\
 
-In case of success, we have to update the lower bound to the lower value of the domain used for the search which is the new lower bound (since there were a solution with this bound) (i). If this new lower bound is equal to the upper bound, we have find the optimal value, and we can end the search (iv), otherwise, we have to continue the search (iii).\\
+In case of success, we have to update the lower bound to the solution we found during the new search which will be the new lower bound (since there were a solution with this bound) (i). If this new lower bound is equal to the upper bound, we have find the optimal value, and we can end the search (iv), otherwise, we have to continue the search (iii).\\
 
 In case of failure, we have no solutions in the interval $[ceil(\frac{lb + ub}{2}),ub]$, thus we can change the upper bound to $ceil(\frac{lb + ub}{2})-1$ (ii), and restart the search (iii).\\
 
@@ -529,31 +501,32 @@ In case of failure, we have no solutions in the interval $[ceil(\frac{lb + ub}{2
 file&lb&ub&totalUsefulness&\# search&time\\
 \hline
 \hline
-A1&20&21&21&1&10\\ \hline
-A2&21&21&21&1&9\\ \hline
-A3&21&21&21&1&10\\ \hline
-A4&21&21&21&1&10\\ \hline
-A5&25&26&26&1&10\\ \hline
-A6&33&34&34&1&9\\ \hline
-A7&43&43&43&1&10\\ \hline
-A8&44&44&44&1&10\\ \hline
-A9&45&45&45&1&11\\ \hline
-A10&47&47&47&1&9\\ \hline
-A11&50&50&50&1&10\\ \hline
-A12&65&65&65&1&11\\ \hline
-A13&69&69&69&1&11\\ \hline
-A14&73&73&73&1&10\\ \hline
-A15&69&70&70&1&11\\ \hline
-A16&76&78&78&2&10\\ \hline
-A17&89&89&89&1&11\\ \hline
-A18&86&86&86&1&10\\ \hline
-A19&106&106&106&1&10\\ \hline
-A20&110&110&110&1&10\\ \hline
-A21&117&117&117&1&9\\ \hline
-A22&104&104&104&1&10\\ \hline
-A23&98&98&98&1&10\\ \hline
-A24&130&131&131&1&10\\ \hline
-A25&103&103&103&1&10\\ \hline
+A1&21&21&21&1&11\\\hline
+A2&21&21&21&1&10\\\hline
+A3&19&21&21&1&11\\\hline
+A4&21&21&21&1&10\\\hline
+A5&25&26&26&1&10\\\hline
+A6&32&34&34&1&10\\\hline
+A7&43&43&43&1&10\\\hline
+A8&40&44&44&2&10\\\hline
+A9&45&45&45&1&10\\\hline
+A10&47&47&47&1&9\\\hline
+A11&49&50&50&1&9\\\hline
+A12&65&65&65&1&10\\\hline
+A13&68&69&69&1&10\\\hline
+A14&73&73&73&1&10\\\hline
+A15&69&70&70&1&10\\\hline
+A16&77&78&78&1&10\\\hline
+A17&89&89&89&1&9\\\hline
+A18&86&86&86&1&10\\\hline
+A19&105&106&106&1&10\\\hline
+A20&109&110&110&1&10\\\hline
+A21&117&117&117&1&10\\\hline
+A22&104&104&104&1&10\\\hline
+A23&97&98&98&1&10\\\hline
+A24&130&131&131&1&10\\\hline
+A25&103&103&103&1&10\\\hline
+
 \end{tabular}
 \caption{Knapsack results with lower and upper bound}
 \label{LUA}
@@ -566,31 +539,34 @@ A25&103&103&103&1&10\\ \hline
 file&lb&ub&totalUsefulness&\# search&time\\
 \hline
 \hline
-B1&622&934&934&9&15\\ \hline
-B2&642&934&934&9&15\\ \hline
-B3&774&947&947&8&15\\ \hline
-B4&696&943&943&8&15\\ \hline
-B5&602&872&872&9&15\\ \hline
-B6&651&835&835&8&14\\ \hline
-B7&589&826&826&8&15\\ \hline
-B8&636&859&859&8&15\\ \hline
-B9&582&836&836&8&15\\ \hline
-B10&811&951&951&8&15\\ \hline
-B11&775&891&891&7&14\\ \hline
-B12&676&817&817&8&15\\ \hline
-B13&671&880&880&8&16\\ \hline
-B14&592&836&836&8&15\\ \hline
-B15&706&826&826&7&14\\ \hline
-B16&738&796&796&6&14\\ \hline
-B17&618&878&878&9&15\\ \hline
-B18&628&858&858&8&15\\ \hline
-B19&642&843&843&8&15\\ \hline
-B20&734&904&904&8&14\\ \hline
-B21&640&836&836&8&14\\ \hline
-B22&741&883&883&8&14\\ \hline
-B23&670&794&794&7&15\\ \hline
-B24&524&802&802&9&15\\ \hline
-B25&665&805&805&8&14\\ \hline
+
+B1&544&934&921&8&711\\\hline
+B2&594&934&929&6&150\\\hline
+B3&819&947&908&4&110\\\hline
+B4&673&943&933&7&150\\\hline
+B5&670&872&862&7&128\\\hline
+B6&695&835&809&6&146\\\hline
+B7&742&826&810&7&93\\\hline
+B8&549&859&841&8&173\\\hline
+B9&663&836&806&7&65\\\hline
+B10&634&951&918&9&934\\\hline
+B11&642&891&855&8&407\\\hline
+B12&621&817&801&7&203\\\hline
+B13&716&880&879&4&50\\\hline
+B14&644&836&822&6&118\\\hline
+B15&674&826&817&7&410\\\hline
+B16&686&796&783&7&171\\\hline
+B17&594&878&851&7&266\\\hline
+B18&750&858&825&7&113\\\hline
+B19&650&843&822&6&133\\\hline
+B20&730&904&901&6&146\\\hline
+B21&596&836&806&8&60\\\hline
+B22&760&883&855&5&94\\\hline
+B23&674&794&773&7&134\\\hline
+B24&639&802&794&6&89\\\hline
+B25&734&805&785&6&81\\\hline
+
+
 \end{tabular}
 \caption{Knapsack results with lower and upper bound}
 \label{LUB}
@@ -603,31 +579,33 @@ B25&665&805&805&8&14\\ \hline
 file&lb&ub&totalUsefulness&\# search&time\\
 \hline
 \hline
-C1&62&103&103&6&16\\ \hline
-C2&72&99&99&5&15\\ \hline
-C3&77&94&94&5&15\\ \hline
-C4&86&110&110&5&15\\ \hline
-C5&87&108&108&5&15\\ \hline
-C6&86&97&97&4&14\\ \hline
-C7&87&113&113&5&16\\ \hline
-C8&87&128&128&6&16\\ \hline
-C9&92&116&116&5&15\\ \hline
-C10&85&105&105&5&15\\ \hline
-C11&93&125&125&6&15\\ \hline
-C12&67&115&115&6&16\\ \hline
-C13&91&115&115&5&14\\ \hline
-C14&76&115&115&6&16\\ \hline
-C15&99&120&120&5&15\\ \hline
-C16&91&116&116&5&15\\ \hline
-C17&67&98&98&5&16\\ \hline
-C18&83&111&111&5&15\\ \hline
-C19&72&99&99&5&15\\ \hline
-C20&75&117&117&6&16\\ \hline
-C21&73&110&110&6&15\\ \hline
-C22&84&108&108&5&15\\ \hline
-C23&73&115&115&6&17\\ \hline
-C24&90&109&109&5&15\\ \hline
-C25&82&116&116&6&16\\ \hline
+
+C1&79&103&101&5&1477\\\hline
+C2&78&99&98&6&621\\\hline
+C3&77&94&94&3&130\\\hline
+C4&82&110&108&5&279\\\hline
+C5&86&108&106&4&316\\\hline
+C6&75&97&96&5&168\\\hline
+C7&71&113&112&6&1473\\\hline
+C8&109&128&126&4&316\\\hline
+C9&82&116&112&4&158\\\hline
+C10&90&105&102&5&688\\\hline
+C11&88&125&125&2&267\\\hline
+C12&81&115&112&4&602\\\hline
+C13&94&115&114&6&777\\\hline
+C14&81&115&113&5&862\\\hline
+C15&94&120&118&4&479\\\hline
+C16&79&116&114&5&704\\\hline
+C17&63&98&94&6&462\\\hline
+C18&88&111&109&5&395\\\hline
+C19&59&99&97&5&279\\\hline
+C20&74&117&115&5&733\\\hline
+C21&89&110&109&5&607\\\hline
+C22&70&108&108&4&284\\\hline
+C23&83&115&114&6&612\\\hline
+C24&100&109&107&4&120\\\hline
+C25&86&116&114&5&466\\\hline
+
 \end{tabular}
 \caption{Knapsack results with lower and upper bound}
 \label{LUC}
@@ -638,6 +616,8 @@ See Figures \ref{LUA}, \ref{LUB}, \ref{LUC}.
 
 \subsubsection{Present and discuss the results in your report.}
 
-The time needed to find the optimal solution is really low. We can also observe that the solution is found with few search restart (untill 9), and same with search restart, it stay really fast. Using upper bound and lower bound reduces amazingly the time needed to find the optimal solution. 
+We can see that the time needed to find the optimal solution on the A files stays really low. Sometimes, we have a search that restarts, but it's rare.
+The time spend on B files is really lower than with the previous strategy. And number of search restart is also really lower (since for previous strategy, it was equal to the difference between the totalUsefulness and the initial ub).
+Using upper bound and lower bound reduces amazingly the time needed to find the optimal solution.
 
 \end{document}
