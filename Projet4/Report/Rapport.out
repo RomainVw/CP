@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Louvain-La-Neuve Golfer Problem}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Explain which symmetries can arise for this problem.}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Describe two possible models for this problem. }{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.2.1}{explain your models in detail}{subsection.1.2}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.2}{explain how you can modify your models to take symmetries into account}{subsection.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.3}{Implement both models \(considering symmetries\) in Comet.}{section.1}% 6
+\BOOKMARK [2][-]{subsection.1.4}{Explain which variable / value ordering heuristics you use with each model.}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.5}{What is the theoretical maximum number of week in a schedule?}{section.1}% 8
+\BOOKMARK [2][-]{subsection.1.6}{Indicate the maximum number of weeks you could identify in a reasonable time limit using both models.}{section.1}% 9
+\BOOKMARK [2][-]{subsection.1.7}{Indicate for each model, for each number of weeks the time needed to find a solution, the number of failures and the number of choices. Explain the results, do they correspond to what you would have expected?}{section.1}% 10
+\BOOKMARK [1][-]{section.2}{The Time Tabling Problem}{}% 11
+\BOOKMARK [2][-]{subsection.2.1}{Explain which symmetries arise in this problem.}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.2}{Design an efficient model for this problem.}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.3}{Explain your model for this problem and explain how it handles symmetries.}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Implement your model in Comet.}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.5}{To solve this problem you will need a search procedure that is more efficient than a simple label.}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.6}{Test your model on each of the instances provided on the iCampus site. Indicate for each instance the time needed to solve it, the number of failures and the number of choices.}{section.2}% 17
