@@ -208,10 +208,85 @@ François Aubry
 
 \section{The Time Tabling Problem}
 \subsection{Explain which symmetries arise in this problem.}
+
+The first symmetry we find is in relation with timeslots. Indeed, we can easily invert all the course given at specific timeslot with all the courses of another timeslot.\\
+
+A second symmetry could be the attribution of rooms that are exactly the same (same features, and same capacity). Since we assume that this kind of symmetry doesn't happen often, and that it's something quite tricky to express in our model, we didn't implement it in our model.
+
 \subsection{Design an efficient model for this problem.}
+
+\lstinputlisting[language=C]{time_tabling_model.co}
+
+
+
 \subsection{Explain your model for this problem and explain how it handles symmetries.}
+
+In the model, the data variables contains information extract from the inputfile. We added one data variable (\texttt{nstudentattends}) which will store the number of students which assists to different courses.
+
+The model is composed of 3 model variables, which are \texttt{lectureslot}, \texttt{lectureroom} and \texttt{roomslotid}. \texttt{lectureslot} gives, for each event, all the possible timeslots for this event. \texttt{lectureroom} gives, for each event, all the possible rooms for this event. Finally, \texttt{roomslotid} gives an ID for each possible combination of room/timeslot.
+
+\lstinputlisting[language=C]{time_tabling_symmetry.co}
+
+The symmetry concerning the time is handeled in the solver, we can arbitrary fix the first timeslot to any course. Then, we continue to handle it by trying to bound \texttt{lectureslot} by growing slot ID. An event will then be assign to a slot which already contains some events, or the first which has no events yet, but it will never visit events with higher ID (if the problem is solvable).
+
 \subsection{Implement your model in Comet.}
+
+Here are the constraints implemented in Comet. All others important part are already in the previous sections.
+\lstinputlisting[language=C]{time_tabling_constraint.co}
+
+
+
 \subsection{To solve this problem you will need a search procedure that is more efficient than a simple label.}
+
+We first implemented our model by binding variables which have few rooms left, then by binding variables which have few timeslots left. We decided to do it in this way (and not first the timeslots then the rooms) after some tests which were showing that the second solution were far away lower than the first one. This is probably because finding an appropriate room is more difficult in this problem than finding a good timeslot. The code is already given in previous section, and the results of the tests are in the next one.
+
 \subsection{Test your model on each of the instances provided on the iCampus site. Indicate for each instance the time needed to solve it, the number of failures and the number of choices.}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+File ID& Time & \#Failures & \#Choices\\
+\hline
+\hline
+\#1&3685&1&800\\
+\hline
+\#2&3535&0&800\\
+\hline
+\#3&2671&368&1041\\
+\hline
+\#4&307397&259291&140520\\
+\hline
+\#5&Out Of Time&Out Of Time&Out Of Time\\
+\hline
+\#6&4044&3&700\\
+\hline
+\#7&3934&0&700\\
+\hline
+\#8&3692&0&800\\
+\hline
+\#9&5222&0&880\\
+\hline
+\#10&3548&0&800\\
+\hline
+\#11&4375&0&800\\
+\hline
+\#12&3671&0&800\\
+\hline
+\#13&4017&0&800\\
+\hline
+\#14&4530&0&700\\
+\hline
+\#15&4085&0&700\\
+\hline
+\#16&Out Of Time&Out Of Time&Out Of Time\\
+\hline
+\#17&3718&0&700\\
+\hline
+\#18&3126&0&800\\
+\hline
+\#19&4186&0&800\\
+\hline
+\#20&4000&1&700\\
+\hline
+\end{tabular}
 
 \end{document}

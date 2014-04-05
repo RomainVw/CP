@@ -133,7 +133,15 @@ solve<cp> {
    }
            
 } using {
-   labelFF(all (e in revent) roomslotid[e]);
+   label(lectureslot[1],1);
+
+   forall(e in revent) by (lectureroom[e].getSize()) 
+      tryall<cp>(r in rroom : lectureroom[e].memberOf(r)) by (r)
+         label(lectureroom[e],r);
+
+   forall(e in revent) by (lectureslot[e].getSize()) 
+      tryall<cp>(t in timeslot : lectureslot[e].memberOf(t)) by (t)
+         label(lectureslot[e],t);
 }
 
 forall (e in revent){ 
@@ -143,7 +151,7 @@ forall (e in revent){
 
 int t1 = System.getCPUTime();
 
-
+//cout <<  t1 - t0 << "&" << cp.getNFail() << "&" << cp.getNChoice() << "\\" << endl;
 cout << "time: " << t1 - t0 << endl;
 cout << "#choices = " << cp.getNChoice() << endl;
 cout << "#fail    = " << cp.getNFail() << endl;

@@ -1,0 +1,35 @@
+solve<cp> {
+   // A student can attend only one lecture at any time slot
+   forall (s in rstudent){
+      cp.post(alldifferent(all (e in revent : atends[s,e] == 1) lectureslot[e]),onBounds);
+   }
+   
+   // compute roomslot's id
+   forall (e in revent){
+      cp.post((lectureroom[e]-1) * ntime + lectureslot[e] == roomslotid[e]);
+   }
+
+   // A room can hold only one lecture at any time slot
+   cp.post(alldifferent(all (e in revent) roomslotid[e]),onDomains);
+
+
+   // Table constraint
+   forall (e in revent){ 
+      cp.post(table(lectureroom[e],lectureslot[e],roomslotid[e],roomslot));
+   }
+
+   // A lecture can take place only in a room having the required features 
+   forall(e in revent) {
+      forall (f in rfeature) {
+         cp.post(eventrequirement[e,f] <= roomequipment[lectureroom[e],f]);
+      }
+   }
+
+   // A lecture can take place only in a room big enough to hold all the students that need to attend
+   forall (e in revent){ 
+      cp.post(nstudentattends[e]<=roomsize[lectureroom[e]]);
+   }
+           
+} using {
+   ...
+}

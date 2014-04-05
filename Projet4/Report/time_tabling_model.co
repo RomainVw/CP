@@ -1,0 +1,27 @@
+...
+
+// create data variables
+int roomsize[rroom];                    // roomsize
+int atends[rstudent,revent];            // attends
+int roomequipment[rroom,rfeature];      // room equipment
+int eventrequirement[revent,rfeature];  // course needed equipment
+
+int nstudentattends[revent] = 0;        // student # enroled in the course
+
+
+...
+
+
+// model variables
+tuple triple {int a1;int a2;int a3;}
+
+set{triple} Triples();
+forall (i in 1..nroom, j in timeslot)
+   Triples.insert(triple(i,j,(i-1)*ntime + j));
+
+Table<CP>roomslot(all(e in Triples) e.a1, all(e in Triples) e.a2, all(e in Triples) e.a3);
+
+
+var<CP>{int} lectureslot[revent](cp, timeslot);
+var<CP>{int} lectureroom[revent](cp, rroom);
+var<CP>{int} roomslotid[revent](cp, 1..nroom*ntime);
