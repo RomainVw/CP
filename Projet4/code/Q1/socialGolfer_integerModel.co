@@ -1,0 +1,87 @@
+import cotfd;
+
+int t0 = System.getCPUTime();
+
+string[] args = System.getArgs();
+
+// take number of weeks to plan for
+int weeks = args[3].toInt();
+
+if (2 < weeks && weeks <= 10) {
+  
+  int groups = 8;
+  int PlayersPerGroup = 4;
+  int golfers = groups * PlayersPerGroup;
+
+  range Golfer  = 1..golfers;
+  range Week    = 1..weeks;
+  range Group   = 1..groups;
+  range Slot    = 1..PlayersPerGroup;
+
+  Solver<CP> cp();
+  
+  // Players[w, g, s] = p means that player p goes to slot s of group s in week w
+  var<CP>{int} Players[Week, Group, Slot](cp,  Golfer);
+
+  solve<cp> {
+
+    // No more than once the same golfer per week
+    forall (w in Week){
+      cp.post(alldifferent(all(gr in Group, s in Slot) Players[w, gr, s]));
+    }
+
+    // Ensure that players meet only once
+    // enforce the constraint on half the domain only since the other half is symmetrical
+    forall (g1 in Golfer, g2 in Golfer: g1 < g2) {
+      cp.post((sum (w in Week, gr in Group, s1 in Slot, s2 in Slot) (Players[w, gr, s1] == g1 && Players[w, gr, s2] == g2)) <= 1);
+    }
+
+    // SBSA: Symmetry-breaking by selective assignment
+    
+    // Arbitrarily choose the first week assignment : players from 0 to 3 go to group 1, 
+    // 4 to 7 go to group 2, etc. (remove one level of deepness from the search tree)
+    forall(g in Golfer){
+      int group_tmp = ((g-1) / PlayersPerGroup) + 1;
+      int slot_tmp  = (g % PlayersPerGroup) + 1;
+      cp.post(Players[1, group_tmp, slot_tmp]==g);
+    }
+
+    // the first player always belong to the first group, first slot (removes 3 branches)
+    forall(w in 2..weeks){
+      cp.post(Players[w, 1, 1]==1);
+    }
+
+  } using {
+
+    // order so that we try the least remaining values first.
+    forall (w in Week) {
+      forall(gr in Group) {
+        forall(s in Slot) {
+          tryall<cp>(g in Golfer){
+            label(Players[w, gr, s], g);
+          }
+        }
+      }
+    }
+  
+  /*
+  // display the solution for each week then for each group
+    forall (w in Week) {
+      forall(gr in Group) {
+        forall(s in Slot) {
+          cout << Players[w, gr, s] << "\t";
+        }
+        cout << endl;
+      }
+      cout << endl;
+    }
+    cout << endl;
+  }
+  */
+  }
+  // solely for the report
+  int t1 = System.getCPUTime();
+  cout << weeks << " & " << (t1-t0) << " & " << cp.getNChoice() << " & " << cp.getNFail() << "\\\\\n\\hline" << endl;
+} else {
+  cout << "There is no possible solution for more than 10 weeks with 32 golfers in groups of 4" << endl;
+}

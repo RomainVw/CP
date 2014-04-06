@@ -1,0 +1,80 @@
+import cotfd;
+
+int t0 = System.getCPUTime();
+
+string[] args = System.getArgs();
+
+// take number of weeks to plan for
+int weeks = args[3].toInt();
+
+if (2 < weeks && weeks <= 10) {
+  
+  int groups = 8;
+  int PlayersPerGroup = 4;
+  int golfers = groups * PlayersPerGroup;
+
+  range Golfer = 1..golfers;
+  range Week = 1..weeks;
+  range Group = 1..groups;
+
+
+  Solver<CP> cp();
+  
+  var<CP>{int} Players[Golfer,Week](cp,  Group);
+
+  solve<cp> {
+
+    // Ensure that all groups are full 
+    forall (gr in Group, w in Week){
+      cp.post(sum (g in Golfer) (Players[g,w] == gr) == PlayersPerGroup);
+    }
+
+    // Ensure that players meet only once
+    // enforce the constraint on half the domain only since the other half is symmetrical
+    forall (g1 in Golfer, g2 in Golfer: g1 < g2, w1 in Week, w2 in Week: w1 < w2) {
+      cp.post((Players[g1,w1] == Players[g2,w1]) + (Players[g1,w2] == Players[g2,w2]) <= 1);
+    }
+
+    // SBSA: Symmetry-breaking by selective assignment
+    
+    // Arbitrarily choose the first week assignment : players from 0 to 3 go to group 1, 
+    // 4 to 7 go to group 2, etc. (remove one level of deepness from the search tree)
+    forall(g in Golfer){
+      cp.post(Players[g,1]==((g-1) / PlayersPerGroup) + 1);
+    }
+
+    // the first player always belong to the first group (removes 3 branches)
+    forall(w in 2..weeks){
+      cp.post(Players[1,w]==1);
+    }
+
+  } using {
+
+    forall(g in 2..golfers) by (weeks - sum (w in Week) Players[g, w].bound()) {
+      forall (w in 2..weeks) by (golfers - sum (go in Golfer) Players[go, w].bound()) {
+        tryall<cp>(gr in Group){
+          label(Players[g, w], gr);
+        }
+      }
+    }
+
+    forall(g in Golfer) {
+      cout << "golfer #" << g << "\t";
+      forall(w in Week) {
+        cout << Players[g, w] << " ";
+      }
+      cout << endl;
+    }
+    cout << endl;
+  }
+
+  //if (cp.getSolution()) {
+    int t1 = System.getCPUTime();
+    cout << "time:      " << (t1-t0) << endl;
+    cout << "#choices = " << cp.getNChoice() << endl;
+    cout << "#fail    = " << cp.getNFail() << endl;
+    cout << "#propag  = " << cp.getNPropag() << endl;
+  //}
+} else {
+  cout << "There is no possible solution for more than 10 weeks with 32 golfers in groups of 4" << endl;
+}

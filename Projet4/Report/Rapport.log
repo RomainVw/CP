@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.2.5)  5 APR 2014 21:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.3.31)  6 APR 2014 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1507,11 +1507,6 @@ been already used, duplicate ignored
                    \relax 
 l.195 \setcounter
                  {page}{1} [1]
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
-
- []
-
-(./time_tabling_model.co
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1522,23 +1517,43 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.9 int 
-        nstudentattends[revent] = 0;        // student # enroled in the course
-[1]
+l.223 ...odels (considering symmetries) in Comet.}
+                                                   [1]
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 232.
+
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+(./time_tabling_model.co
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 20.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 20.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 20.
- (/usr/local/texlive/2013/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-))
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 224.
+)
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 292.
 
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/lm/t1lmtt.fd
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (./time_tabling_symmetry.co)
@@ -1548,56 +1563,57 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] (./time_tabling_constraint.co)
+[4] (./time_tabling_constraint.co)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3]
+[5]
 
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 360.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 360.
  (./Rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 292.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 292.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 360.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 360.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 3627E9CF1A1465C7A32CE1C75D8CC457;2057.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 292.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 360.
  ) 
 Here is how much of TeX's memory you used:
- 18600 strings out of 493315
- 268026 string characters out of 6137905
+ 18606 strings out of 493315
+ 268100 string characters out of 6137904
  561970 words of memory out of 5000000
- 21500 multiletter control sequences out of 15000+600000
- 79563 words of font info for 76 fonts, out of 8000000 for 9000
+ 21503 multiletter control sequences out of 15000+600000
+ 79938 words of font info for 77 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  46i,14n,78p,1457b,2031s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2013/
-texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2013/texmf-dist
-/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
-e1/public/lm/lmcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public
-/lm/lmr10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr12.p
-fb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2013/texm
-f-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Rapport.pdf (6 pages, 298697 bytes).
+texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2013/texmf-dist
+/fonts/enc/dvips/lm/lm-rm.enc}</usr/local/texlive/2013/texmf-dist/fonts/type1/p
+ublic/lm/lmbx12.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/l
+mcsc10.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/201
+3/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2013/texmf-di
+st/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2013/texmf-dist/fonts/t
+ype1/public/lm/lmtt12.pfb>
+Output written on Rapport.pdf (8 pages, 305882 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
- 100 named destinations out of 1000 (max. 500000)
+ 278 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
+ 102 named destinations out of 1000 (max. 500000)
  147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
