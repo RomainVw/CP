@@ -1,0 +1,160 @@
+// import the CP library. 
+// replace cpsolver by cotfd if you use and older version of comet
+import cotfd;
+
+// Initial time
+int t0 = System.getCPUTime();
+
+// create the CP Solver 
+Solver<CP> cp();
+
+Integer np(cp.getNPropag());
+cout << "Initiating search..." << endl;
+
+// get input file path
+int nbArgs = System.argc();
+string[] args = System.getArgs();
+string path = "deffault";
+forall (i in 2..nbArgs)
+   if (args[i-1].prefix(2).equals("-f"))
+      path = args[i-1].suffix(2);
+
+ifstream file(path);
+
+// read the number of objects
+int nevent = file.getInt();
+int nroom = file.getInt();
+int nfeature = file.getInt();
+int nstudent = file.getInt();
+int ntime = 45;
+
+
+// create a range for the objects
+range revent = 1..nevent;
+range rroom = 1..nroom;
+range rfeature = 1..nfeature;
+range rstudent = 1..nstudent;
+range timeslot = 1..ntime;
+
+// create data variables
+int roomsize[rroom];                    // roomsize
+int atends[rstudent,revent];            // attends
+int roomequipment[rroom,rfeature];      // room equpment
+int eventrequirement[revent,rfeature];  // course needed equipment
+
+int nstudentattends[revent] = 0;        // student # enroled in the course
+
+// read data from file
+forall(i in rroom) {
+   roomsize[i] = file.getInt();
+}
+
+forall(i in rstudent) {
+   forall (j in revent) {
+      atends[i,j] = file.getInt();
+
+      if (atends[i,j] == 1)
+         nstudentattends[j] = nstudentattends[j] + 1;
+   }
+}
+
+
+forall(i in rroom) {
+   forall (j in rfeature) {
+      roomequipment[i,j] = file.getInt();
+   }
+}
+
+forall(i in revent) {
+   forall (j in rfeature) {
+      eventrequirement[i,j] = file.getInt();
+   }
+}
+
+// model variables
+
+tuple triple {int a1;int a2;int a3;}
+
+set{triple} Triples();
+forall (i in 1..nroom, j in timeslot)
+   Triples.insert(triple(i,j,(i-1)*ntime + j));
+
+Table<CP>roomslot(all(e in Triples) e.a1, all(e in Triples) e.a2, all(e in Triples) e.a3);
+
+
+var<CP>{int} lectureslot[revent](cp, timeslot);
+var<CP>{int} lectureroom[revent](cp, rroom);
+
+var<CP>{int} roomslotid[revent](cp, 1..nroom*ntime);
+
+
+
+whenever cp.getSearchController()@onCompletion(){
+           cout << "Failed " << endl;
+           cp.exit();
+}
+
+whenever cp.getSearchController()@onFeasibleSolution(Solution s){
+           cout << "Success " << endl;
+           cp.exit();
+}
+
+
+solve<cp> {
+   // A student can attend only one lecture at any time slot
+   forall (s in rstudent){
+      cp.post(alldifferent(all (e in revent : atends[s,e] == 1) lectureslot[e]),onBounds);
+   }
+   
+   // compute roomslot's id
+   forall (e in revent){
+      cp.post((lectureroom[e]-1) * ntime + lectureslot[e] == roomslotid[e]);
+   }
+
+   // A room can hold only one lecture at any time slot
+   cp.post(alldifferent(all (e in revent) roomslotid[e]),onDomains);
+
+
+   // Table constraint
+   forall (e in revent){ 
+      cp.post(table(lectureroom[e],lectureslot[e],roomslotid[e],roomslot));
+   }
+
+   // A lecture can take place only in a room having the required features 
+   forall(e in revent) {
+      forall (f in rfeature) {
+         cp.post(eventrequirement[e,f] <= roomequipment[lectureroom[e],f]);
+      }
+   }
+
+   // A lecture can take place only in a room big enough to hold all the students that need to attend
+   forall (e in revent){ 
+      cp.post(nstudentattends[e]<=roomsize[lectureroom[e]]);
+   }
+           
+} using {
+   label(lectureslot[1],1);
+
+   forall(e in revent) by (lectureroom[e].getSize()) 
+      tryall<cp>(r in rroom : lectureroom[e].memberOf(r)) by (r)
+         label(lectureroom[e],r);
+
+   forall(e in revent) by (lectureslot[e].getSize()) 
+      tryall<cp>(t in timeslot : lectureslot[e].memberOf(t)) by (t)
+         label(lectureslot[e],t);
+}
+
+forall (e in revent){ 
+   cout << "Course #" << e << " holds in room " << lectureroom[e] << " at time " << lectureslot[e] << endl;
+}
+
+
+int t1 = System.getCPUTime();
+
+//cout <<  t1 - t0 << "&" << cp.getNFail() << "&" << cp.getNChoice() << "\\" << endl;
+cout << "time: " << t1 - t0 << endl;
+cout << "#choices = " << cp.getNChoice() << endl;
+cout << "#fail    = " << cp.getNFail() << endl;
+cout << "#propag  = " << cp.getNPropag() - np << endl;
+
+
