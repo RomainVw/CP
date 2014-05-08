@@ -1,5 +1,5 @@
 /*******************************************
-Based on model for the VRPTW by SŽbastien Mouthuy
+Based on model for the VRPTW by Sbastien Mouthuy
 Usage:  comet VRPTW.co instance.txt
 *******************************************/
 import cotfd;
@@ -66,9 +66,11 @@ var<CP>{int} routeOf[i in CustomersAndDepots](cp,1..K);
 var<CP>{int} service_start[i in CustomersAndDepots](cp,Horizon);
 var<CP>{int} departure[i in CustomersAndDepots](cp,Horizon);
 var<CP>{int} totDist = minCircuit(previous,distance);
+var<CP>{int} nOfRoutes(cp,1..K);
 
-minimize<cp> totDist
+minimize<cp> (nOfRoutes) //to find aa good one
 subject to{
+           
 
 	forall(i in Customers) cp.post(routeOf[i] == routeOf[previous[i]]);
 	forall(i in Depots) cp.post(routeOf[i] == i - Customers.getUp());
@@ -86,6 +88,8 @@ subject to{
 	forall(i in Depots){
 		cp.post(departure[i] == 0);
 	}
+           
+           cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())) );
 	
 } using	{
 	labelFF(previous);
