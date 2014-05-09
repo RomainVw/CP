@@ -72,10 +72,41 @@ int upperBound = 0;
 forall(c1 in CustomersAndDepots, c2 in CustomersAndDepots)
 	upperBound += distance[c1,c2];
 
-minimize<cp> (nOfRoutes * upperBound + totDist)
-subject to{
-           
+Integer ub(0);
+ub := K;// * upperBound;
 
+
+
+Integer lb(0);
+lb := 1;
+
+
+
+Integer  testedValue(0);
+testedValue := (int) ceil((ub+lb) / 2.0);
+
+whenever cp.getSearchController()@onCompletion(){
+           lb := testedValue  + 1;         
+           testedValue := (int) ceil((ub+lb) / 2.0);  
+           cout<< "[Failed] lower : "  << lb << ", actual : " << testedValue << ", upper : " << ub << endl; 
+           cp.reStart();
+
+}
+
+whenever cp.getSearchController()@onFeasibleSolution(Solution s){
+           ub := testedValue;  
+           testedValue := (int) ceil((ub+lb) / 2.0);   
+           cout<< "[Success] lower : "  << lb << ", actual : " << testedValue << ", upper : " << ub << endl;  
+           if (lb == ub){
+              cp.exit();
+           }          
+           cp.reStart();
+}
+
+
+solve <cp>{
+           
+            
 	forall(i in Customers) cp.post(routeOf[i] == routeOf[previous[i]]);
 	forall(i in Depots) cp.post(routeOf[i] == i - Customers.getUp());
 	cp.post(multiknapsack(routeOf, demand, all(k in 1..K) Q));
@@ -93,13 +124,22 @@ subject to{
 		cp.post(departure[i] == 0);
 	}
            
-           cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())));
+           //cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())));
+            cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())));
 
-           /*forall(i in n+1..n+K-12){
+            cp.post(nOfRoutes <= testedValue);
+
+            //cp.post(nOfRoutes > testedValue);
+            //cp.post(false);
+           //cp.post(nOfRoutes > testedValue);
+           //cp.post(totDist < testedValue % upperBound);
+
+/*           forall(i in n+1..n+K-testedValue){//-testedValue/upperBound){
 		cp.post(previous[i+1]==i);
 	}*/
 	
 } using	{
+           //cout << lb << testedValue << ub << endl;
 	labelFF(previous);
            cout << previous << " " << nOfRoutes << endl;
 }
