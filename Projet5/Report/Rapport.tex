@@ -227,7 +227,7 @@ service\_start will contain for each customer/depot the time when it will begin 
 \begin{verbatim}
 var<CP>{int} departure[i in CustomersAndDepots](cp,Horizon);
 \end{verbatim}
-departure will contain  for each customer/depot the time when the vehicle will leave the actual customer/depot.
+departure will contain  for each customer/depot the time when the vehicle will leave the current customer/depot.
 
 \begin{verbatim}
 var<CP>{int} totDist = minCircuit(previous,distance);
@@ -258,9 +258,9 @@ forall(i in CustomersAndDepots){
 }
 \end{verbatim}
 
-This constraint express the fact that all customers/depot will begin to be served whether at the beginning of the time window if the vehicle were on place sooner, or when the vehicle arrives (time when it leaves the previous customer plus the displacement time (which is equal to the distance)).\\
+This constraint express the fact that all customers/depot will begin to be served either at the beginning of the time window if the vehicle were on place sooner, or when the vehicle arrives (time when it leaves the previous customer plus the displacement time (which is equal to the distance)).\\
 Then it expresses the fact that the service must begins before it ends (which is logical).\\
-Last, it express the fact that for each customer/depot, the service will not be performed earlier than the beginning of his own starting window.
+Last, it express the fact that for each customer/depot, the service will not be performed earlier than the beginning of its own starting window.
 
 	
 	
@@ -269,7 +269,7 @@ forall(i in Customers){
         cp.post(departure[i] ==  service_start[i] + service_duration[i]);
 }
 \end{verbatim}
-This constraint express the fact that the vehicle leave a customer the duration of the service after having beginning the task.
+This constraint express the fact that the vehicle leaves a customer the duration of the service after having began the task.
 	
 		
 \begin{verbatim}
@@ -284,30 +284,84 @@ This constraint express the fact that the vehicle will immediately leave the dep
 \begin{verbatim}
 cp.post(multiknapsack(routeOf, demand, all(k in 1..K) Q));
 \end{verbatim}
+This constraint express the fact that all  the remaining demand must fit in the available vehicles.
+
 
 
 \section{Explain how you adapt the model to minimize the number of routes}
 
-A first adaptation could be create by maintaining the previous model, and adding a decision variable. 
+A first adaptation could be created by maintaining the previous model, and adding a decision variable. 
 \begin{verbatim}
 var<CP>{int} nOfRoutes(cp,1..K);
 \end{verbatim} 
-This variable will keep track the number of different routes (This is what we will try to minimize).\\
+This variable will keep track of the number of different routes (This is what we will try to minimize).\\
 
-If less vehicles than available are used, it will be represented on the giant tour representation as a depot directly following another depot. (The vehicle directly leaves the depot, and directly arrives there again).
+On our giant tour representation, a vehicle that is not used is represented by two depots following each other. The vehicle directly leaves the depot, and directly arrives to the other again.
 
 \begin{verbatim}
 cp.post(nOfRoutes == (sum(i in Depots) previous[i] <= Customers.getUp()) );
 \end{verbatim}
-This constraint assign to OfRoutes the number of depot which follows another depot. Thus, it represents the number of used vehicles that we want to minimize.\\
+This constraint assign to nOfRoutes the number of depot which follows a customer. Thus, this represents the number of used vehicles that we want to minimize.\\
 
-Since we want to first minimize the number of route, and the total distance, we minimize or porblem with the following evaluation function.
+Since we want to first minimize the number of route, and the total distance, we minimized our problem with the following evaluation function.
 \begin{verbatim}
-to find a good one
+minimize<cp> (nOfRoutes * upperBound + totDist)
 \end{verbatim}
+where upperBound is the sum of all distances between all customers/customers and customers/depots. This way, we ensure that upperBound will always be bigger than totDist, and so a solution having a nOfRoute lower than another will always be better considering this evaluation function.\\
 
-\section{Explain each of your optimization procedures in detail (what, why and how)}
+After having created this program, we realized that we could optimize it by using a dichotomic function. Instead of optimizing the number of vehicles and the number of routes at the same time, we decided to optimize first only the number of vehicles, and then the distance. The search on the number of vehicles is done with a dichotomic search, and the search on the route distance is done as an optimization problem.\\
 
-\section{Indicate and analyze your test results}
+The search on the number of vehicles:\\
+We now give as argument the upperbound for the tested values, and we add some additional constraints. 
+\begin{verbatim}
+cp.post(nOfRoutes <= testedValue);
+\end{verbatim}
+Is used to test our problem with an upper Bound.
+\begin{verbatim}
+forall(i in n+1..n+K-testedValue){
+	cp.post(previous[i+1]==i);
+}
+\end{verbatim}
+This constraint is used to gain over symmetry. We imposed that the vehicles that weren't used would be assigned in the first part range. (And so those one have the previous var set to the previous depot in the id order).\\
+
+
+When we throw the program, we first fix the lower bound to 9 vehicles. Indeed, the best number of vehicles currently found on internet are most of time 10 (except one which is 9) and so 9 is a good lower bound to begin the program with, and to keep a chance to find a solution with better value that the present ones on the internet (If a better solution is found, we always can throw the research again with a lower lower bound). The upper bound is set to 25.
+
+
+
+          
+The optimization of the routes length:\\
+This optimisation is the same that in the model that we received, with the constraints explained above that assigns the number of vehicles used.\\
+
+The heuristic function :\\
+\lstinputlisting[language=C]{heuristics_functions.co}
+
+For the first one, we try  to first bind variables that have the least remaining values, and by that trying to assign them the closest depot/customer as previous value.
+
+For the second one, we try to bind variables that have the sooner end window, and by that trying to assign them  the closest depot/customer as previous value.
+
+\section{Indicate and analyse your test results}
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{ | c | c | c |}
+\hline
+Instance\# & \#Vehicles & Distance \\ 
+\hline
+ C101.txt & 10 & 82873 \\ 
+ C102.txt & 10 & 109019 \\ 
+ C103.txt & 10 & 129146 \\ 
+ C104.txt & 10 & 109296 \\ 
+ C105.txt & 11 & 103763 \\ 
+ R101.txt & 19 & 176622 \\ 
+ R102.txt & 19 & 168127 \\ 
+ R103.txt & 14 & 149756 \\ 
+ R104.txt & 12 & 130257 \\ 
+ R105.txt & 16 & 153319 \\ 
+\hline
+\end{tabular}
+\caption{Results of the first heuristic}
+\end{table}
+
 
 \end{document}
