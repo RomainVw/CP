@@ -103,13 +103,28 @@ subject to{
          
 
 } using	{
-   labelFF(previous);
+   //labelFF(previous);
    //cout << "Solution : " << totDist << endl;
-   //cout << previous << " " << nOfRoutes << endl;
+ forall(i in CustomersAndDepots) by (previous[i].getSize())
+         tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
+            label(previous[i],v);
+
+   /*forall(i in CustomersAndDepots) by (tw_end[i])
+         tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
+            label(previous[i],v);*/
+
+      /*forall(i in CustomersAndDepots) by (tw_end[i] * previous[i].getSize())
+         tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
+            label(previous[i],v);*/
+
+
+         /*Really bad because sort on time and not on space*/
+      /* forall(i in CustomersAndDepots) by (previous[i].getSize())
+         tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (tw_start[v])
+            label(previous[i],v);*/
 }
 
 
-//return '0';
 //System.exit(FF);
 
 
