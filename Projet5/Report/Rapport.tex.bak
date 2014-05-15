@@ -386,7 +386,7 @@ Instance\# & \#Vehicles & Distance \\
  R105 & 16 & 153319 \\ 
 \hline
 \end{tabular}
-\caption{Results of the second heuristic}
+\caption{Results of the first heuristic}
 \label{h2}
 \end{table}
 
@@ -410,14 +410,10 @@ Instance\# & \#Vehicles & Distance \\
  R105 & 16 & 153319 \\ 
 \hline
 \end{tabular}
-\caption{Results of the third heuristic}
+\caption{Results of the first heuristic}
 \label{h3}
 \end{table}
 
 \section{Usage}
-In order to use our program you must have the two comet programs along with the bash script in the same folder. Furthermore, you must have a folder named "Instances" that contains all the instances you want to run. There is two mode for the program :\begin{itemize}
-\item the "Latex" mode that runs all the instances contained in the "Instances" folder and that outputs a latex table as printed hereabove. 
-\item the "normal" mode where you have to precise the instance you want to run with the parameter "-i": \textit{./solve.sh -i C101.txt} for example.
-\end{itemize}
-In both modes, you can always provide the cut-off time that represents the time allowed for one try in the dichotomic search. Please note that with shorter times, you may obtain less precise results. (the default parameter is 30 secondes per try).
+In order to use our program you must have the two comet programs along with the bash script in the same folder. Furthermore, you must have a folder named "Instances" that contains all the instances you want to run.
 \end{document}

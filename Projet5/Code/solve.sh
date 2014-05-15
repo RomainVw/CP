@@ -11,7 +11,7 @@ JAUNE="\\033[1;33m"
 CYAN="\\033[1;36m"
 delimiter=$(echo -e $BLEU"-------------------------------------------------------------------------------------"$NORMAL)
 
-Latex=true;
+Latex=false;
 
 function advertise() {
     echo -e $delimiter
