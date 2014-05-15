@@ -103,12 +103,10 @@ solve <cp>{
 } using	{
          cout << "Beginning search ... " << endl;
           cp.post(nOfRoutes <= testedValue);
-          forall(i in n+1..n+K-testedValue){// TODO Verify tested or tested+1 or tested-1 ? //-testedValue/upperBound){
+          forall(i in n+1..n+K-testedValue){
 	   cp.post(previous[i+1]==i);
          }
            
-         // TODO trouver bonne heuristique
-	//labelFF(previous);
    forall(i in CustomersAndDepots) by (previous[i].getSize())
          tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
             label(previous[i],v);
