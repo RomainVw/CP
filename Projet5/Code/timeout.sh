@@ -22,3 +22,4 @@ start_watchdog(){
  
 start_watchdog "$timeout" 2>/dev/null &
 exec "$@"
+return $!
