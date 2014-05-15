@@ -95,13 +95,18 @@ subject to{
            
            cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())));
 
-           /*forall(i in n+1..n+K-12){
-		cp.post(previous[i+1]==i);
-	}*/
+           //cp.post(nOfRoutes == 10);
+
+           forall(i in n+1..n+K-nOfRoutes.getMax()){
+               cp.post(previous[i+1]==i);
+	}
 	
+         
+
 } using	{
-	labelFF(previous);
-           cout << previous << " " << nOfRoutes << endl;
+   labelFF(previous);
+   
+   cout << previous << " " << nOfRoutes << endl;
 }
 
 

@@ -88,15 +88,18 @@ testedValue := (int) ceil((ub+lb) / 2.0);
 whenever cp.getSearchController()@onCompletion(){
            lb := testedValue  + 1;         
            testedValue := (int) ceil((ub+lb) / 2.0);  
-           cout<< "[Failed] lower : "  << lb << ", actual : " << testedValue << ", upper : " << ub << endl; 
+           //cout<< "[Failed] lower : "  << lb << ", actual : " << testedValue << ", upper : " << ub << endl; 
+           cout << "[Failed] Failed with " << lb-1 << " vehicles." << endl; 
+           cout <<  "[" << lb << "-" << ub << "] Testing with " << testedValue << endl;
            cp.reStart();
 
 }
 
 whenever cp.getSearchController()@onFeasibleSolution(Solution s){
-           ub := testedValue;  
+           ub := nOfRoutes;  
            testedValue := (int) ceil((ub+lb) / 2.0);   
-           cout<< "[Success] lower : "  << lb << ", actual : " << testedValue << ", upper : " << ub << endl;  
+           cout << "[Success] FOUND " << nOfRoutes << " vehicles." << endl; 
+           cout <<  "[" << lb << "-" << ub << "] Testing with " << testedValue << endl;
            if (lb == ub){
               cp.exit();
            }          
@@ -124,24 +127,22 @@ solve <cp>{
 		cp.post(departure[i] == 0);
 	}
            
-           //cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())));
+
             cp.post(nOfRoutes == (sum(i in Depots) (previous[i] <= Customers.getUp())));
-
-            cp.post(nOfRoutes <= testedValue);
-
-            //cp.post(nOfRoutes > testedValue);
-            //cp.post(false);
-           //cp.post(nOfRoutes > testedValue);
+    
            //cp.post(totDist < testedValue % upperBound);
-
-/*           forall(i in n+1..n+K-testedValue){//-testedValue/upperBound){
-		cp.post(previous[i+1]==i);
-	}*/
 	
 } using	{
-           //cout << lb << testedValue << ub << endl;
+
+          cp.post(nOfRoutes <= testedValue);
+          forall(i in n+1..n+K-testedValue){// TODO Verify tested or tested+1 or tested-1 ? //-testedValue/upperBound){
+	   cp.post(previous[i+1]==i);
+         }
+           
+         // TODO trouver bonne heuristique
 	labelFF(previous);
-           cout << previous << " " << nOfRoutes << endl;
+
+         //  cout << testedValue << " " << nOfRoutes << endl;
 }
 
 
