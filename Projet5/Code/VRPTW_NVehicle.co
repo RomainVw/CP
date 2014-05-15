@@ -114,7 +114,7 @@ solve <cp>{
 
 
 if (cp.getSolution() != null) {
-   cout << "Solution : " nOfRoutes << endl;
+   cout << "Solution : " << nOfRoutes << endl;
 } else {
    cout << "Solution : -1" << endl;
 }
