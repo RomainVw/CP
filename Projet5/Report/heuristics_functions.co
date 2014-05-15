@@ -1,0 +1,9 @@
+ forall(i in CustomersAndDepots) by (previous[i].getSize())
+     tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
+         label(previous[i],v);
+
+------
+
+ forall(i in CustomersAndDepots) by (tw_end[i])
+     tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
+         label(previous[i],v);
