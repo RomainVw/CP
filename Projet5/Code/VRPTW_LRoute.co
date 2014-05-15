@@ -103,8 +103,7 @@ subject to{
          
 
 } using	{
-   //labelFF(previous);
-   //cout << "Solution : " << totDist << endl;
+
  forall(i in CustomersAndDepots) by (previous[i].getSize())
          tryall<cp>(v in CustomersAndDepots : previous[i].memberOf(v)) by (distance[i,v])
             label(previous[i],v);
@@ -125,7 +124,6 @@ subject to{
 }
 
 
-//System.exit(FF);
 
 
 //----------------------------------------------------------------------------------------------------------------------------------
